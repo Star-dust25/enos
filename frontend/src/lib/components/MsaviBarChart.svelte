@@ -46,8 +46,9 @@
     // Un color por barra segun si confirma o no. Los valores null
     // (meses futuros o sin escenas utiles) no generan barra: Chart.js
     // salta la categoria en un grafico de barras cuando el dato es null.
+    // Usar #10b981 (emerald-500) para el bosque normal
     const colores = valores.map((v) =>
-      v === null ? "rgba(0,0,0,0)" : v >= umbral_msavi ? "#c0392b" : "#94a3b8",
+      v === null ? "rgba(0,0,0,0)" : v >= umbral_msavi ? "#dc2626" : "#10b981",
     );
 
     // El eje Y DEBE incluir siempre el umbral, o su linea se dibuja
@@ -77,7 +78,7 @@
             label: "z(MSAVI)",
             data: valores,
             backgroundColor: colores,
-            borderRadius: 3,
+            borderRadius: 0, // Barras cuadradas, sin bordes redondeados
             maxBarThickness: 28,
           },
         ],
@@ -92,7 +93,7 @@
             titleFont: { family: "'Rethink Sans', sans-serif", size: 14 },
             bodyFont: { family: "'Rethink Sans', sans-serif", size: 13 },
             padding: 12,
-            cornerRadius: 8,
+            cornerRadius: 0,
             callbacks: {
               label: (item) => {
                 const v = item.raw as number | null;
@@ -107,8 +108,8 @@
           x: {
             grid: { display: false },
             ticks: {
-              font: { family: "'Rethink Sans', sans-serif", size: 13 },
-              color: "#475569",
+              font: { family: "'Rethink Sans', sans-serif", size: 14, weight: "bold" },
+              color: "#9ca3af", // Un gris más claro que resalta bien en modo oscuro y claro
               maxRotation: 0,
               autoSkip: true,
               maxTicksLimit: 10,
@@ -124,8 +125,8 @@
             grid: { color: "#f1f5f9" },
             border: { display: false },
             ticks: {
-              font: { family: "'Rethink Sans', sans-serif", size: 13 },
-              color: "#475569",
+              font: { family: "'Rethink Sans', sans-serif", size: 14, weight: "bold" },
+              color: "#9ca3af",
             },
           },
         },
@@ -173,9 +174,9 @@
               ctx.beginPath();
               ctx.moveTo(xAxis.left, yUmbral);
               ctx.lineTo(xAxis.right, yUmbral);
-              ctx.strokeStyle = "#c0392b";
-              ctx.setLineDash([5, 5]);
-              ctx.lineWidth = 1;
+              ctx.strokeStyle = "#ef4444";
+              ctx.setLineDash([6, 4]);
+              ctx.lineWidth = 2;
               ctx.stroke();
             }
 
@@ -197,16 +198,26 @@
   </div>
 
   <div
-    class="flex items-start gap-4 text-base text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-white/10 rounded-xl p-6 shadow-sm dark:shadow-none"
+    class="flex items-start gap-4 text-base text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-white/10 rounded-none p-6 shadow-sm dark:shadow-none"
   >
-    <div class="w-2 h-2 rounded-full bg-slate-500 mt-2 shrink-0"></div>
-    <p class="leading-relaxed">
-      <strong class="font-bold text-slate-900 dark:text-slate-100">¿Cómo leer este gráfico?</strong>
-      Cada barra es el compuesto satelital mensual del bosque seco, expresado como
-      anomalía z(MSAVI). Las barras rojas alcanzan o superan el umbral de confirmación
-      de <strong class="text-red-600 dark:text-red-400">+{umbral_msavi}</strong>; las grises
-      quedan por debajo. Los meses sin barra todavía no han ocurrido o no
-      cuentan con suficientes escenas satelitales libres de nubes.
-    </p>
+    <div class="w-2 h-2 rounded-none bg-slate-500 mt-2 shrink-0"></div>
+    <div class="leading-relaxed w-full">
+      <strong class="font-bold text-slate-900 dark:text-slate-100 mb-2 block">¿Cómo interpretar esto?</strong>
+      <p class="mb-3 text-sm">Cada barra refleja qué tan verde estuvo el bosque seco en el mes.</p>
+      <ul class="list-none space-y-2 text-sm">
+        <li class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-none bg-[#dc2626] shrink-0"></span>
+          <span><strong>Alerta:</strong> El verdor llega a la línea roja (+{umbral_msavi}), confirmando el impacto de lluvias.</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-none bg-[#10b981] shrink-0"></span>
+          <span><strong>Verde:</strong> El nivel de vegetación es el normal o está por debajo del umbral de alerta.</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-none bg-transparent border border-slate-400 shrink-0"></span>
+          <span><strong>Sin barra:</strong> El mes aún no concluye o estuvo muy nublado para el satélite.</span>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

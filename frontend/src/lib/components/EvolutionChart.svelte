@@ -72,18 +72,18 @@
           {
             label: "Anomalía Diaria",
             data: anomaliaData,
-            borderColor: "#94a3b8",
-            backgroundColor: "#94a3b8",
-            borderWidth: 1,
+            borderColor: "#a855f7", // Violeta, sin usar gris
+            backgroundColor: "#a855f7",
+            borderWidth: 2,
             pointRadius: 0,
             tension: 0.1,
           },
           {
             label: "Precursor Oceánico (30 días)",
             data: precursorData,
-            borderColor: "#0f172a",
-            backgroundColor: "#0f172a",
-            borderWidth: 2,
+            borderColor: "#3b82f6", // Un azul llamativo y claro para destacar
+            backgroundColor: "#3b82f6",
+            borderWidth: 3, // Más gruesa
             pointRadius: 0,
             tension: 0.4,
             fill: {
@@ -103,13 +103,7 @@
         },
         plugins: {
           legend: {
-            position: "top",
-            labels: {
-              font: { family: "'Rethink Sans', sans-serif" },
-              usePointStyle: true,
-              pointStyle: "line",
-              padding: 20,
-            },
+            display: false,
           },
           tooltip: {
             // enabled: false + external: se apaga el globo
@@ -136,8 +130,8 @@
             grid: { display: false },
             ticks: {
               maxTicksLimit: 8,
-              font: { family: "'Rethink Sans', sans-serif", size: 13 },
-              color: "#475569",
+              font: { family: "'Rethink Sans', sans-serif", size: 14, weight: "bold" },
+              color: "#9ca3af",
             },
           },
           y: {
@@ -148,8 +142,8 @@
             // signo, un -0.5 se puede leer como medio grado de
             // agua, que seria absurdo.
             ticks: {
-              font: { family: "'Rethink Sans', sans-serif", size: 13 },
-              color: "#475569",
+              font: { family: "'Rethink Sans', sans-serif", size: 14, weight: "bold" },
+              color: "#9ca3af",
               callback: (v) => `${Number(v) > 0 ? "+" : ""}${v} °C`,
             },
           },
@@ -196,9 +190,9 @@
             ctx.beginPath();
             ctx.moveTo(xAxis.left, yPrecursor);
             ctx.lineTo(xAxis.right, yPrecursor);
-            ctx.strokeStyle = "#f59e0b";
-            ctx.setLineDash([5, 5]);
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = "#f59e0b"; // Naranja
+            ctx.setLineDash([8, 6]);
+            ctx.lineWidth = 3; // Mucho más gruesa y visible
             ctx.stroke();
 
             // Umbral de MAGNITUD: pico minimo para escalar a
@@ -208,9 +202,9 @@
             ctx.beginPath();
             ctx.moveTo(xAxis.left, yMagnitud);
             ctx.lineTo(xAxis.right, yMagnitud);
-            ctx.strokeStyle = "#c0392b";
-            ctx.setLineDash([2, 3]);
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = "#ef4444"; // Rojo más vivo
+            ctx.setLineDash([5, 5]);
+            ctx.lineWidth = 3; // Mucho más gruesa y visible
             ctx.stroke();
 
             ctx.restore();
@@ -261,24 +255,30 @@
   </div>
 
   <div
-    class="flex items-start gap-4 text-base text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-white/10 rounded-xl p-6 shadow-sm dark:shadow-none"
+    class="flex items-start gap-4 text-base text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-white/10 rounded-none p-6 shadow-sm dark:shadow-none"
   >
-    <div class="w-2 h-2 rounded-full bg-slate-500 mt-2 shrink-0"></div>
-    <p class="leading-relaxed">
-      <strong class="font-bold text-slate-900 dark:text-slate-100">¿Cómo leer este gráfico?</strong>
-      La línea gris delgada es la
-      <strong class="text-slate-800 dark:text-slate-200">anomalía</strong>
-      diaria del mar: cuánto se desvía la temperatura respecto a lo normal para
-      esa fecha del año, no la temperatura en sí. Es muy volátil y cambia
-      bruscamente. Para evitar falsas alarmas, calculamos la línea negra gruesa,
-      que es su promedio de los últimos 30 días. El precursor de El Niño Costero
-      se activa únicamente cuando esa línea negra supera la marca naranja de
-      <strong class="text-amber-600 dark:text-amber-400">+{umbral_precursor} °C</strong>
-      y se mantiene por encima durante al menos 15 días consecutivos. La línea
-      roja punteada, en
-      <strong class="text-red-600 dark:text-red-400">+{umbral_magnitud} °C</strong>, es el umbral
-      de magnitud: el pico mínimo que necesita el precursor para escalar a la
-      segunda etapa de confirmación territorial.
-    </p>
+    <div class="w-2 h-2 rounded-none bg-slate-500 mt-2 shrink-0"></div>
+    <div class="leading-relaxed w-full">
+      <strong class="font-bold text-slate-900 dark:text-slate-100 mb-2 block">¿Cómo interpretar esto?</strong>
+      <p class="mb-3 text-sm">Este gráfico muestra cómo varía la temperatura del mar día a día.</p>
+      <ul class="list-none space-y-2 text-sm">
+        <li class="flex items-center gap-2">
+          <span class="w-3 h-1 bg-[#a855f7] shrink-0"></span>
+          <span><strong>Línea violeta:</strong> Temperatura diaria. Sube y baja constantemente.</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="w-3 h-1 bg-[#3b82f6] shrink-0"></span>
+          <span><strong>Línea azul gruesa:</strong> Promedio de los últimos 30 días. Elimina el "ruido" y muestra la tendencia real.</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="w-3 h-0.5 border-b-2 border-dashed border-[#f59e0b] shrink-0"></span>
+          <span><strong>Línea naranja (+{umbral_precursor} °C):</strong> Si el promedio azul la cruza y se mantiene, se activa el Precursor.</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="w-3 h-0.5 border-b-2 border-dashed border-[#ef4444] shrink-0"></span>
+          <span><strong>Línea roja (+{umbral_magnitud} °C):</strong> Si el promedio la alcanza, el riesgo es lo bastante alto para esperar lluvias.</span>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

@@ -179,38 +179,27 @@
   <!-- Footer -->
   <footer class="bg-slate-50 dark:bg-[#0a0a0a] border-t border-slate-200 dark:border-white/10 mt-16 py-12 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-        <div class="md:col-span-5">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <div class="max-w-md">
           <span
             class="font-slab font-bold text-3xl tracking-tight text-slate-800 dark:text-slate-200"
             >Pulso</span
           >
           <p
-            class="text-[15px] text-slate-500 dark:text-slate-400 mt-3 leading-relaxed font-light max-w-md"
+            class="text-[14px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed font-light"
           >
-            Sistema satelital de Alerta Temprana ante El Niño Costero. Monitoreo
-            acoplado del precursor térmico oceánico y confirmación territorial.
+            Sistema satelital de Alerta Temprana ante El Niño Costero.
           </p>
         </div>
 
-        <div class="md:col-span-4 flex flex-col gap-1.5">
-          <span class="text-xs font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase mb-1">Fuentes de Datos</span>
-          <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">
-            NOAA OISST v2.1 (T.S.M.)<br>
-            USGS Landsat 8 (MSAVI)<br>
-            Mapa de Ecosistemas (GORE Piura)<br>
-            INDECI (SINPAD)
+        <div class="flex flex-col gap-1 md:text-right">
+          <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase">Desarrollado por</span>
+          <p class="text-sm font-bold text-slate-700 dark:text-slate-200">
+            Diego Alexander Garcia Espinoza
           </p>
-        </div>
-
-        <div class="md:col-span-3 flex flex-col gap-1.5">
-          <span class="text-xs font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase mb-1">Metodología</span>
-          <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">
-            Categorías del ICEN según ENFEN (2024), Nota Técnica 01-2024.
-          </p>
-          <p class="text-[13px] font-medium text-slate-600 dark:text-slate-300 mt-auto pt-4">
-            Desarrollado para el Perú.
-          </p>
+          <a href="mailto:stardust.alx25@gmail.com" class="text-sm text-blue-600 dark:text-blue-400 hover:underline transition-all">
+            stardust.alx25@gmail.com
+          </a>
         </div>
       </div>
     </div>
