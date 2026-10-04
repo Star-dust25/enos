@@ -1,0 +1,62 @@
+name: Datos diarios
+
+on:
+  schedule:
+    # 08:00 UTC = 03:00 en Peru. Lo ejecutamos una hora antes de los mapas.
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Instalar dependencias
+        working-directory: backend
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install matplotlib
+
+      - name: Regenerar los datos
+        env:
+          GEE_SERVICE_ACCOUNT: ${{ secrets.GEE_SERVICE_ACCOUNT }}
+          PYTHONPATH: ${{ github.workspace }}/backend
+        working-directory: backend
+        run: |
+          python scripts/construir_series.py
+          python scripts/construir_serie_diaria.py
+          python scripts/construir_reservorios.py
+          python scripts/verificar_datos.py
+          python scripts/backtest_fen.py
+          python scripts/validar_icen.py --refrescar
+          python -c "from core import core_alerta; core_alerta.main()"
+          
+          # Copiar figuras a la carpeta de mapas que lee el frontend
+          cp data/salidas/3_validacion_icen.png data/salidas/mapas/ || true
+          cp data/salidas/5_dos_etapas_2015_vs_2017.png data/salidas/mapas/ || true
+
+      - name: Commitear si algo cambio
+        run: |
+          git config user.name  'pulso-bot'
+          git config user.email 'actions@github.com'
+          git add backend/data/
+          if git diff --staged --quiet; then
+            echo 'Sin cambios: no se commitea.'
+          else
+            git commit -m "Actualiza datos y series $(date -u +%Y-%m-%d)"
+            git push
+          fi
