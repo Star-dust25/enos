@@ -175,7 +175,14 @@ def descargar(nombre, ruta, campos, anio_desde, constructor):
 
 
 def main():
-    ee.Initialize(project=PROYECTO_ID)
+    bruto = os.environ.get('GEE_SERVICE_ACCOUNT')
+    if bruto:
+        import json as _json
+        info = _json.loads(bruto)
+        cred = ee.ServiceAccountCredentials(info['client_email'], key_data=bruto)
+        ee.Initialize(cred, project=PROYECTO_ID)
+    else:
+        ee.Initialize(project=PROYECTO_ID)
     os.makedirs(CARPETA_DATOS, exist_ok=True)
 
     asset = RUTAS_ASSETS['ecosistemas_2022']

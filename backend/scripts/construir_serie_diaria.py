@@ -151,7 +151,14 @@ def descargar_anio(anio, region_n12, region_piura, intentos=3):
 
 
 def main():
-    ee.Initialize(project=PROYECTO_ID)
+    bruto = os.environ.get('GEE_SERVICE_ACCOUNT')
+    if bruto:
+        import json as _json
+        info = _json.loads(bruto)
+        cred = ee.ServiceAccountCredentials(info['client_email'], key_data=bruto)
+        ee.Initialize(cred, project=PROYECTO_ID)
+    else:
+        ee.Initialize(project=PROYECTO_ID)
     os.makedirs(CARPETA_DATOS, exist_ok=True)
 
     region_n12 = caja(REGION_NINO_1_2)
