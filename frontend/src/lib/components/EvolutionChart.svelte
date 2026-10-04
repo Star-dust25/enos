@@ -239,15 +239,15 @@
     </span>
     {#if hoverInfo}
       <span class="flex items-center gap-4">
-        <span class="text-slate-500">
+        <span class="text-slate-500 dark:text-slate-400">
           Anomalía:
-          <strong class="text-slate-800">
+          <strong class="text-slate-800 dark:text-slate-200">
             {hoverInfo.anomalia > 0 ? "+" : ""}{hoverInfo.anomalia.toFixed(2)} °C
           </strong>
         </span>
-        <span class="text-slate-500">
+        <span class="text-slate-500 dark:text-slate-400">
           Precursor 30d:
-          <strong class="text-slate-900">
+          <strong class="text-slate-900 dark:text-slate-100">
             {hoverInfo.precursor > 0 ? "+" : ""}{hoverInfo.precursor.toFixed(2)}
             °C
           </strong>
@@ -261,22 +261,22 @@
   </div>
 
   <div
-    class="flex items-start gap-4 text-base text-slate-700 bg-slate-50/80 border border-slate-200 rounded-xl p-6 shadow-sm"
+    class="flex items-start gap-4 text-base text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-white/10 rounded-xl p-6 shadow-sm dark:shadow-none"
   >
     <div class="w-2 h-2 rounded-full bg-slate-500 mt-2 shrink-0"></div>
     <p class="leading-relaxed">
-      <strong class="font-bold text-slate-900">¿Cómo leer este gráfico?</strong>
+      <strong class="font-bold text-slate-900 dark:text-slate-100">¿Cómo leer este gráfico?</strong>
       La línea gris delgada es la
-      <strong class="text-slate-800">anomalía</strong>
+      <strong class="text-slate-800 dark:text-slate-200">anomalía</strong>
       diaria del mar: cuánto se desvía la temperatura respecto a lo normal para
       esa fecha del año, no la temperatura en sí. Es muy volátil y cambia
       bruscamente. Para evitar falsas alarmas, calculamos la línea negra gruesa,
       que es su promedio de los últimos 30 días. El precursor de El Niño Costero
       se activa únicamente cuando esa línea negra supera la marca naranja de
-      <strong class="text-amber-600">+{umbral_precursor} °C</strong>
+      <strong class="text-amber-600 dark:text-amber-400">+{umbral_precursor} °C</strong>
       y se mantiene por encima durante al menos 15 días consecutivos. La línea
       roja punteada, en
-      <strong class="text-red-600">+{umbral_magnitud} °C</strong>, es el umbral
+      <strong class="text-red-600 dark:text-red-400">+{umbral_magnitud} °C</strong>, es el umbral
       de magnitud: el pico mínimo que necesita el precursor para escalar a la
       segunda etapa de confirmación territorial.
     </p>

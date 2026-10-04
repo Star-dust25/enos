@@ -197,14 +197,14 @@
   </div>
 
   <div
-    class="flex items-start gap-4 text-base text-slate-700 bg-slate-50/80 border border-slate-200 rounded-xl p-6 shadow-sm"
+    class="flex items-start gap-4 text-base text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-white/10 rounded-xl p-6 shadow-sm dark:shadow-none"
   >
     <div class="w-2 h-2 rounded-full bg-slate-500 mt-2 shrink-0"></div>
     <p class="leading-relaxed">
-      <strong class="font-bold text-slate-900">¿Cómo leer este gráfico?</strong>
+      <strong class="font-bold text-slate-900 dark:text-slate-100">¿Cómo leer este gráfico?</strong>
       Cada barra es el compuesto satelital mensual del bosque seco, expresado como
       anomalía z(MSAVI). Las barras rojas alcanzan o superan el umbral de confirmación
-      de <strong class="text-red-600">+{umbral_msavi}</strong>; las grises
+      de <strong class="text-red-600 dark:text-red-400">+{umbral_msavi}</strong>; las grises
       quedan por debajo. Los meses sin barra todavía no han ocurrido o no
       cuentan con suficientes escenas satelitales libres de nubes.
     </p>

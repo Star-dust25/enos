@@ -50,31 +50,23 @@
     </div>
   {:else if error}
     <div
-      class="bg-red-50 text-red-600 p-5 rounded-xl border border-red-100 shadow-sm"
+      class="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 p-5 rounded-xl border border-red-100 dark:border-red-800/50 shadow-sm dark:shadow-none"
     >
       {error}
     </div>
   {:else if data}
     <!-- Alerta general (Banda principal) -->
     <div
-      class="rounded-3xl p-5 sm:p-6 mb-8 sm:mb-12 shadow-sm border relative overflow-hidden flex flex-col justify-center
+      class="rounded-none p-5 sm:p-6 mb-8 sm:mb-12 shadow-sm dark:shadow-none border-y-0 border-r-0 border-l-[6px] relative overflow-hidden flex flex-col justify-center
                 {nivel === 'ambar'
-        ? 'bg-gradient-to-br from-amber-50/80 to-white border-amber-200/60'
+        ? 'bg-gradient-to-br from-amber-50/80 dark:bg-[#111111] dark:from-[#111111] to-white dark:to-[#111111] border-amber-500'
         : nivel === 'rojo'
-          ? 'bg-gradient-to-br from-red-50/80 to-white border-red-200/60'
-          : 'bg-gradient-to-br from-emerald-50/80 to-white border-emerald-200/60'}"
+          ? 'bg-gradient-to-br from-red-50/80 dark:bg-[#111111] dark:from-[#111111] to-white dark:to-[#111111] border-red-500'
+          : 'bg-gradient-to-br from-emerald-50/80 dark:bg-[#111111] dark:from-[#111111] to-white dark:to-[#111111] border-emerald-500'}"
     >
       <div class="flex items-center gap-3 mb-3">
         <!-- Status dot -->
         <span class="relative flex h-3 w-3">
-          <span
-            class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75
-                        {nivel === 'ambar'
-              ? 'bg-amber-400'
-              : nivel === 'rojo'
-                ? 'bg-red-400'
-                : 'bg-emerald-400'}"
-          ></span>
           <span
             class="relative inline-flex rounded-full h-3 w-3
                         {nivel === 'ambar'
@@ -87,10 +79,10 @@
         <span
           class="text-xs font-bold tracking-[0.2em] uppercase
                         {nivel === 'ambar'
-            ? 'text-amber-700'
+            ? 'text-amber-700 dark:text-amber-400'
             : nivel === 'rojo'
-              ? 'text-red-700'
-              : 'text-emerald-700'}"
+              ? 'text-red-700 dark:text-red-400'
+              : 'text-emerald-700 dark:text-emerald-400'}"
         >
           {nivel === "ambar"
             ? "Vigilancia Activa"
@@ -101,7 +93,7 @@
       </div>
 
       <div
-        class="text-2xl sm:text-3xl font-bold font-slab text-slate-900 mb-3 tracking-tight leading-tight"
+        class="text-2xl sm:text-3xl font-bold font-slab text-slate-900 dark:text-slate-100 mb-3 tracking-tight leading-tight"
       >
         {nivel === "ambar"
           ? "Precursor oceánico activo: Sin confirmación territorial."
@@ -110,7 +102,7 @@
             : "Litoral y bosque seco en balance estacional."}
       </div>
 
-      <div class="text-slate-600 text-xl max-w-4xl leading-relaxed font-light">
+      <div class="text-slate-600 dark:text-slate-400 text-xl max-w-4xl leading-relaxed font-light">
         {nivel === "ambar"
           ? "El mar presenta una anomalía térmica sostenida, pero el bosque seco aún no responde. Seguimos monitoreando de cerca la propagación del impacto."
           : nivel === "rojo"
@@ -123,7 +115,11 @@
     <DashboardContainer
       titulo="Monitor de Etapas de Alerta"
       subtitulo="Evaluación del precursor térmico oceánico y confirmación posterior en el bosque seco."
-      tooltip="Fuentes: NOAA OISST v2.1 (Mar) y LANDSAT 8 C2 L2 (Bosque Seco). El umbral de la Etapa 1 opera sobre la anomalía diaria y es un parámetro operativo de Pulso; no es el criterio mensual del ICEN oficial."
+      tooltip={[
+        "Fuentes: NOAA OISST v2.1 (Mar) y LANDSAT 8 C2 L2 (Bosque Seco).",
+        "El umbral de la Etapa 1 opera sobre la anomalía diaria y es un parámetro operativo de Pulso.",
+        "No es el criterio mensual del ICEN oficial."
+      ]}
     >
       <div class="flex flex-col md:flex-row justify-between gap-8 py-2">
         <!-- Threshold 1: Precursor Oceánico -->
@@ -147,10 +143,11 @@
           umbralTexto="Anomalía diaria ≥ +{data.umbral_precursor} °C (15 días)"
           fechaTexto={data.fecha_precursor}
           state={data.etapa1_activa ? "alerta" : "normal"}
+          theme="blue"
         />
 
         <!-- Divider -->
-        <div class="hidden md:block w-px bg-slate-100 self-stretch my-4"></div>
+        <div class="hidden md:block w-px bg-slate-100 dark:bg-[#111111] self-stretch my-4"></div>
 
         <!-- Threshold 2: Confirmación Territorial -->
         <!--
@@ -169,6 +166,7 @@
           umbralTexto="Anomalía z(MSAVI) ≥ {data.umbral_msavi}"
           fechaTexto={data.fecha_msavi}
           state={data.etapa2_activa ? "alerta" : "normal"}
+          theme="green"
         />
       </div>
     </DashboardContainer>
@@ -181,7 +179,10 @@
       <DashboardContainer
         titulo="Confirmación Territorial — Serie Mensual"
         subtitulo="Anomalía z(MSAVI) del bosque seco, últimos meses. El mismo indicador que confirmó el desastre de 2017."
-        tooltip="Cada barra es el compuesto satelital mensual (Landsat 8) del bosque seco. La línea roja punteada es el umbral de confirmación (+{data.umbral_msavi})."
+        tooltip={[
+          "Cada barra es el compuesto satelital mensual (Landsat 8) del bosque seco.",
+          `La línea roja punteada es el umbral de confirmación (+${data.umbral_msavi}).`
+        ]}
       >
         <div class="pt-2">
           <MsaviBarChart
@@ -197,7 +198,9 @@
       <DashboardContainer
         titulo="Evolución Diaria del Precursor"
         subtitulo="Tendencia térmica en la región Niño 1+2 durante los últimos meses."
-        tooltip="La línea punteada naranja representa el umbral operativo de Pulso (+{data.umbral_precursor} °C sobre la anomalía diaria)."
+        tooltip={[
+          `La línea punteada naranja representa el umbral operativo de Pulso (+${data.umbral_precursor} °C sobre la anomalía diaria).`
+        ]}
       >
         <div class="pt-2">
           <EvolutionChart

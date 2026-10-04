@@ -130,7 +130,7 @@
   <div class="flex flex-col lg:flex-row gap-8 items-start">
     <!-- Sidebar de Filtros -->
     <aside
-      class="w-full lg:w-64 shrink-0 flex flex-col gap-8 bg-white/50 backdrop-blur border border-slate-200/60 rounded-2xl p-5 shadow-sm"
+      class="w-full lg:w-64 shrink-0 flex flex-col gap-8 bg-white dark:bg-[#111111] backdrop-blur dark:backdrop-blur-none border border-slate-200 dark:border-white/10 rounded-2xl p-5 shadow-sm dark:shadow-none"
     >
       <!-- Ecosistema -->
       <div>
@@ -144,8 +144,8 @@
             <button
               class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all {tabActiva ===
               tab
-                ? 'bg-white text-slate-900 shadow-sm border border-slate-200/80'
-                : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800 border border-transparent'}"
+                ? 'bg-white dark:bg-[#111111] text-slate-900 dark:text-slate-100 shadow-sm dark:shadow-none border border-slate-200 dark:border-white/10'
+                : 'text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 dark:bg-[#111111] hover:text-slate-800 dark:text-slate-200 border border-transparent'}"
               onclick={() => (tabActiva = tab)}
             >
               {tab}
@@ -167,8 +167,8 @@
               <button
                 class="w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all {periodoActivo ===
                 p
-                  ? 'bg-white text-slate-900 shadow-sm border border-slate-200/80'
-                  : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800 border border-transparent'}"
+                  ? 'bg-white dark:bg-[#111111] text-slate-900 dark:text-slate-100 shadow-sm dark:shadow-none border border-slate-200 dark:border-white/10'
+                  : 'text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 dark:bg-[#111111] hover:text-slate-800 dark:text-slate-200 border border-transparent'}"
                 onclick={() => (periodoActivo = p)}
               >
                 {PERIODOS[p]}
@@ -189,7 +189,7 @@
         </div>
       {:else if error}
         <div
-          class="bg-red-50 text-red-700 p-5 rounded-xl border border-red-100"
+          class="bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 p-5 rounded-xl border border-red-100 dark:border-red-800/50"
         >
           <p class="font-semibold mb-1">No se pudo cargar el índice de mapas</p>
           <p class="text-sm font-light">{error}</p>
@@ -220,7 +220,7 @@
             </div>
           {:else}
             <div
-              class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3 text-sm text-slate-700 font-medium"
+              class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3 text-sm text-slate-700 dark:text-slate-300 font-medium"
             >
               {#if mapaActual.generado}
                 <span>Generado el {mapaActual.generado}</span>
@@ -233,12 +233,12 @@
                 <span class="text-slate-400">·</span>
                 <span
                   >Media {mapaActual.banda}:
-                  <strong class="text-slate-900 font-bold">{mapaActual.kpi}</strong
+                  <strong class="text-slate-900 dark:text-slate-100 font-bold">{mapaActual.kpi}</strong
                   >{etiquetas[tabActiva].unidad}</span
                 >
               {/if}
               {#if mapaActual.error_ultimo_intento}
-                <span class="text-amber-600 font-bold">
+                <span class="text-amber-600 dark:text-amber-400 font-bold">
                   · La regeneración de hoy falló; se muestra la imagen anterior.
                 </span>
               {/if}
@@ -246,14 +246,14 @@
 
             <div class="flex flex-col gap-4">
               <div
-                class="bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm w-full aspect-[26/25] relative"
+                class="bg-white dark:bg-[#111111] border border-slate-200 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm dark:shadow-none w-full aspect-[26/25] relative"
               >
                 <img
                   src={urlMapa}
                   alt="Mapa de {etiquetas[tabActiva]
                     .titulo} en Piura, periodo {PERIODOS[periodoActivo] ??
                     periodoActivo}"
-                  class="absolute inset-0 w-full h-full object-fill bg-slate-50"
+                  class="absolute inset-0 w-full h-full object-fill bg-slate-50 dark:bg-[#111111]"
                   loading="lazy"
                 />
 
@@ -264,10 +264,10 @@
                     style={getPointStyle(ciudad.lon, ciudad.lat)}
                   >
                     <div
-                      class="w-1.5 h-1.5 rounded-full bg-slate-800 shadow-[0_0_0_2px_rgba(255,255,255,0.9)]"
+                      class="w-1.5 h-1.5 rounded-full bg-slate-800 shadow-[0_0_0_2px_rgba(255,255,255,0.9)] dark:shadow-none"
                     ></div>
                     <span
-                      class="mt-1 text-[10px] font-bold text-slate-700 bg-white/90 backdrop-blur-sm px-1.5 py-0.5 rounded-md shadow-sm border border-white/50"
+                      class="mt-1 text-[10px] font-bold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800/90 backdrop-blur-sm px-1.5 py-0.5 rounded-md shadow-sm dark:shadow-none border border-white/50"
                     >
                       {ciudad.nombre}
                     </span>
@@ -278,12 +278,12 @@
               <!-- Dynamic Legend -->
               <div class="w-full">
                 <div
-                  class="w-full bg-white p-5 rounded-2xl shadow-sm border border-slate-200/80"
+                  class="w-full bg-white dark:bg-[#111111] p-5 rounded-2xl shadow-sm dark:shadow-none border border-slate-200 dark:border-white/10"
                 >
                   <div class="flex items-center gap-2 mb-3.5">
                     <div class="w-1.5 h-1.5 rounded-full bg-slate-400"></div>
                     <p
-                      class="text-[11px] font-bold text-slate-500 uppercase tracking-widest"
+                      class="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest"
                     >
                       Escala de Valores
                     </p>
@@ -299,13 +299,13 @@
                     <div class="flex justify-between items-start mt-2 px-0.5">
                       <div class="flex flex-col items-start gap-1">
                         <div class="w-px h-1.5 bg-slate-300 ml-1"></div>
-                        <span class="text-xs font-bold text-slate-700"
+                        <span class="text-xs font-bold text-slate-700 dark:text-slate-300"
                           >{leyendas[tabActiva].min}</span
                         >
                       </div>
                       <div class="flex flex-col items-end gap-1">
                         <div class="w-px h-1.5 bg-slate-300 mr-1"></div>
-                        <span class="text-xs font-bold text-slate-700"
+                        <span class="text-xs font-bold text-slate-700 dark:text-slate-300"
                           >{leyendas[tabActiva].max}</span
                         >
                       </div>

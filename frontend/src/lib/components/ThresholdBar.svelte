@@ -11,6 +11,7 @@
     umbralTexto,
     fechaTexto,
     state = "normal",
+    theme = "blue",
   } = $props<{
     valor: number;
     minVal: number;
@@ -23,6 +24,7 @@
     umbralTexto: string;
     fechaTexto: string;
     state?: "normal" | "alerta";
+    theme?: "blue" | "green";
   }>();
 
   // Clamp value for visual representation
@@ -32,22 +34,32 @@
     ((umbral - minVal) / (maxVal - minVal)) * 100,
   );
 
-  // El valor real excede el rango representable: la barra se satura y deja
-  // de reflejar la magnitud. Se avisa en lugar de dibujar una barra llena
-  // (o vacia) que sugiere un tope que no existe.
-  //
-  // Se comprueban LOS DOS extremos. Antes solo se miraba por arriba, y el
-  // caso de abajo tambien ocurre: durante La Niña la anomalia del precursor
-  // baja de -1.0, que es el minimo de la barra, y una barra vacia se lee
-  // como "cero" en vez de "fuera de escala".
   let fueraPorArriba = $derived(valor > maxVal);
   let fueraPorAbajo = $derived(valor < minVal);
   let fueraDeRango = $derived(fueraPorArriba || fueraPorAbajo);
 
   let colorFill = $derived(
-    state === "alerta"
-      ? "bg-gradient-to-r from-orange-500 to-red-600"
-      : "bg-gradient-to-r from-slate-300 to-slate-400",
+    theme === "blue"
+      ? "bg-blue-500 dark:bg-blue-500"
+      : "bg-emerald-500 dark:bg-emerald-500"
+  );
+  
+  let colorText = $derived(
+    theme === "blue"
+      ? "text-blue-600 dark:text-blue-400"
+      : "text-emerald-600 dark:text-emerald-400"
+  );
+
+  let activeBadge = $derived(
+    estadoActivo
+      ? theme === "blue"
+        ? "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800/50"
+        : "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50"
+      : "bg-slate-50 dark:bg-[#111111] text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-white/10"
+  );
+
+  let borderTheme = $derived(
+    theme === "blue" ? "border-l-blue-500 dark:border-l-blue-500" : "border-l-emerald-500 dark:border-l-emerald-500"
   );
 </script>
 
@@ -56,16 +68,13 @@
   <div class="flex justify-between items-end mb-6">
     <div>
       <h3
-        class="text-sm font-bold text-slate-500 uppercase tracking-[0.15em] mb-1"
+        class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-[0.15em] mb-1"
       >
         {titulo}
       </h3>
       <!-- The value itself in Oswald -->
       <div
-        class="text-5xl sm:text-6xl font-oswald font-bold tracking-tight {state ===
-        'alerta'
-          ? 'text-red-600'
-          : 'text-slate-800'}"
+        class="text-5xl sm:text-6xl font-oswald font-bold tracking-tight {colorText}"
       >
         {valorTexto}
       </div>
@@ -74,79 +83,74 @@
 
   <!-- Threshold Bar Container -->
   <div
-    class="relative w-full h-4 bg-slate-100 rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] overflow-hidden my-3"
+    class="relative w-full h-4 bg-slate-200 dark:bg-[#0a0a0a] rounded-none overflow-hidden my-3 border border-transparent dark:border-white/5"
   >
     <!-- Progress Fill -->
     <div
-      class="absolute top-0 left-0 h-full rounded-full transition-all duration-1000 ease-out {colorFill}"
+      class="absolute top-0 left-0 h-full rounded-none transition-all duration-1000 ease-out {colorFill}"
       style="width: {percentage}%"
     ></div>
 
     <!-- Threshold Marker -->
     <div
-      class="absolute top-0 bottom-0 w-[3px] bg-slate-800 z-10 shadow-sm"
+      class="absolute top-0 bottom-0 w-[2px] bg-slate-900 dark:bg-white z-10"
       style="left: {umbralPercentage}%"
     ></div>
   </div>
 
   <!-- Threshold Label -->
   <div
-    class="relative w-full h-8 text-xs text-slate-400 font-semibold tracking-wide"
+    class="relative w-full h-8 text-[11px] text-slate-500 dark:text-slate-400 font-bold tracking-widest uppercase"
   >
     <div
       class="absolute -translate-x-1/2 mt-1 flex flex-col items-center"
       style="left: {umbralPercentage}%"
     >
-      <div class="w-px h-2 bg-slate-300 mb-1"></div>
+      <div class="w-px h-2 bg-slate-400 dark:bg-slate-500 mb-1"></div>
       Umbral ({umbral > 0 ? "+" : ""}{umbral})
     </div>
   </div>
 
   <!-- Subtitle / Details Card -->
   <div
-    class="mt-4 flex flex-col justify-center gap-4 bg-white border border-slate-200/60 shadow-sm p-6 rounded-2xl flex-1"
+    class="mt-4 flex flex-col justify-center gap-4 bg-slate-50 dark:bg-[#0a0a0a] border-y border-r border-slate-200 dark:border-white/5 border-l-[4px] {borderTheme} p-6 rounded-none flex-1"
   >
-    <div class="flex items-center justify-between gap-4">
-      <span class="text-base text-slate-700 font-semibold shrink-0"
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <span class="text-sm text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider shrink-0"
         >Estado actual</span
       >
       <span
-        class="px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase
-                {estadoActivo
-          ? state === 'alerta'
-            ? 'bg-red-50 text-red-700 border border-red-200'
-            : 'bg-amber-50 text-amber-700 border border-amber-200'
-          : 'bg-slate-50 text-slate-700 border border-slate-300'}"
+        class="px-3 py-1 rounded-none text-xs font-bold tracking-[0.2em] uppercase {activeBadge}"
       >
         {estadoTexto}
       </span>
     </div>
 
-    <div class="h-px w-full bg-slate-100"></div>
+    <div class="h-px w-full bg-slate-200 dark:bg-white/5"></div>
 
-    <div class="flex items-start justify-between gap-5">
-      <span class="text-base text-slate-700 font-semibold shrink-0 mt-0.5"
-        >Criterio umbral</span
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-5">
+      <span class="text-sm text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider shrink-0"
+        >Criterio</span
       >
-      <span class="text-base font-bold text-slate-900 text-right leading-relaxed"
+      <span class="text-sm font-semibold text-slate-900 dark:text-slate-100 text-left sm:text-right"
         >{umbralTexto}</span
       >
     </div>
 
-    <div class="h-px w-full bg-slate-100"></div>
+    <div class="h-px w-full bg-slate-200 dark:bg-white/5"></div>
 
-    <div class="flex items-center justify-between gap-4">
-      <span class="text-base text-slate-700 font-semibold shrink-0"
-        >Último dato disponible</span
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
+      <span class="text-sm text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider shrink-0"
+        >Última medición</span
       >
-      <span class="text-sm font-bold text-slate-800 uppercase tracking-widest"
+      <span class="text-sm font-bold text-slate-800 dark:text-slate-200 tracking-widest"
         >{fechaTexto}</span
       >
     </div>
 
     {#if fueraDeRango}
-      <div class="h-px w-full bg-slate-100"></div>
-      <p class="text-[11px] text-slate-400 leading-relaxed">
+      <div class="h-px w-full bg-slate-200 dark:bg-white/5"></div>
+      <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
         El valor queda fuera del rango representable en la barra ({minVal} a {maxVal});
         la barra aparece {fueraPorArriba ? "completa" : "vacía"} y no refleja la
         magnitud real.
