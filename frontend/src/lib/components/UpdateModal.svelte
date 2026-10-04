@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
 
   let showModal = $state(false);
 
@@ -8,6 +8,14 @@
     const hasSeen = localStorage.getItem("seenLiveUpdateModal");
     if (!hasSeen) {
       showModal = true;
+      document.body.style.overflow = "hidden";
+    }
+  });
+
+  onDestroy(() => {
+    // Por precaución, si el componente se destruye sin apretar el botón
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "";
     }
   });
 
@@ -15,6 +23,7 @@
     // Lo guardamos en el navegador para que no vuelva a salir
     localStorage.setItem("seenLiveUpdateModal", "true");
     showModal = false;
+    document.body.style.overflow = "";
   }
 </script>
 
