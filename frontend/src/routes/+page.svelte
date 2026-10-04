@@ -5,6 +5,7 @@
   import ThresholdBar from "$lib/components/ThresholdBar.svelte";
   import EvolutionChart from "$lib/components/EvolutionChart.svelte";
   import MsaviBarChart from "$lib/components/MsaviBarChart.svelte";
+  import UpdateModal from "$lib/components/UpdateModal.svelte";
 
   let data: any = $state(null);
   let loading = $state(true);
@@ -37,6 +38,9 @@
 </svelte:head>
 
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+  <!-- Modal de actualización (solo aparece una vez) -->
+  <UpdateModal />
+  
   <!-- Header -->
 
   {#if loading}
