@@ -85,11 +85,40 @@
 .driver-popover.driver-theme-apple .driver-popover-footer .driver-popover-next-btn:hover {
   background: #006ce6;
 }
-.driver-popover.driver-theme-apple .driver-popover-footer .driver-popover-prev-btn,
-.driver-popover.driver-theme-apple .driver-popover-footer .driver-popover-close-btn {
+.driver-popover.driver-theme-apple .driver-popover-footer .driver-popover-prev-btn {
   color: #64748b;
 }
-.dark .driver-popover.driver-theme-apple .driver-popover-footer .driver-popover-prev-btn,
-.dark .driver-popover.driver-theme-apple .driver-popover-footer .driver-popover-close-btn {
+.dark .driver-popover.driver-theme-apple .driver-popover-footer .driver-popover-prev-btn {
   color: #94A3B8;
+}
+
+/* Estilos mejorados para la X de cerrar */
+.driver-popover.driver-theme-apple .driver-popover-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #64748b;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  z-index: 10;
+  line-height: 1;
+  padding: 0;
+}
+.driver-popover.driver-theme-apple .driver-popover-close-btn:hover {
+  background: rgba(0,0,0,0.05);
+  color: #1e293b;
+}
+.dark .driver-popover.driver-theme-apple .driver-popover-close-btn {
+  color: #94A3B8;
+}
+.dark .driver-popover.driver-theme-apple .driver-popover-close-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: #f1f5f9;
 }
