@@ -24,7 +24,7 @@
     umbralTexto: string;
     fechaTexto: string;
     state?: "normal" | "alerta";
-    theme?: "blue" | "green";
+    theme?: "red" | "green";
   }>();
 
   // Clamp value for visual representation
@@ -39,27 +39,27 @@
   let fueraDeRango = $derived(fueraPorArriba || fueraPorAbajo);
 
   let colorFill = $derived(
-    theme === "blue"
-      ? "bg-blue-500 dark:bg-blue-500"
+    theme === "red"
+      ? "bg-peru-red dark:bg-peru-red"
       : "bg-emerald-500 dark:bg-emerald-500"
   );
   
   let colorText = $derived(
-    theme === "blue"
-      ? "text-blue-600 dark:text-blue-400"
-      : "text-emerald-600 dark:text-emerald-400"
+    theme === "red"
+      ? "text-peru-red dark:text-peru-red"
+      : "text-emerald-500 dark:text-emerald-500"
   );
 
   let activeBadge = $derived(
     estadoActivo
-      ? theme === "blue"
-        ? "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 border border-blue-200 dark:border-blue-800/50"
-        : "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50"
-      : "bg-slate-50 dark:bg-[#111111] text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-white/10"
+      ? theme === "red"
+        ? "bg-peru-red text-white border-2 border-peru-red"
+        : "bg-emerald-500 text-white border-2 border-emerald-500"
+      : "bg-white dark:bg-[#111111] text-slate-500 dark:text-slate-400 border-2 border-slate-900 dark:border-white/50"
   );
 
   let borderTheme = $derived(
-    theme === "blue" ? "border-l-blue-500 dark:border-l-blue-500" : "border-l-emerald-500 dark:border-l-emerald-500"
+    theme === "red" ? "border-l-peru-red" : "border-l-emerald-500"
   );
 </script>
 
@@ -68,7 +68,7 @@
   <div class="flex justify-between items-end mb-6">
     <div>
       <h3
-        class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-[0.15em] mb-1"
+        class="text-sm font-black text-slate-900 dark:text-slate-100 uppercase tracking-[0.15em] mb-1"
       >
         {titulo}
       </h3>
@@ -81,19 +81,19 @@
     </div>
   </div>
 
-  <!-- Threshold Bar Container -->
+  <!-- Threshold Bar Container Brutalist -->
   <div
-    class="relative w-full h-4 bg-slate-200 dark:bg-[#0a0a0a] rounded-none overflow-hidden my-3 border border-transparent dark:border-white/5"
+    class="relative w-full h-8 bg-slate-100 dark:bg-[#151515] rounded-none overflow-hidden my-4 border-2 border-slate-900 dark:border-white/20"
   >
     <!-- Progress Fill -->
     <div
-      class="absolute top-0 left-0 h-full rounded-none transition-all duration-1000 ease-out {colorFill}"
+      class="absolute top-0 left-0 h-full rounded-none transition-all duration-1000 ease-out {colorFill} border-r-2 border-slate-900 dark:border-white/20"
       style="width: {percentage}%"
     ></div>
 
     <!-- Threshold Marker -->
     <div
-      class="absolute top-0 bottom-0 w-[2px] bg-slate-900 dark:bg-white z-10"
+      class="absolute top-0 bottom-0 w-[4px] bg-slate-900 dark:bg-white z-10"
       style="left: {umbralPercentage}%"
     ></div>
   </div>
@@ -111,12 +111,12 @@
     </div>
   </div>
 
-  <!-- Subtitle / Details Card -->
+  <!-- Subtitle / Details Card Brutalist -->
   <div
-    class="mt-4 flex flex-col justify-center gap-4 bg-slate-50 dark:bg-[#0a0a0a] border-y border-r border-slate-200 dark:border-white/5 border-l-[4px] {borderTheme} p-6 rounded-none flex-1"
+    class="mt-6 flex flex-col justify-center gap-4 bg-white dark:bg-[#0a0a0a] border-4 border-slate-900 dark:border-white/10 border-l-[8px] {borderTheme} p-6 rounded-none flex-1 shadow-[4px_4px_0_rgba(0,0,0,1)] dark:shadow-none"
   >
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <span class="text-sm text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider shrink-0"
+      <span class="text-sm text-slate-900 dark:text-slate-300 font-black uppercase tracking-wider shrink-0"
         >Estado actual</span
       >
       <span
@@ -126,21 +126,21 @@
       </span>
     </div>
 
-    <div class="h-px w-full bg-slate-200 dark:bg-white/5"></div>
+    <div class="h-[2px] w-full bg-slate-900 dark:bg-white/10"></div>
 
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-5">
-      <span class="text-sm text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider shrink-0"
+      <span class="text-sm text-slate-900 dark:text-slate-300 font-black uppercase tracking-wider shrink-0"
         >Criterio</span
       >
-      <span class="text-sm font-semibold text-slate-900 dark:text-slate-100 text-left sm:text-right"
+      <span class="text-sm font-bold text-slate-700 dark:text-slate-100 text-left sm:text-right font-mono"
         >{umbralTexto}</span
       >
     </div>
 
-    <div class="h-px w-full bg-slate-200 dark:bg-white/5"></div>
+    <div class="h-[2px] w-full bg-slate-900 dark:bg-white/10"></div>
 
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
-      <span class="text-sm text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wider shrink-0"
+      <span class="text-sm text-slate-900 dark:text-slate-300 font-black uppercase tracking-wider shrink-0"
         >Última medición</span
       >
       <span class="text-sm font-bold text-slate-800 dark:text-slate-200 tracking-widest"

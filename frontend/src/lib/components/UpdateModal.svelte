@@ -28,45 +28,45 @@
 </script>
 
 {#if showModal}
-  <div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/90 backdrop-blur-md">
-    <!-- Contenedor cuadrado premium -->
-    <div class="bg-white dark:bg-[#0a0a0a] border border-slate-200 dark:border-white/10 border-t-[6px] border-t-emerald-500 p-8 sm:p-10 max-w-lg w-full shadow-[0_0_50px_rgba(16,185,129,0.15)] relative rounded-none transform transition-all">
+  <div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-white/90 dark:bg-[#000000]/95 backdrop-blur-sm">
+    <!-- Contenedor Brutalista -->
+    <div class="bg-white dark:bg-[#0a0a0a] border-4 border-slate-900 dark:border-peru-red p-8 sm:p-12 max-w-lg w-full shadow-[12px_12px_0px_rgba(0,0,0,1)] dark:shadow-[12px_12px_0px_rgba(200,16,46,0.3)] relative rounded-none">
       
       <!-- Label -->
-      <div class="inline-block bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800/50 px-3 py-1 mb-5 rounded-none">
-        <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-emerald-700 dark:text-emerald-400">
+      <div class="inline-block bg-slate-900 dark:bg-peru-red text-white px-4 py-2 mb-6 border-2 border-slate-900 dark:border-peru-red">
+        <span class="text-[11px] font-black tracking-[0.25em] uppercase">
           Sistema Actualizado
         </span>
       </div>
 
-      <h2 class="text-3xl font-bold font-slab text-slate-900 dark:text-white mb-4 leading-tight tracking-tight">
+      <h2 class="text-3xl md:text-4xl font-black font-slab text-slate-900 dark:text-white mb-6 uppercase tracking-tighter leading-none">
         Automatización 100% Integrada
       </h2>
       
-      <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed font-light text-lg">
-        El monitoreo satelital de <strong class="text-slate-900 dark:text-slate-200 font-semibold">ENOS</strong> ahora corre de forma autónoma. Los datos oceánicos y territoriales se descargarán sin requerir intervención manual.
+      <p class="text-slate-700 dark:text-slate-300 mb-8 leading-relaxed font-mono text-base">
+        El monitoreo satelital de <strong class="text-slate-900 dark:text-white font-black">ENOS</strong> ahora corre de forma autónoma. Los datos oceánicos y territoriales se descargarán sin requerir intervención manual.
       </p>
 
       <!-- Horarios de Actualización -->
-      <div class="bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-white/10 p-5 mb-8 rounded-none">
-        <h3 class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">Programa de Actualización Diaria</h3>
+      <div class="bg-slate-50 dark:bg-[#111111] border-2 border-slate-900 dark:border-white/10 p-6 mb-10">
+        <h3 class="text-xs font-black text-slate-900 dark:text-slate-300 uppercase tracking-widest mb-6">Programa de Actualización Diaria</h3>
         
-        <div class="flex flex-col gap-3">
+        <div class="flex flex-col gap-4">
           <div class="flex justify-between items-center">
-            <span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Ventana de ejecución (PET)</span>
-            <span class="text-sm font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-0.5 border border-emerald-100 dark:border-emerald-800/30">~08:30 AM - 11:30 AM</span>
+            <span class="text-sm font-bold text-slate-700 dark:text-slate-400 uppercase tracking-wide">Ventana de ejecución (PET)</span>
+            <span class="text-sm font-mono font-black text-slate-900 dark:text-white border-b-2 border-slate-900 dark:border-peru-red">~08:30 AM - 11:30 AM</span>
           </div>
-          <div class="flex justify-between items-center pt-3 mt-1 border-t border-slate-200 dark:border-white/10">
-            <span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Próxima descarga</span>
-            <span class="text-sm font-bold tracking-widest uppercase text-slate-900 dark:text-white">Cada mañana</span>
+          <div class="flex justify-between items-center pt-4 border-t-2 border-slate-900 dark:border-white/10">
+            <span class="text-sm font-bold text-slate-700 dark:text-slate-400 uppercase tracking-wide">Próxima descarga</span>
+            <span class="text-sm font-black tracking-widest uppercase text-slate-900 dark:text-peru-red">Cada mañana</span>
           </div>
         </div>
       </div>
       
-      <div class="flex justify-end pt-2 border-t border-slate-100 dark:border-white/5">
+      <div class="flex justify-end pt-4 border-t-4 border-slate-900 dark:border-white/10">
         <button
           onclick={closeModal}
-          class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 uppercase tracking-widest text-xs transition-colors rounded-none w-full sm:w-auto text-center"
+          class="bg-slate-900 dark:bg-peru-red text-white border-2 border-slate-900 dark:border-peru-red font-black py-4 px-10 uppercase tracking-[0.2em] text-sm hover:bg-peru-red hover:border-peru-red dark:hover:bg-white dark:hover:text-peru-red transition-colors w-full sm:w-auto text-center focus:outline-none"
         >
           Entendido
         </button>

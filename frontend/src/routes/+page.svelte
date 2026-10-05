@@ -70,24 +70,13 @@
           : 'bg-emerald-400 text-slate-900 border-slate-900 dark:bg-[#111111] dark:border-emerald-500'}"
     >
       <div class="flex items-center gap-3 mb-3">
-        <!-- Status dot -->
-        <span class="relative flex h-3 w-3">
-          <span
-            class="relative inline-flex rounded-full h-3 w-3
-                        {nivel === 'ambar'
-              ? 'bg-amber-500'
-              : nivel === 'rojo'
-                ? 'bg-red-500'
-                : 'bg-emerald-500'}"
-          ></span>
-        </span>
         <span
           class="text-xs font-bold tracking-[0.2em] uppercase
                         {nivel === 'ambar'
-            ? 'text-amber-700 dark:text-amber-400'
+            ? 'text-slate-800 dark:text-amber-400'
             : nivel === 'rojo'
-              ? 'text-red-700 dark:text-red-400'
-              : 'text-emerald-700 dark:text-emerald-400'}"
+              ? 'text-white dark:text-red-400'
+              : 'text-emerald-900 dark:text-emerald-400'}"
         >
           {nivel === "ambar"
             ? "Vigilancia Activa"
@@ -173,7 +162,7 @@
           umbralTexto="Anomalía diaria ≥ +{data.umbral_precursor} °C (15 días)"
           fechaTexto={data.fecha_precursor}
           state={data.etapa1_activa ? "alerta" : "normal"}
-          theme="blue"
+          theme="red"
         />
 
         <!-- Divider -->
