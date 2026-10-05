@@ -20,14 +20,17 @@
     if (typeof document !== "undefined") {
       if (isModalOpen) {
         document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden";
       } else {
         document.body.style.overflow = "";
+        document.documentElement.style.overflow = "";
       }
     }
     
     return () => {
       if (typeof document !== "undefined") {
         document.body.style.overflow = "";
+        document.documentElement.style.overflow = "";
       }
     };
   });

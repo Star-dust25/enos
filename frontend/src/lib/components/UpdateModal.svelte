@@ -8,22 +8,31 @@
     const hasSeen = localStorage.getItem("seenLiveUpdateModal");
     if (!hasSeen) {
       showModal = true;
-      document.body.style.overflow = "hidden";
     }
   });
 
-  onDestroy(() => {
-    // Por precaución, si el componente se destruye sin apretar el botón
+  $effect(() => {
     if (typeof document !== "undefined") {
-      document.body.style.overflow = "";
+      if (showModal) {
+        document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+        document.documentElement.style.overflow = "";
+      }
     }
+    return () => {
+      if (typeof document !== "undefined") {
+        document.body.style.overflow = "";
+        document.documentElement.style.overflow = "";
+      }
+    };
   });
 
   function closeModal() {
     // Lo guardamos en el navegador para que no vuelva a salir
     localStorage.setItem("seenLiveUpdateModal", "true");
     showModal = false;
-    document.body.style.overflow = "";
   }
 </script>
 
