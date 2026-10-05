@@ -85,7 +85,7 @@
     onkeydown={(e) => e.key === 'Escape' && (isModalOpen = false)}
   >
     <div 
-      class="bg-white dark:bg-[#0a0a0a] rounded-none max-w-lg w-full p-8 shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(200,16,46,0.3)] border-4 border-slate-900 dark:border-peru-red cursor-default"
+      class="bg-white dark:bg-[#0a0a0a] rounded-none max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(200,16,46,0.3)] border-4 border-slate-900 dark:border-peru-red cursor-default flex flex-col"
       transition:fly={{ y: 20, duration: 200 }}
       onclick={(e) => e.stopPropagation()}
       role="dialog"
@@ -94,7 +94,7 @@
       <div class="flex justify-between items-start mb-6 border-b-4 border-slate-900 dark:border-peru-red pb-4">
         <h3 class="font-slab font-black text-2xl uppercase tracking-widest text-slate-900 dark:text-white">Información</h3>
         <button 
-          class="text-slate-900 dark:text-peru-red hover:text-peru-red dark:hover:text-white transition-colors focus:outline-none"
+          class="text-slate-900 dark:text-peru-red hover:text-peru-red dark:hover:text-white transition-colors focus:outline-none flex-shrink-0 ml-4"
           onclick={() => isModalOpen = false}
           aria-label="Cerrar"
         >

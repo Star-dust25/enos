@@ -28,28 +28,28 @@
 </script>
 
 {#if showModal}
-  <div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-white/90 dark:bg-[#000000]/95 backdrop-blur-sm">
+  <div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-white/90 dark:bg-[#000000]/95 backdrop-blur-sm">
     <!-- Contenedor Brutalista -->
-    <div class="bg-white dark:bg-[#0a0a0a] border-4 border-slate-900 dark:border-peru-red p-8 sm:p-12 max-w-lg w-full shadow-[12px_12px_0px_rgba(0,0,0,1)] dark:shadow-[12px_12px_0px_rgba(200,16,46,0.3)] relative rounded-none">
+    <div class="bg-white dark:bg-[#0a0a0a] border-4 border-slate-900 dark:border-peru-red p-6 sm:p-10 max-w-lg w-full max-h-[95vh] overflow-y-auto shadow-[12px_12px_0px_rgba(0,0,0,1)] dark:shadow-[12px_12px_0px_rgba(200,16,46,0.3)] relative rounded-none flex flex-col">
       
       <!-- Label -->
-      <div class="inline-block bg-slate-900 dark:bg-peru-red text-white px-4 py-2 mb-6 border-2 border-slate-900 dark:border-peru-red">
+      <div class="inline-block self-start bg-slate-900 dark:bg-peru-red text-white px-4 py-2 mb-6 border-2 border-slate-900 dark:border-peru-red">
         <span class="text-[11px] font-black tracking-[0.25em] uppercase">
           Sistema Actualizado
         </span>
       </div>
 
-      <h2 class="text-3xl md:text-4xl font-black font-slab text-slate-900 dark:text-white mb-6 uppercase tracking-tighter leading-none">
+      <h2 class="text-3xl sm:text-4xl font-black font-slab text-slate-900 dark:text-white mb-5 uppercase tracking-tighter leading-none">
         Automatización 100% Integrada
       </h2>
       
-      <p class="text-slate-700 dark:text-slate-300 mb-8 leading-relaxed font-mono text-base">
+      <p class="text-slate-700 dark:text-slate-300 mb-8 leading-relaxed font-mono text-sm sm:text-base">
         El monitoreo satelital de <strong class="text-slate-900 dark:text-white font-black">ENOS</strong> ahora corre de forma autónoma. Los datos oceánicos y territoriales se descargarán sin requerir intervención manual.
       </p>
 
       <!-- Horarios de Actualización -->
-      <div class="bg-slate-50 dark:bg-[#111111] border-2 border-slate-900 dark:border-white/10 p-6 mb-10">
-        <h3 class="text-xs font-black text-slate-900 dark:text-slate-300 uppercase tracking-widest mb-6">Programa de Actualización Diaria</h3>
+      <div class="bg-slate-50 dark:bg-[#111111] border-2 border-slate-900 dark:border-white/10 p-5 sm:p-6 mb-8">
+        <h3 class="text-[11px] sm:text-xs font-black text-slate-900 dark:text-slate-300 uppercase tracking-widest mb-5">Programa de Actualización Diaria</h3>
         
         <div class="flex flex-col gap-4">
           <div class="flex justify-between items-center">
