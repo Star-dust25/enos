@@ -1,6 +1,6 @@
 # core_series.py
 # ============================================================
-# Motor de series temporales de Pulso
+# Motor de series temporales de ENOS
 #
 # Responsabilidad unica: extraer de Google Earth Engine la serie
 # mensual de los tres ecosistemas. NO grafica, NO decide, NO opina.

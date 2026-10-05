@@ -1,6 +1,6 @@
 # main.py
 # ============================================================
-# API de Pulso (FastAPI)
+# API de ENOS (FastAPI)
 #
 #   Arrancar DESDE backend/:
 #       python -m uvicorn main:app --reload
@@ -27,7 +27,7 @@ import uvicorn
 
 from api import alerta, mapas
 
-app = FastAPI(title="Pulso API")
+app = FastAPI(title="ENOS API")
 
 # --- CORS para el servidor de desarrollo del frontend ---
 #
@@ -76,7 +76,7 @@ app.include_router(mapas.router, prefix="/api/mapas", tags=["Mapas"])
 
 @app.get("/")
 def read_root():
-    return {"status": "ok", "message": "Pulso API is running"}
+    return {"status": "ok", "message": "ENOS API is running"}
 
 
 if __name__ == "__main__":

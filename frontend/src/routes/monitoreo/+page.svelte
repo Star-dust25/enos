@@ -123,7 +123,7 @@
 </script>
 
 <svelte:head>
-  <title>Monitoreo Satelital — Pulso</title>
+  <title>Monitoreo Satelital — ENOS</title>
 </svelte:head>
 
 <div class="max-w-6xl mx-auto mt-4 px-4 sm:px-6 lg:px-8 py-8">

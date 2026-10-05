@@ -1,4 +1,4 @@
-# Pulso
+# ENOS
 
 **Plataforma Analítica del Litoral, Montes y Andes**
 Sistema de Alerta Temprana ante El Niño Costero — Región Piura, Perú
@@ -46,7 +46,7 @@ ningún indicador puramente oceánico anticipa es la **escala** de ese daño.
 **ETAPA 1 — Precursor oceánico** *(diario)*
 Anomalía de TSM en la región Niño 1+2 (NOAA OISST, 1982–2026) con criterio de
 persistencia: 15 días sostenidos sobre +0.4 °C. Es un parámetro operativo
-propio de Pulso sobre la anomalía diaria — **no es el criterio del ICEN
+propio de ENOS sobre la anomalía diaria — **no es el criterio del ICEN
 oficial**, que opera sobre medias móviles mensuales y sitúa el inicio de
 condiciones cálidas en +0.5 °C. Usamos un umbral más bajo a propósito: un
 sistema de alerta dispara antes que un índice de diagnóstico, y acepta más
@@ -86,7 +86,7 @@ anomalía de TSM en Niño 1+2) y lo contrastamos contra la serie del IGP:
 0.97 en cada tramo por separado (1982-1999, 2000-2019, 2020-2024, 2025-2026).
 
 *Nota metodológica:* el ENFEN calcula el ICEN oficial con ERSSTv5 y
-climatologías escalonadas cada cinco años; Pulso lo reconstruye con OISST
+climatologías escalonadas cada cinco años; ENOS lo reconstruye con OISST
 v2.1 y una sola climatología 1991-2020. Es una reconstrucción independiente,
 no una réplica. El sesgo entre ambas series **deriva con el tiempo y cambia de
 signo** (−0.27 en 1982-1999, +0.20 en 2025-2026), por lo que se recalcula
@@ -186,7 +186,7 @@ Ambos contradicen la hipótesis inicial del proyecto, y se reportan igual:
 
 ## Relación con ENFEN
 
-Pulso **no compite con el ENFEN ni pretende adelantarse a él.** El ENFEN opera
+ENOS **no compite con el ENFEN ni pretende adelantarse a él.** El ENFEN opera
 un sistema de alerta propio y mantiene el estado de "Alerta de El Niño
 Costero". Nuestro sistema detectó el episodio en curso el 1 de marzo de 2026,
 de forma independiente: **coincidimos con la autoridad nacional**.

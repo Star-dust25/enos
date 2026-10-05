@@ -1,6 +1,6 @@
 # core_lag.py
 # ============================================================
-# EL MOTOR DE ACOPLAMIENTO DE Pulso  (v2)
+# EL MOTOR DE ACOPLAMIENTO DE ENOS  (v2)
 #
 # Reemplaza a simular_efecto_cascada(), donde los desfases estaban
 # escritos a mano. Aqui los desfases NO se asumen: se miden.
@@ -34,7 +34,7 @@
 #    compartan una tendencia comun. Se reporta, no se interpreta como
 #    causalidad.
 #
-# 3. El vinculo que Pulso USA es el DIRECTO (mar -> bosque seco, lag de un
+# 3. El vinculo que ENOS USA es el DIRECTO (mar -> bosque seco, lag de un
 #    mes). Ese es fuerte, positivo y estable a lo largo de varios lags.
 #
 # 4. EL CONTROL FUNCIONA. Litoral -> Andes NO es significativo: el paramo

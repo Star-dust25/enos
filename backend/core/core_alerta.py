@@ -1,6 +1,6 @@
 # core_alerta.py   (v3 - MOTOR DE DOS ETAPAS)
 # ============================================================
-# EL NUCLEO DE Pulso
+# EL NUCLEO DE ENOS
 #
 #   python core_alerta.py
 #
@@ -85,7 +85,7 @@ CLIM_INICIO, CLIM_FIN = 1991, 2020
 
 # --- ETAPA 1: precursor oceanico ---
 VENTANA_PERSISTENCIA = 30      # dias de media movil
-UMBRAL_PRECURSOR = 0.4         # C - parametro operativo de Pulso sobre la
+UMBRAL_PRECURSOR = 0.4         # C - parametro operativo de ENOS sobre la
                                # anomalia DIARIA. NO es el criterio del ICEN,
                                # que opera sobre la media movil mensual.
 DIAS_CONFIRMACION = 15         # dias seguidos sobre umbral para emitir
@@ -440,7 +440,7 @@ def main():
 
     # ---------- 1. El hallazgo ----------
     print('=' * 68)
-    print('Pulso — MOTOR DE ALERTA TEMPRANA DE DOS ETAPAS')
+    print('ENOS — MOTOR DE ALERTA TEMPRANA DE DOS ETAPAS')
     print('=' * 68)
     print('\n### EL HALLAZGO: la anomalia oceanica sola NO BASTA\n')
     print(f'{"EVENTO":<22}{"pico SST":>10}{"z(MSAVI)":>10}{"DAMNIFICADOS":>14}'

@@ -16,8 +16,8 @@
 # calentamiento no mide el error del metodo: mide el retraso editorial
 # del IGP.
 #
-#   mismo mes (mayo-2026):  IGP +1.98  |  Pulso +2.17  -> dif +0.19
-#   meses distintos:        IGP +1.98  |  Pulso +2.88  -> dif +0.90
+#   mismo mes (mayo-2026):  IGP +1.98  |  ENOS +2.17  -> dif +0.19
+#   meses distintos:        IGP +1.98  |  ENOS +2.88  -> dif +0.90
 #
 # Dos tercios de la "discrepancia" eran un artefacto de la comparacion.
 # Por eso comparar_con_oficial() SOLO usa el solape real de ambas series.
@@ -47,7 +47,7 @@
 #
 #   (a) El producto de datos.
 #       ICEN oficial -> ERSST v5   (reconstruccion in-situ, desde 1854)
-#       Pulso        -> OISST v2.1 (satelital, desde 1982)
+#       ENOS        -> OISST v2.1 (satelital, desde 1982)
 #       Tienen tendencias distintas en Niño 1+2.
 #
 #   (b) La climatologia de referencia.

@@ -19,7 +19,7 @@
 #
 # No es un detalle: core_icen.py lee ESE MISMO archivo para calcular
 # "cuantos meses de retraso lleva el IGP", que es la base del argumento
-# "Pulso anticipa al dato oficial". Con una copia vieja, ese retraso sale
+# "ENOS anticipa al dato oficial". Con una copia vieja, ese retraso sale
 # inflado y la ventaja parece mayor de lo que es.
 #
 # Ahora el script avisa de la antiguedad del archivo y admite --refrescar.
@@ -219,7 +219,7 @@ def main():
 
     # --- Ultimos 18 meses, mes a mes ---
     print('\n=== ULTIMOS 18 MESES (el detalle que importa) ===')
-    print(f'{"FECHA":>8} {"Pulso":>8} {"OFICIAL":>9} {"ERROR":>8}')
+    print(f'{"FECHA":>8} {"ENOS":>8} {"OFICIAL":>9} {"ERROR":>8}')
     for _, f in df.tail(18).iterrows():
         print(f'{f["fecha"]:%Y-%m} {f["icen_pulso"]:>8.2f} '
               f'{f["icen_oficial"]:>9.2f} {f["error"]:>+8.2f}')
@@ -235,7 +235,7 @@ def main():
         ax1.plot(df['fecha'], df['icen_oficial'], lw=1.6, color='#c0392b',
                  label='ICEN oficial (IGP / ENFEN)')
         ax1.plot(df['fecha'], df['icen_pulso'], lw=1.2, color='#1f3a5f',
-                 ls='--', label='ICEN reconstruido (Pulso)')
+                 ls='--', label='ICEN reconstruido (ENOS)')
         # Umbral vigente (Nota Tecnica ENFEN 01-2024): las condiciones
         # calidas empiezan por encima de +0.5. La version anterior dibujaba
         # +0.4 —el umbral derogado de 2012— y ademas sin etiqueta, sobre un
@@ -244,7 +244,7 @@ def main():
                     label='Inicio condiciones calidas ENFEN 2024 (+0.5 °C)')
         ax1.set_ylabel('ICEN (°C)')
         ax1.set_title(
-            f'VALIDACION EXTERNA — Pulso vs ICEN oficial\n'
+            f'VALIDACION EXTERNA — ENOS vs ICEN oficial\n'
             f'r = {r:.3f}  |  RMSE = {rmse:.2f} °C  |  n = {len(df)} meses\n'
             f'Sesgo global {sesgo:+.2f} °C (promedia decadas de signo '
             f'opuesto)  |  ultimos {ANIOS_VENTANA_RECIENTE} años '

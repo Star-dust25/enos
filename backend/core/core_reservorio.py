@@ -45,7 +45,7 @@
 #
 # ESTE MODULO SE MANTIENE para poder REPORTAR ese resultado nulo con
 # evidencia. Un hallazgo nulo publicado vale mas que uno omitido. Pero la
-# Etapa 2 de Pulso NO depende de el: usa el vinculo directo mar -> bosque
+# Etapa 2 de ENOS NO depende de el: usa el vinculo directo mar -> bosque
 # seco, que si se sostiene.
 #
 # ------------------------------------------------------------

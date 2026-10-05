@@ -53,7 +53,7 @@
         <div class="flex-shrink-0 flex items-center gap-2">
           <span
             class="font-slab font-bold text-5xl tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-slate-800 to-slate-600 dark:from-white dark:via-slate-200 dark:to-slate-400"
-            >Pulso</span
+            >ENOS</span
           >
         </div>
 
@@ -183,7 +183,7 @@
         <div class="max-w-md">
           <span
             class="font-slab font-bold text-3xl tracking-tight text-slate-800 dark:text-slate-200"
-            >Pulso</span
+            >ENOS</span
           >
           <p
             class="text-[14px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed font-light"

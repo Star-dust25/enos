@@ -34,7 +34,7 @@
 </script>
 
 <svelte:head>
-  <title>Pulso</title>
+  <title>ENOS</title>
 </svelte:head>
 
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -121,7 +121,7 @@
       subtitulo="Evaluación del precursor térmico oceánico y confirmación posterior en el bosque seco."
       tooltip={[
         "Fuentes: NOAA OISST v2.1 (Mar) y LANDSAT 8 C2 L2 (Bosque Seco).",
-        "El umbral de la Etapa 1 opera sobre la anomalía diaria y es un parámetro operativo de Pulso.",
+        "El umbral de la Etapa 1 opera sobre la anomalía diaria y es un parámetro operativo de ENOS.",
         "No es el criterio mensual del ICEN oficial."
       ]}
     >
@@ -203,7 +203,7 @@
         titulo="Evolución Diaria del Precursor"
         subtitulo="Tendencia térmica en la región Niño 1+2 durante los últimos meses."
         tooltip={[
-          `La línea punteada naranja representa el umbral operativo de Pulso (+${data.umbral_precursor} °C sobre la anomalía diaria).`
+          `La línea punteada naranja representa el umbral operativo de ENOS (+${data.umbral_precursor} °C sobre la anomalía diaria).`
         ]}
       >
         <div class="pt-2">
