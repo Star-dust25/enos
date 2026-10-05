@@ -59,68 +59,88 @@
   );
 </script>
 
-<div class="flex flex-col flex-1 w-full bg-white dark:bg-[#1C1C1E] p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200/60 dark:border-white/5 h-full">
-  <!-- Header -->
-  <div class="flex justify-between items-end mb-6">
-    <div>
-      <h3 class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1">
-        {titulo}
-      </h3>
-      <div class="text-5xl font-semibold tracking-tight {colorText}">
+<style>
+  @keyframes wave {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-wave-slow {
+    animation: wave 6s linear infinite;
+  }
+  .animate-wave-fast {
+    animation: wave 3s linear infinite;
+  }
+</style>
+
+<div class="flex flex-col flex-1 w-full bg-white dark:bg-[#1C1C1E] p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200/60 dark:border-white/5 h-full relative overflow-hidden group">
+  
+  <!-- Subtle animated ambient glow behind the card -->
+  <div class="absolute -top-10 -right-10 w-48 h-48 rounded-full blur-3xl opacity-0 transition-opacity duration-1000 group-hover:opacity-20 pointer-events-none {colorFill}"></div>
+
+  <div class="flex justify-between items-center mb-6">
+     <h3 class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest">{titulo}</h3>
+     <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase {activeBadge}">
+        {estadoTexto}
+     </span>
+  </div>
+
+  <div class="flex flex-col sm:flex-row items-center gap-8 mt-2 flex-1">
+    
+    <!-- Typography Left -->
+    <div class="flex-1 flex flex-col justify-center gap-1 min-w-0 w-full">
+      <div class="text-6xl sm:text-7xl font-semibold tracking-tighter {colorText} drop-shadow-sm truncate">
         {valorTexto}
       </div>
+      
+      <div class="flex flex-col gap-2 mt-4 border-t border-slate-100 dark:border-white/5 pt-4">
+        <div class="flex justify-between items-center">
+           <span class="text-[12px] text-slate-500 dark:text-slate-400 font-medium uppercase">Criterio</span>
+           <span class="text-[13px] font-semibold text-slate-900 dark:text-white text-right max-w-[60%] leading-tight">{umbralTexto}</span>
+        </div>
+        <div class="flex justify-between items-center">
+           <span class="text-[12px] text-slate-500 dark:text-slate-400 font-medium uppercase">Medición</span>
+           <span class="text-[13px] font-semibold text-slate-900 dark:text-white">{fechaTexto}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Organic Fluid Sphere Right -->
+    <div class="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full border-[8px] border-[#F5F5F7] dark:border-[#2C2C2E] shadow-[inset_0_4px_12px_rgba(0,0,0,0.15)] overflow-hidden shrink-0 group-hover:scale-105 transition-transform duration-700 ease-out bg-white dark:bg-[#151515]">
+       
+       <!-- Umbral Line (Fixed) -->
+       <div class="absolute w-full h-[2px] bg-slate-800/20 dark:bg-white/40 z-20 transition-all shadow-sm" style="bottom: {umbralPercentage}%;">
+          <div class="absolute right-2 -top-4 text-[9px] font-extrabold text-slate-800 dark:text-white drop-shadow-md">UMBRAL</div>
+       </div>
+
+       <!-- The Fluid Container (Rises with percentage) -->
+       <div class="absolute bottom-0 w-full transition-all duration-1500 ease-out z-10 flex flex-col items-center justify-start" style="height: {percentage}%;">
+          
+          <!-- Wave 1 (Back, lighter, offset) -->
+          <div class="absolute top-[-14px] left-0 w-[200%] h-[15px] animate-wave-slow {theme === 'red' ? 'text-red-300 dark:text-red-700' : 'text-emerald-300 dark:text-emerald-700'} opacity-70">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-full fill-current">
+              <!-- Symmetrical wave path -->
+              <path d="M0,50 C150,100 450,0 600,50 C750,100 1050,0 1200,50 L1200,120 L0,120 Z"></path>
+            </svg>
+          </div>
+
+          <!-- Wave 2 (Front, dynamic) -->
+          <div class="absolute top-[-14px] left-0 w-[200%] h-[15px] animate-wave-fast {colorText}">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-full fill-current">
+              <!-- Inverse symmetrical wave path for chaotic water feel -->
+              <path d="M0,50 C200,0 400,100 600,50 C800,0 1000,100 1200,50 L1200,120 L0,120 Z"></path>
+            </svg>
+          </div>
+          
+          <!-- Solid Liquid Base -->
+          <div class="flex-1 w-full {colorFill}"></div>
+       </div>
     </div>
   </div>
 
-  <!-- Threshold Bar Container -->
-  <div class="relative w-full h-4 bg-[#F5F5F7] dark:bg-black rounded-full overflow-hidden my-4">
-    <!-- Progress Fill -->
-    <div
-      class="absolute top-0 left-0 h-full rounded-full transition-all duration-1000 ease-out {colorFill}"
-      style="width: {percentage}%"
-    ></div>
-
-    <!-- Threshold Marker -->
-    <div
-      class="absolute top-0 bottom-0 w-[2px] bg-slate-900 dark:bg-white z-10"
-      style="left: {umbralPercentage}%"
-    ></div>
-  </div>
-
-  <!-- Threshold Label -->
-  <div class="relative w-full h-6 text-[11px] text-slate-500 dark:text-slate-400 font-medium tracking-wide">
-    <div class="absolute -translate-x-1/2 flex flex-col items-center" style="left: {umbralPercentage}%">
-      <div class="w-px h-2 bg-slate-300 dark:bg-slate-600 mb-1"></div>
-      Umbral ({umbral > 0 ? "+" : ""}{umbral})
-    </div>
-  </div>
-
-  <!-- Subtitle / Details Card -->
-  <div class="mt-4 flex flex-col justify-center gap-4 bg-[#F5F5F7] dark:bg-black border border-slate-200/60 dark:border-white/5 p-5 rounded-2xl flex-1">
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <span class="text-[13px] text-slate-500 dark:text-slate-400 font-medium">Estado actual</span>
-      <span class="px-3 py-1 rounded-full text-[12px] font-semibold tracking-wider uppercase {activeBadge}">
-        {estadoTexto}
-      </span>
-    </div>
-
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-5 border-t border-slate-200/60 dark:border-white/5 pt-4">
-      <span class="text-[13px] text-slate-500 dark:text-slate-400 font-medium">Criterio</span>
-      <span class="text-[13px] font-semibold text-slate-900 dark:text-white text-left sm:text-right">{umbralTexto}</span>
-    </div>
-
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 border-t border-slate-200/60 dark:border-white/5 pt-4">
-      <span class="text-[13px] text-slate-500 dark:text-slate-400 font-medium">Última medición</span>
-      <span class="text-[13px] font-semibold text-slate-900 dark:text-white">{fechaTexto}</span>
-    </div>
-
-    {#if fueraDeRango}
-      <div class="h-px w-full bg-slate-200/60 dark:bg-white/5"></div>
-      <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
-        El valor queda fuera del rango representable en la barra ({minVal} a {maxVal});
-        la barra aparece {fueraPorArriba ? "completa" : "vacía"} y no refleja la
-        magnitud real.
-      </p>
-    {/if}
-  </div>
+  {#if fueraDeRango}
+    <div class="mt-6 h-px w-full bg-slate-200/60 dark:bg-white/5"></div>
+    <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-4 leading-relaxed">
+      El valor queda fuera del rango representable en la esfera ({minVal} a {maxVal}).
+    </p>
+  {/if}
 </div>
