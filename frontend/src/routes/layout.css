@@ -28,15 +28,15 @@
   color: white;
 }
 .driver-popover.driver-theme-apple .driver-popover-title {
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 .driver-popover.driver-theme-apple .driver-popover-description {
-  font-size: 14px;
+  font-size: 15px;
   color: #64748B;
-  line-height: 1.5;
-  margin-bottom: 20px;
+  line-height: 1.6;
+  margin-bottom: 24px;
 }
 .dark .driver-popover.driver-theme-apple .driver-popover-description {
   color: #94A3B8;
@@ -51,7 +51,7 @@
 }
 
 .driver-popover.driver-theme-apple .driver-popover-progress-text {
-  font-size: 13px;
+  font-size: 14px;
   color: #64748B;
   white-space: nowrap;
   margin: 0;
@@ -71,8 +71,9 @@
   background: transparent;
   text-shadow: none;
   font-weight: 600;
+  font-size: 14px;
   border-radius: 9999px;
-  padding: 6px 16px;
+  padding: 8px 20px;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
