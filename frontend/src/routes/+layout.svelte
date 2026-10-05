@@ -44,11 +44,11 @@
   <!-- Navbar Clean Minimalism -->
   <nav class="bg-white/70 dark:bg-[#1C1C1E]/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-white/5 sticky top-0 z-50 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-[64px]">
+      <div class="flex justify-between items-center h-[80px]">
         
         <!-- Logo Clean -->
         <div class="flex items-center">
-          <span class="font-bold text-xl tracking-tight text-slate-900 dark:text-white">
+          <span class="font-bold text-2xl tracking-tight text-apple-dark dark:text-white">
             ENOS
           </span>
         </div>
@@ -59,10 +59,10 @@
             {#each navItems as item}
               <a
                 href={item.path}
-                class="px-4 py-1.5 text-[13px] font-medium transition-all rounded-full
+                class="px-5 py-2 text-[14px] font-medium transition-all rounded-full
                   {$page.url.pathname === item.path
-                  ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-sm'
-                  : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10'}"
+                  ? 'bg-apple-blue text-white shadow-sm'
+                  : 'text-apple-dark/60 hover:text-apple-dark dark:text-apple-gray dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10'}"
               >
                 {item.label}
               </a>
@@ -142,10 +142,10 @@
           {#each navItems as item}
             <a
               href={item.path}
-              class="block px-6 py-3 text-sm font-medium rounded-2xl transition-all
+              class="block px-6 py-3 text-[15px] font-medium rounded-2xl transition-all
                 {$page.url.pathname === item.path
-                ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
-                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5'}"
+                ? 'bg-apple-blue text-white'
+                : 'text-apple-dark/70 dark:text-apple-gray hover:bg-slate-100 dark:hover:bg-white/5'}"
               onclick={() => (isMobileMenuOpen = false)}
             >
               {item.label}

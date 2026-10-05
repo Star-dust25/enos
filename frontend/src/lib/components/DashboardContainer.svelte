@@ -47,10 +47,10 @@
         {titulo}
       </h2>
       {#if tooltip}
-        <div class="ml-3 mt-1 sm:mt-0">
+        <div class="ml-4 mt-1 sm:mt-0">
           <button
             onclick={openModal}
-            class="w-6 h-6 rounded-full bg-apple-gray/20 text-apple-dark/60 dark:text-apple-gray flex items-center justify-center text-xs hover:bg-apple-gray/40 transition-colors focus:outline-none"
+            class="w-8 h-8 rounded-full bg-apple-blue/10 text-apple-blue dark:bg-apple-blue/20 dark:text-apple-blue flex items-center justify-center font-bold text-sm hover:bg-apple-blue/20 dark:hover:bg-apple-blue/30 transition-colors focus:outline-none"
             aria-label="Más información"
           >
             ?

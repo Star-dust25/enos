@@ -114,7 +114,7 @@
         onclick={() => (activeTab = "estado")}
         class="px-6 py-2.5 font-medium text-sm transition-all rounded-full
           {activeTab === 'estado'
-            ? 'bg-white text-apple-dark dark:bg-[#1C1C1E] dark:text-white shadow-sm'
+            ? 'bg-apple-blue text-white shadow-sm'
             : 'text-apple-dark/60 hover:text-apple-dark dark:text-apple-gray dark:hover:text-white'}"
       >
         Estado Actual
@@ -123,7 +123,7 @@
         onclick={() => (activeTab = "graficos")}
         class="px-6 py-2.5 font-medium text-sm transition-all rounded-full
           {activeTab === 'graficos'
-            ? 'bg-white text-apple-dark dark:bg-[#1C1C1E] dark:text-white shadow-sm'
+            ? 'bg-apple-blue text-white shadow-sm'
             : 'text-apple-dark/60 hover:text-apple-dark dark:text-apple-gray dark:hover:text-white'}"
       >
         Gráficos y Tendencias
