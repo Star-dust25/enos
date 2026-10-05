@@ -97,15 +97,13 @@
       <div class="flex flex-col md:flex-row justify-between gap-8 py-2">
         <!-- Threshold 1: Precursor Oceánico -->
         <!--
-          maxVal=5.0, no 4.0. En agosto de 2026 el precursor llego a +3.84 °C
-          con anomalias diarias por encima de +4.2: con el techo en 4.0 la
-          barra se satura y parece averiada justo cuando el episodio es mas
-          intenso. El rango es solo escala visual, no afecta a ningun calculo.
+          maxVal=7.0 para dar más espacio visual cuando ocurren episodios extremos.
+          El rango es solo escala visual, no afecta a ningun calculo.
         -->
         <ThresholdBar
           valor={data.precursor}
           minVal={-1.0}
-          maxVal={5.0}
+          maxVal={7.0}
           umbral={data.umbral_precursor}
           titulo="1. Precursor Oceánico"
           valorTexto="{data.precursor > 0 ? '+' : ''}{data.precursor.toFixed(

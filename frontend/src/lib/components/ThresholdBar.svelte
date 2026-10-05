@@ -87,8 +87,8 @@
   <div class="flex flex-col sm:flex-row items-center gap-8 mt-2 flex-1">
     
     <!-- Typography Left -->
-    <div class="flex-1 flex flex-col justify-center gap-1 min-w-0 w-full">
-      <div class="text-6xl sm:text-7xl font-semibold tracking-tighter {colorText} drop-shadow-sm truncate">
+    <div class="flex-1 flex flex-col justify-center gap-1 min-w-0">
+      <div class="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tighter {colorText} drop-shadow-sm whitespace-nowrap">
         {valorTexto}
       </div>
       
@@ -105,8 +105,16 @@
     </div>
 
     <!-- Organic Fluid Sphere Right -->
-    <div class="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full border-[8px] border-[#F5F5F7] dark:border-[#2C2C2E] shadow-[inset_0_4px_12px_rgba(0,0,0,0.15)] overflow-hidden shrink-0 group-hover:scale-105 transition-transform duration-700 ease-out bg-white dark:bg-[#151515]">
+    <div class="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full border-[8px] border-[#F5F5F7] dark:border-[#2C2C2E] shadow-[inset_0_4px_12px_rgba(0,0,0,0.15)] overflow-hidden shrink-0 group-hover:scale-105 transition-transform duration-700 ease-out bg-white dark:bg-[#151515]">
        
+       <!-- Scale Indicators -->
+       <div class="absolute top-1.5 left-1/2 -translate-x-1/2 text-[9px] font-bold text-slate-800 dark:text-white/80 z-30 mix-blend-overlay drop-shadow-md">
+         MÁX {maxVal}
+       </div>
+       <div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 text-[9px] font-bold text-white z-30 drop-shadow-md">
+         MÍN {minVal}
+       </div>
+
        <!-- Umbral Line (Fixed) -->
        <div class="absolute w-full h-[2px] bg-slate-800/20 dark:bg-white/40 z-20 transition-all shadow-sm" style="bottom: {umbralPercentage}%;">
           <div class="absolute right-2 -top-4 text-[9px] font-extrabold text-slate-800 dark:text-white drop-shadow-md">UMBRAL</div>
