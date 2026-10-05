@@ -15,20 +15,23 @@
   }>();
 
   let isModalOpen = $state(false);
+  let wasOpen = false;
 
   $effect(() => {
     if (typeof document !== "undefined") {
       if (isModalOpen) {
         document.body.style.overflow = "hidden";
         document.documentElement.style.overflow = "hidden";
-      } else {
+        wasOpen = true;
+      } else if (wasOpen) {
         document.body.style.overflow = "";
         document.documentElement.style.overflow = "";
+        wasOpen = false;
       }
     }
     
     return () => {
-      if (typeof document !== "undefined") {
+      if (typeof document !== "undefined" && wasOpen) {
         document.body.style.overflow = "";
         document.documentElement.style.overflow = "";
       }
