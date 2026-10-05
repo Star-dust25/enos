@@ -162,7 +162,7 @@
   </main>
 
   <!-- Footer Flat/Brutalist -->
-  <footer class="bg-white dark:bg-[#0a0a0a] border-t-4 border-slate-900 dark:border-peru-red mt-16 py-12 transition-colors duration-300">
+  <footer class="bg-white dark:bg-[#0a0a0a] border-t-4 border-slate-900 dark:border-white mt-16 py-12 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
         <div class="max-w-md">

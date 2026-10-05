@@ -143,11 +143,11 @@
         subtitulo={`Sensor: ${etiquetas[tabActiva].sensor} — Resolución: ${etiquetas[tabActiva].res}`}
       >
         <!-- Filtros integrados (Ecosistema y Periodo) Brutalista -->
-        <div class="flex flex-col md:flex-row items-center justify-between bg-white dark:bg-[#0a0a0a] border-4 border-slate-900 dark:border-peru-red p-0 mb-8 rounded-none shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(200,16,46,0.3)]">
+        <div class="flex flex-col md:flex-row items-center justify-between bg-white dark:bg-[#0a0a0a] border-4 border-slate-900 dark:border-white p-0 mb-8 rounded-none shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(255,255,255,1)]">
           <div class="flex w-full md:w-auto">
             {#each Object.keys(etiquetas) as tab}
               <button
-                class="flex-1 md:flex-none px-6 py-4 text-xs font-black uppercase tracking-widest transition-colors rounded-none border-b-4 md:border-b-0 md:border-r-4 {tabActiva === tab ? 'border-slate-900 dark:border-peru-red text-white bg-slate-900 dark:bg-peru-red' : 'border-slate-900 dark:border-peru-red text-slate-900 dark:text-peru-red hover:bg-peru-red hover:text-white dark:hover:bg-white dark:hover:text-peru-red'}"
+                class="flex-1 md:flex-none px-6 py-4 text-xs font-black uppercase tracking-widest transition-colors rounded-none border-b-4 md:border-b-0 md:border-r-4 {tabActiva === tab ? 'border-slate-900 dark:border-white text-white dark:text-slate-900 bg-slate-900 dark:bg-white' : 'border-slate-900 dark:border-white text-slate-900 dark:text-white hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900'}"
                 onclick={() => (tabActiva = tab)}
               >
                 {tab}
@@ -156,10 +156,10 @@
           </div>
           
           {#if periodosDisponibles.length > 1}
-            <div class="flex w-full md:w-auto border-t-4 md:border-t-0 md:border-l-4 border-slate-900 dark:border-peru-red">
+            <div class="flex w-full md:w-auto border-t-4 md:border-t-0 md:border-l-4 border-slate-900 dark:border-white">
               {#each periodosDisponibles as p}
                 <button
-                  class="flex-1 md:flex-none px-6 py-4 text-xs font-black uppercase tracking-widest transition-colors rounded-none md:border-l-0 {periodoActivo === p ? 'bg-slate-900 dark:bg-peru-red text-white' : 'text-slate-900 dark:text-peru-red hover:bg-peru-red hover:text-white dark:hover:bg-white dark:hover:text-peru-red'}"
+                  class="flex-1 md:flex-none px-6 py-4 text-xs font-black uppercase tracking-widest transition-colors rounded-none md:border-l-0 {periodoActivo === p ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900' : 'text-slate-900 dark:text-white hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900'}"
                   onclick={() => (periodoActivo = p)}
                 >
                   {PERIODOS[p]}
@@ -178,26 +178,26 @@
           </div>
         {:else}
           <!-- Metadata Info Brutalista -->
-          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-slate-900 dark:text-peru-red">
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-slate-900 dark:text-white">
             {#if mapaActual.generado}
-              <span>Generado: <span class="text-slate-500 dark:text-white font-mono">{mapaActual.generado}</span></span>
+              <span>Generado: <span class="text-slate-500 dark:text-slate-400 font-mono">{mapaActual.generado}</span></span>
             {/if}
             {#if mapaActual.desde && mapaActual.hasta}
-              <span class="text-slate-900 dark:text-peru-red">|</span>
-              <span>Composición: <span class="text-slate-500 dark:text-white font-mono">{mapaActual.desde} a {mapaActual.hasta}</span></span>
+              <span class="text-slate-900 dark:text-white">|</span>
+              <span>Composición: <span class="text-slate-500 dark:text-slate-400 font-mono">{mapaActual.desde} a {mapaActual.hasta}</span></span>
             {/if}
             {#if mapaActual.kpi !== null && mapaActual.kpi !== undefined}
-              <span class="text-slate-900 dark:text-peru-red">|</span>
-              <span>Media {mapaActual.banda}: <strong class="text-peru-red dark:text-blue-400 text-sm font-mono">{mapaActual.kpi}</strong>{etiquetas[tabActiva].unidad}</span>
+              <span class="text-slate-900 dark:text-white">|</span>
+              <span>Media {mapaActual.banda}: <strong class="text-slate-900 dark:text-white text-sm font-mono">{mapaActual.kpi}</strong>{etiquetas[tabActiva].unidad}</span>
             {/if}
             {#if mapaActual.error_ultimo_intento}
-              <span class="text-white bg-peru-red px-3 py-1 rounded-none border-2 border-peru-red font-bold tracking-widest">⚠️ Fallo regeneración</span>
+              <span class="text-white bg-slate-900 dark:bg-white dark:text-slate-900 px-3 py-1 rounded-none border-2 border-slate-900 dark:border-white font-bold tracking-widest">⚠️ Fallo regeneración</span>
             {/if}
           </div>
 
-          <div class="flex flex-col border-4 border-slate-900 dark:border-peru-red rounded-none bg-white dark:bg-[#0a0a0a] shadow-[12px_12px_0px_rgba(0,0,0,1)] dark:shadow-[12px_12px_0px_rgba(200,16,46,0.3)]">
+          <div class="flex flex-col border-4 border-slate-900 dark:border-white rounded-none bg-white dark:bg-[#0a0a0a] shadow-[12px_12px_0px_rgba(0,0,0,1)] dark:shadow-[12px_12px_0px_rgba(255,255,255,1)]">
             <!-- Map Container -->
-            <div class="relative w-full aspect-[26/25] bg-slate-50 dark:bg-[#111111] overflow-hidden border-b-4 border-slate-900 dark:border-peru-red">
+            <div class="relative w-full aspect-[26/25] bg-slate-50 dark:bg-[#111111] overflow-hidden border-b-4 border-slate-900 dark:border-white">
               <img
                 src={urlMapa}
                 alt="Mapa de {etiquetas[tabActiva].titulo}"
@@ -208,7 +208,7 @@
               <!-- City Overlays Brutalist -->
               {#each CIUDADES as ciudad}
                 <div class="absolute flex flex-col items-center justify-center -translate-x-1/2 -translate-y-1/2 pointer-events-none" style={getPointStyle(ciudad.lon, ciudad.lat)}>
-                  <div class="w-2 h-2 rounded-none bg-slate-900 dark:bg-white shadow-[2px_2px_0_rgba(0,0,0,1)] dark:shadow-[2px_2px_0_rgba(200,16,46,0.8)]"></div>
+                  <div class="w-2 h-2 rounded-none bg-slate-900 dark:bg-white shadow-[2px_2px_0_rgba(0,0,0,1)] dark:shadow-[2px_2px_0_rgba(255,255,255,1)]"></div>
                   <span class="mt-2 text-[10px] font-black tracking-widest text-white dark:text-slate-900 bg-slate-900 dark:bg-white px-2 py-1 rounded-none border-2 border-transparent">
                     {ciudad.nombre}
                   </span>
@@ -218,10 +218,10 @@
 
             <!-- Inline Legend Brutalist -->
             <div class="w-full flex flex-col sm:flex-row items-center justify-between p-6 gap-4">
-              <span class="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-peru-red shrink-0">Escala de Valores</span>
+              <span class="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-white shrink-0">Escala de Valores</span>
               <div class="flex-1 w-full max-w-md flex items-center">
                 <span class="text-xs font-black font-mono text-slate-900 dark:text-white mr-4">{leyendas[tabActiva].min}</span>
-                <div class="h-4 w-full rounded-none border-2 border-slate-900 dark:border-white/20 bg-gradient-to-r {leyendas[tabActiva].gradiente}"></div>
+                <div class="h-4 w-full rounded-none border-2 border-slate-900 dark:border-white bg-gradient-to-r {leyendas[tabActiva].gradiente}"></div>
                 <span class="text-xs font-black font-mono text-slate-900 dark:text-white ml-4">{leyendas[tabActiva].max}</span>
               </div>
             </div>

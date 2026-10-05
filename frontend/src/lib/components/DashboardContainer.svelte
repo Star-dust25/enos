@@ -40,11 +40,11 @@
 </script>
 
 <div
-  class="border-4 border-slate-900 dark:border-peru-red rounded-none bg-white dark:bg-[#0a0a0a] shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(200,16,46,0.3)] mb-12"
+  class="border-4 border-slate-900 dark:border-white rounded-none bg-white dark:bg-[#0a0a0a] shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(255,255,255,1)] mb-12"
 >
   <!-- Header -->
   <div
-    class="border-b-4 border-slate-900 dark:border-peru-red px-6 sm:px-10 py-6 sm:py-8 bg-slate-50 dark:bg-[#111111] rounded-none"
+    class="border-b-4 border-slate-900 dark:border-white px-6 sm:px-10 py-6 sm:py-8 bg-slate-50 dark:bg-[#111111] rounded-none"
   >
     <div class="flex items-start sm:items-center">
       <span
@@ -56,7 +56,7 @@
         <div class="ml-4 mt-2 sm:mt-0">
           <button
             onclick={openModal}
-            class="w-8 h-8 rounded-none bg-slate-900 dark:bg-peru-red border-2 border-slate-900 dark:border-peru-red text-white flex items-center justify-center font-bold text-lg hover:bg-peru-red hover:border-peru-red dark:hover:bg-white dark:hover:text-peru-red transition-colors focus:outline-none"
+            class="w-8 h-8 rounded-none bg-slate-900 dark:bg-white border-2 border-slate-900 dark:border-white text-white dark:text-slate-900 flex items-center justify-center font-bold text-lg hover:bg-slate-700 dark:hover:bg-slate-200 transition-colors focus:outline-none"
             aria-label="Más información"
           >
             ?
@@ -88,14 +88,14 @@
     oncancel={(e) => { e.preventDefault(); closeModal(); }}
   >
     <div 
-      class="bg-white dark:bg-[#0a0a0a] rounded-none w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(200,16,46,0.3)] border-4 border-slate-900 dark:border-peru-red cursor-default flex flex-col m-0"
+      class="bg-white dark:bg-[#0a0a0a] rounded-none w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(255,255,255,1)] border-4 border-slate-900 dark:border-white cursor-default flex flex-col m-0"
       onclick={(e) => e.stopPropagation()}
       role="document"
     >
-      <div class="flex justify-between items-start mb-6 border-b-4 border-slate-900 dark:border-peru-red pb-4">
+      <div class="flex justify-between items-start mb-6 border-b-4 border-slate-900 dark:border-white pb-4">
         <h3 class="font-slab font-black text-2xl uppercase tracking-widest text-slate-900 dark:text-white">Información</h3>
         <button 
-          class="text-slate-900 dark:text-peru-red hover:text-peru-red dark:hover:text-white transition-colors focus:outline-none flex-shrink-0 ml-4"
+          class="text-slate-900 dark:text-white hover:text-slate-700 dark:hover:text-slate-300 transition-colors focus:outline-none flex-shrink-0 ml-4"
           onclick={closeModal}
           aria-label="Cerrar"
         >
@@ -117,7 +117,7 @@
       </div>
       <div class="mt-10 flex justify-end">
         <button 
-          class="px-8 py-3 bg-slate-900 dark:bg-peru-red text-white border-4 border-slate-900 dark:border-peru-red rounded-none hover:bg-peru-red hover:border-peru-red dark:hover:bg-white dark:hover:text-peru-red transition-colors font-bold uppercase tracking-widest text-sm focus:outline-none"
+          class="px-8 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-4 border-slate-900 dark:border-white rounded-none hover:bg-slate-700 dark:hover:bg-slate-200 transition-colors font-bold uppercase tracking-widest text-sm focus:outline-none"
           onclick={closeModal}
         >
           Cerrar

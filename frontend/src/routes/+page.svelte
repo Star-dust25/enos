@@ -109,13 +109,13 @@
     </div>
 
     <!-- Navegación por pestañas (Segmentación) -->
-    <div class="flex flex-wrap gap-2 mb-8 border-b-4 border-slate-900 dark:border-peru-red pb-4">
+    <div class="flex flex-wrap gap-2 mb-8 border-b-4 border-slate-900 dark:border-white pb-4">
       <button
         onclick={() => (activeTab = "estado")}
         class="px-6 py-3 font-bold uppercase tracking-widest text-sm transition-all border-2
           {activeTab === 'estado'
-            ? 'bg-slate-900 text-white border-slate-900 dark:bg-peru-red dark:border-peru-red'
-            : 'bg-white text-slate-900 border-slate-900 hover:bg-slate-100 dark:bg-[#0a0a0a] dark:text-white dark:border-slate-700 dark:hover:border-peru-red'}"
+            ? 'bg-slate-900 text-white border-slate-900 dark:bg-white dark:text-slate-900 dark:border-white'
+            : 'bg-white text-slate-900 border-slate-900 hover:bg-slate-100 dark:bg-[#0a0a0a] dark:text-white dark:border-slate-700 dark:hover:border-white'}"
       >
         Estado Actual
       </button>
@@ -123,8 +123,8 @@
         onclick={() => (activeTab = "graficos")}
         class="px-6 py-3 font-bold uppercase tracking-widest text-sm transition-all border-2
           {activeTab === 'graficos'
-            ? 'bg-slate-900 text-white border-slate-900 dark:bg-peru-red dark:border-peru-red'
-            : 'bg-white text-slate-900 border-slate-900 hover:bg-slate-100 dark:bg-[#0a0a0a] dark:text-white dark:border-slate-700 dark:hover:border-peru-red'}"
+            ? 'bg-slate-900 text-white border-slate-900 dark:bg-white dark:text-slate-900 dark:border-white'
+            : 'bg-white text-slate-900 border-slate-900 hover:bg-slate-100 dark:bg-[#0a0a0a] dark:text-white dark:border-slate-700 dark:hover:border-white'}"
       >
         Gráficos y Tendencias
       </button>
