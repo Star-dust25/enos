@@ -40,7 +40,7 @@
   ];
 </script>
 
-<div class="min-h-screen flex flex-col bg-[#F4F4F4] dark:bg-[#0a0a0a] font-sans selection:bg-peru-red selection:text-white overflow-x-hidden transition-colors duration-300">
+<div class="min-h-screen flex flex-col bg-[#F4F4F4] dark:bg-[#0a0a0a] font-sans selection:bg-peru-red selection:text-white transition-colors duration-300">
   <!-- Navbar Flat/Brutalist -->
   <nav class="bg-white dark:bg-[#0a0a0a] border-b-4 border-slate-900 dark:border-peru-red sticky top-0 z-50 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

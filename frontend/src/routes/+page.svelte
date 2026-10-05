@@ -6,6 +6,7 @@
   import EvolutionChart from "$lib/components/EvolutionChart.svelte";
   import MsaviBarChart from "$lib/components/MsaviBarChart.svelte";
   import UpdateModal from "$lib/components/UpdateModal.svelte";
+  import { fade } from "svelte/transition";
 
   let data: any = $state(null);
   let loading = $state(true);
@@ -192,7 +193,7 @@
     {/if}
 
     {#if activeTab === "graficos"}
-      <div class="space-y-8 animate-in fade-in duration-300">
+      <div class="space-y-8" in:fade={{ duration: 300 }}>
         {#if data.msavi_mensual && data.msavi_mensual.length > 0}
       <!-- Dashboard Content: serie mensual de z(MSAVI), version "en vivo" del
            panel Etapa 2 que ya existe en el backtest historico. Va justo
