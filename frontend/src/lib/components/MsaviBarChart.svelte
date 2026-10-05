@@ -193,11 +193,11 @@
 </script>
 
 <div class="flex flex-col gap-6 bg-white dark:bg-[#1C1C1E] p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200/60 dark:border-white/5">
-  <div class="w-full h-72 relative">
+  <div id="msavi-chart-canvas" class="w-full h-72 relative">
     <canvas bind:this={canvasRef}></canvas>
   </div>
 
-  <div
+  <div id="msavi-chart-legend"
     class="flex items-start gap-4 text-base text-slate-700 dark:text-slate-300 bg-[#F5F5F7] dark:bg-black border border-slate-200/60 dark:border-white/5 rounded-2xl p-6"
   >
     <div class="w-2 h-2 rounded-full bg-apple-blue mt-2 shrink-0"></div>

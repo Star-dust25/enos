@@ -160,9 +160,9 @@
       <DashboardContainer
         titulo="Confirmación Territorial — Serie Mensual"
         subtitulo="Anomalía z(MSAVI) del bosque seco, últimos meses. El mismo indicador que confirmó el desastre de 2017."
-        tooltip={[
-          "Cada barra es el compuesto satelital mensual (Landsat 8) del bosque seco.",
-          `La línea roja punteada es el umbral de confirmación (+${data.umbral_msavi}).`
+        tourSteps={[
+          { element: '#msavi-chart-canvas', popover: { title: 'Compuestos Mensuales', description: 'Cada barra representa el nivel de verdor promedio (Landsat 8) durante ese mes entero en la región.' } },
+          { element: '#msavi-chart-legend', popover: { title: 'Línea de Confirmación', description: 'La línea roja marca el umbral operativo. Si una barra cruza esta línea, confirma el inicio del Niño Costero en tierra.' } }
         ]}
       >
         <div class="pt-2">
@@ -179,8 +179,9 @@
       <DashboardContainer
         titulo="Evolución Diaria del Precursor"
         subtitulo="Tendencia térmica en la región Niño 1+2 durante los últimos meses."
-        tooltip={[
-          `La línea punteada naranja representa el umbral operativo de ENOS (+${data.umbral_precursor} °C sobre la anomalía diaria).`
+        tourSteps={[
+          { element: '#evo-chart-canvas', popover: { title: 'Temperaturas en Vivo', description: 'Visualiza la evolución de la anomalía diaria (línea violeta) frente a la tendencia de 30 días (línea azul).' } },
+          { element: '#evo-chart-legend', popover: { title: 'Umbrales Críticos', description: 'Las líneas naranja y roja indican los puntos de alerta temprana y riesgo inminente respectivamente.' } }
         ]}
       >
         <div class="pt-2">
