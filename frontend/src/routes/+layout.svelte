@@ -40,11 +40,10 @@
   ];
 </script>
 
-<div class="min-h-screen flex flex-col bg-[#F5F5F7] dark:bg-black font-sans selection:bg-blue-500 selection:text-white transition-colors duration-300">
-  <!-- Navbar Clean Minimalism -->
-  <nav class="bg-white/70 dark:bg-[#1C1C1E]/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-white/5 sticky top-0 z-50 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-[80px]">
+<div class="min-h-screen flex flex-col bg-[#F5F5F7] dark:bg-black font-sans selection:bg-blue-500 selection:text-white transition-colors duration-300">  <!-- Navbar Floating Pill -->
+  <nav class="sticky top-4 z-50 mx-4 sm:mx-auto max-w-5xl transition-all duration-300">
+    <div class="bg-white/75 dark:bg-[#1C1C1E]/85 backdrop-blur-xl border border-slate-200/60 dark:border-white/10 rounded-full shadow-sm px-4 sm:px-8">
+      <div class="flex justify-between items-center h-16">
         
         <!-- Logo Clean -->
         <div class="flex items-center">
@@ -55,7 +54,7 @@
 
         <div class="flex items-center gap-4">
           <!-- Desktop Nav -->
-          <div class="hidden sm:flex items-center gap-1 h-full">
+          <div class="hidden md:flex items-center gap-1 h-full">
             {#each navItems as item}
               <a
                 href={item.path}
@@ -85,10 +84,10 @@
           </button>
 
           <!-- Mobile Menu Button -->
-          <div class="flex items-center sm:hidden">
+          <div class="flex items-center md:hidden">
             <button
               type="button"
-              class="inline-flex items-center justify-center p-2 rounded-md text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500 transition-colors"
+              class="inline-flex items-center justify-center p-2 rounded-full text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-white/10 focus:outline-none transition-colors"
               onclick={() => (isMobileMenuOpen = !isMobileMenuOpen)}
               aria-expanded={isMobileMenuOpen}
             >
@@ -135,14 +134,14 @@
     <!-- Mobile Menu Panel -->
     {#if isMobileMenuOpen}
       <div
-        class="sm:hidden border-b border-slate-200/50 dark:border-white/5 bg-white/90 dark:bg-[#1C1C1E]/95 backdrop-blur-xl absolute w-full z-40 shadow-sm"
+        class="md:hidden mt-2 bg-white/95 dark:bg-[#1C1C1E]/95 backdrop-blur-xl rounded-3xl border border-slate-200/60 dark:border-white/10 shadow-lg overflow-hidden"
         transition:fly={{ y: -10, duration: 150 }}
       >
-        <div class="px-4 py-4 flex flex-col gap-1">
+        <div class="px-3 py-4 flex flex-col gap-1">
           {#each navItems as item}
             <a
               href={item.path}
-              class="block px-6 py-3 text-[15px] font-medium rounded-2xl transition-all
+              class="block px-5 py-3 text-[15px] font-medium rounded-2xl transition-all
                 {$page.url.pathname === item.path
                 ? 'bg-[#007AFF] text-white'
                 : 'text-[#1D1D1F]/70 dark:text-[#AAAAAA] hover:bg-slate-100 dark:hover:bg-white/5'}"
