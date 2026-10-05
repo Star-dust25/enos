@@ -40,13 +40,15 @@
   ];
 </script>
 
-<div class="min-h-screen flex flex-col bg-[#F5F5F7] dark:bg-black font-sans selection:bg-blue-500 selection:text-white transition-colors duration-300">  <!-- Navbar Floating Pill -->
-  <nav class="sticky top-4 z-50 mx-4 sm:mx-auto max-w-5xl transition-all duration-300">
-    <div class="bg-white/75 dark:bg-[#1C1C1E]/85 backdrop-blur-xl border border-slate-200/60 dark:border-white/10 rounded-full shadow-sm px-4 sm:px-8">
-      <div class="flex justify-between items-center h-16">
+<div class="min-h-screen flex flex-col bg-[#F5F5F7] dark:bg-black font-sans selection:bg-blue-500 selection:text-white transition-colors duration-300">
+  
+  <!-- Navbar Floating Pill -->
+  <nav class="sticky top-4 z-50 mx-4 lg:mx-auto w-full max-w-5xl transition-all duration-300">
+    <div class="bg-white/75 dark:bg-[#1C1C1E]/85 backdrop-blur-xl border border-slate-200/60 dark:border-white/10 rounded-full shadow-sm px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16 gap-6">
         
         <!-- Logo Clean -->
-        <div class="flex items-center">
+        <div class="flex items-center shrink-0">
           <span class="font-bold text-2xl tracking-tight text-[#1D1D1F] dark:text-white">
             ENOS
           </span>
@@ -54,11 +56,11 @@
 
         <div class="flex items-center gap-4">
           <!-- Desktop Nav -->
-          <div class="hidden md:flex items-center gap-1 h-full">
+          <div class="hidden lg:flex items-center gap-1 h-full">
             {#each navItems as item}
               <a
                 href={item.path}
-                class="px-5 py-2 text-[14px] font-medium transition-all rounded-full
+                class="px-4 py-2 text-[14px] font-medium transition-all rounded-full
                   {$page.url.pathname === item.path
                   ? 'bg-[#007AFF] text-white shadow-sm'
                   : 'text-[#1D1D1F]/60 hover:text-[#1D1D1F] dark:text-[#AAAAAA] dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10'}"
@@ -71,7 +73,7 @@
           <!-- Dark Mode Toggle -->
           <button
             onclick={toggleDarkMode}
-            class="p-2 rounded-full text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-all focus:outline-none"
+            class="p-2 rounded-full shrink-0 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-all focus:outline-none"
             aria-label="Toggle dark mode"
           >
             {#if isDarkMode}
@@ -84,7 +86,7 @@
           </button>
 
           <!-- Mobile Menu Button -->
-          <div class="flex items-center md:hidden">
+          <div class="flex items-center lg:hidden">
             <button
               type="button"
               class="inline-flex items-center justify-center p-2 rounded-full text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-white/10 focus:outline-none transition-colors"
@@ -134,7 +136,7 @@
     <!-- Mobile Menu Panel -->
     {#if isMobileMenuOpen}
       <div
-        class="md:hidden mt-2 bg-white/95 dark:bg-[#1C1C1E]/95 backdrop-blur-xl rounded-3xl border border-slate-200/60 dark:border-white/10 shadow-lg overflow-hidden"
+        class="lg:hidden mt-2 bg-white/95 dark:bg-[#1C1C1E]/95 backdrop-blur-xl rounded-3xl border border-slate-200/60 dark:border-white/10 shadow-lg overflow-hidden"
         transition:fly={{ y: -10, duration: 150 }}
       >
         <div class="px-3 py-4 flex flex-col gap-1">
