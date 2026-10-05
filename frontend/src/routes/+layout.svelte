@@ -41,28 +41,28 @@
 </script>
 
 <div class="min-h-screen flex flex-col bg-[#F4F4F4] dark:bg-[#0a0a0a] font-sans selection:bg-peru-red selection:text-white transition-colors duration-300">
-  <!-- Navbar Flat/Brutalist -->
-  <nav class="bg-white dark:bg-[#0a0a0a] border-b-4 border-slate-900 dark:border-peru-red sticky top-0 z-50 transition-colors duration-300">
+  <!-- Navbar Glassmorphism -->
+  <nav class="bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border-b border-white/40 dark:border-white/10 shadow-sm sticky top-0 z-50 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-[72px]">
+      <div class="flex justify-between items-center h-[72px]">
         
-        <!-- Logo Bloque Sólido -->
+        <!-- Logo Glass/Gradient -->
         <div class="flex items-center">
-          <div class="bg-peru-red text-white px-5 py-2 font-slab font-black text-3xl tracking-tighter uppercase border-2 border-transparent dark:border-peru-red/50">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-peru-red to-rose-500 font-slab font-black text-3xl tracking-tighter uppercase drop-shadow-sm">
             ENOS
-          </div>
+          </span>
         </div>
 
         <div class="flex items-center gap-4">
-          <!-- Desktop Nav -->
-          <div class="hidden sm:flex h-full">
+          <!-- Desktop Nav (Pills) -->
+          <div class="hidden sm:flex items-center gap-2 h-full">
             {#each navItems as item}
               <a
                 href={item.path}
-                class="flex items-center px-6 h-full text-[13px] font-bold uppercase tracking-[0.15em] transition-all border-l-2 border-transparent
+                class="px-5 py-2 text-[12px] font-bold uppercase tracking-[0.1em] transition-all rounded-full
                   {$page.url.pathname === item.path
-                  ? 'bg-slate-900 text-white dark:bg-peru-red dark:text-white'
-                  : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#151515] hover:text-peru-red dark:hover:text-peru-red'}"
+                  ? 'bg-peru-red text-white shadow-[0_4px_10px_rgba(200,16,46,0.3)]'
+                  : 'text-slate-600 dark:text-slate-300 hover:bg-slate-200/50 dark:hover:bg-white/10 hover:text-peru-red dark:hover:text-white'}"
               >
                 {item.label}
               </a>
@@ -72,7 +72,7 @@
           <!-- Dark Mode Toggle -->
           <button
             onclick={toggleDarkMode}
-            class="p-3 bg-slate-100 dark:bg-[#151515] text-slate-900 dark:text-white hover:bg-peru-red hover:text-white dark:hover:bg-peru-red transition-colors focus:outline-none focus:ring-2 focus:ring-peru-red"
+            class="p-2.5 rounded-full bg-white/60 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 hover:shadow-md transition-all focus:outline-none"
             aria-label="Toggle dark mode"
           >
             {#if isDarkMode}
@@ -132,20 +132,20 @@
       </div>
     </div>
 
-    <!-- Mobile Menu Panel -->
+    <!-- Mobile Menu Panel Glassmorphism -->
     {#if isMobileMenuOpen}
       <div
-        class="sm:hidden border-b-4 border-slate-900 dark:border-peru-red bg-white dark:bg-[#0a0a0a] absolute w-full z-40"
+        class="sm:hidden border-b border-white/20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl absolute w-full z-40 shadow-lg"
         transition:fly={{ y: -10, duration: 150 }}
       >
-        <div class="px-0 py-0 flex flex-col">
+        <div class="px-4 py-4 flex flex-col gap-2">
           {#each navItems as item}
             <a
               href={item.path}
-              class="block px-6 py-4 text-base font-bold uppercase tracking-widest border-b border-slate-100 dark:border-white/5
+              class="block px-6 py-4 text-sm font-bold uppercase tracking-widest rounded-xl transition-all
                 {$page.url.pathname === item.path
-                ? 'bg-peru-red text-white'
-                : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#151515]'}"
+                ? 'bg-peru-red/10 text-peru-red dark:bg-peru-red/20 dark:text-red-400'
+                : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100/50 dark:hover:bg-white/5'}"
               onclick={() => (isMobileMenuOpen = false)}
             >
               {item.label}
