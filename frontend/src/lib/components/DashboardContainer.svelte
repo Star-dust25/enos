@@ -14,29 +14,29 @@
     children?: Snippet;
   }>();
 
-  let isModalOpen = $state(false);
-  let wasOpen = false;
+  let dialogEl: HTMLDialogElement;
 
-  $effect(() => {
+  function openModal() {
+    if (dialogEl) dialogEl.showModal();
     if (typeof document !== "undefined") {
-      if (isModalOpen) {
-        document.body.style.overflow = "hidden";
-        document.documentElement.style.overflow = "hidden";
-        wasOpen = true;
-      } else if (wasOpen) {
-        document.body.style.overflow = "";
-        document.documentElement.style.overflow = "";
-        wasOpen = false;
-      }
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     }
-    
-    return () => {
-      if (typeof document !== "undefined" && wasOpen) {
-        document.body.style.overflow = "";
-        document.documentElement.style.overflow = "";
-      }
-    };
-  });
+  }
+
+  function closeModal() {
+    if (dialogEl) dialogEl.close();
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
+  }
+
+  function handleBackdropClick(e: MouseEvent) {
+    if (e.target === dialogEl) {
+      closeModal();
+    }
+  }
 </script>
 
 <div
@@ -55,7 +55,7 @@
       {#if tooltip}
         <div class="ml-4 mt-2 sm:mt-0">
           <button
-            onclick={() => isModalOpen = true}
+            onclick={openModal}
             class="w-8 h-8 rounded-none bg-slate-900 dark:bg-peru-red border-2 border-slate-900 dark:border-peru-red text-white flex items-center justify-center font-bold text-lg hover:bg-peru-red hover:border-peru-red dark:hover:bg-white dark:hover:text-peru-red transition-colors focus:outline-none"
             aria-label="Más información"
           >
@@ -81,27 +81,22 @@
   </div>
 </div>
 
-{#if isModalOpen}
-  <div 
-    class="fixed inset-0 bg-slate-900/50 dark:bg-[#000000]/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm dark:backdrop-blur-none"
-    transition:fade={{ duration: 150 }}
-    onclick={() => isModalOpen = false}
-    role="button"
-    tabindex="0"
-    onkeydown={(e) => e.key === 'Escape' && (isModalOpen = false)}
+  <dialog
+    bind:this={dialogEl}
+    class="backdrop:bg-slate-900/50 dark:backdrop:bg-[#000000]/80 backdrop:backdrop-blur-sm dark:backdrop:backdrop-blur-none bg-transparent p-4 sm:p-6 m-auto rounded-none overflow-visible max-w-lg w-full"
+    onclick={handleBackdropClick}
+    oncancel={(e) => { e.preventDefault(); closeModal(); }}
   >
     <div 
-      class="bg-white dark:bg-[#0a0a0a] rounded-none max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(200,16,46,0.3)] border-4 border-slate-900 dark:border-peru-red cursor-default flex flex-col"
-      transition:fly={{ y: 20, duration: 200 }}
+      class="bg-white dark:bg-[#0a0a0a] rounded-none w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(200,16,46,0.3)] border-4 border-slate-900 dark:border-peru-red cursor-default flex flex-col m-0"
       onclick={(e) => e.stopPropagation()}
-      role="dialog"
-      aria-modal="true"
+      role="document"
     >
       <div class="flex justify-between items-start mb-6 border-b-4 border-slate-900 dark:border-peru-red pb-4">
         <h3 class="font-slab font-black text-2xl uppercase tracking-widest text-slate-900 dark:text-white">Información</h3>
         <button 
           class="text-slate-900 dark:text-peru-red hover:text-peru-red dark:hover:text-white transition-colors focus:outline-none flex-shrink-0 ml-4"
-          onclick={() => isModalOpen = false}
+          onclick={closeModal}
           aria-label="Cerrar"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-8 h-8">
@@ -123,11 +118,10 @@
       <div class="mt-10 flex justify-end">
         <button 
           class="px-8 py-3 bg-slate-900 dark:bg-peru-red text-white border-4 border-slate-900 dark:border-peru-red rounded-none hover:bg-peru-red hover:border-peru-red dark:hover:bg-white dark:hover:text-peru-red transition-colors font-bold uppercase tracking-widest text-sm focus:outline-none"
-          onclick={() => isModalOpen = false}
+          onclick={closeModal}
         >
           Cerrar
         </button>
       </div>
     </div>
-  </div>
-{/if}
+  </dialog>

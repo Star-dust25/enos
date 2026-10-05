@@ -1,48 +1,45 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
 
-  let showModal = $state(false);
+  let dialogEl: HTMLDialogElement;
 
   onMount(() => {
     // Verificamos si ya ha visto el modal
     const hasSeen = localStorage.getItem("seenLiveUpdateModal");
-    if (!hasSeen) {
-      showModal = true;
+    if (!hasSeen && dialogEl) {
+      dialogEl.showModal();
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     }
-  });
-
-  let wasOpen = false;
-  $effect(() => {
-    if (typeof document !== "undefined") {
-      if (showModal) {
-        document.body.style.overflow = "hidden";
-        document.documentElement.style.overflow = "hidden";
-        wasOpen = true;
-      } else if (wasOpen) {
-        document.body.style.overflow = "";
-        document.documentElement.style.overflow = "";
-        wasOpen = false;
-      }
-    }
-    return () => {
-      if (typeof document !== "undefined" && wasOpen) {
-        document.body.style.overflow = "";
-        document.documentElement.style.overflow = "";
-      }
-    };
   });
 
   function closeModal() {
     // Lo guardamos en el navegador para que no vuelva a salir
     localStorage.setItem("seenLiveUpdateModal", "true");
-    showModal = false;
+    if (dialogEl) dialogEl.close();
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+  }
+
+  function handleBackdropClick(e: MouseEvent) {
+    if (e.target === dialogEl) {
+      closeModal();
+    }
   }
 </script>
 
-{#if showModal}
-  <div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-white/90 dark:bg-[#000000]/95 backdrop-blur-sm">
+  <dialog
+    bind:this={dialogEl}
+    class="backdrop:bg-white/90 dark:backdrop:bg-[#000000]/95 backdrop:backdrop-blur-sm bg-transparent p-4 sm:p-6 m-auto rounded-none overflow-visible max-w-lg w-full"
+    onclick={handleBackdropClick}
+    oncancel={(e) => { e.preventDefault(); closeModal(); }}
+  >
     <!-- Contenedor Brutalista -->
-    <div class="bg-white dark:bg-[#0a0a0a] border-4 border-slate-900 dark:border-peru-red p-6 sm:p-10 max-w-lg w-full max-h-[95vh] overflow-y-auto shadow-[12px_12px_0px_rgba(0,0,0,1)] dark:shadow-[12px_12px_0px_rgba(200,16,46,0.3)] relative rounded-none flex flex-col">
+    <div 
+      class="bg-white dark:bg-[#0a0a0a] border-4 border-slate-900 dark:border-peru-red p-6 sm:p-10 w-full max-h-[90vh] overflow-y-auto shadow-[12px_12px_0px_rgba(0,0,0,1)] dark:shadow-[12px_12px_0px_rgba(200,16,46,0.3)] flex flex-col m-0"
+      onclick={(e) => e.stopPropagation()}
+      role="document"
+    >
       
       <!-- Label -->
       <div class="inline-block self-start bg-slate-900 dark:bg-peru-red text-white px-4 py-2 mb-6 border-2 border-slate-900 dark:border-peru-red">
@@ -84,5 +81,4 @@
         </button>
       </div>
     </div>
-  </div>
-{/if}
+  </dialog>
