@@ -40,116 +40,82 @@
 
   let colorFill = $derived(
     theme === "red"
-      ? "bg-peru-red dark:bg-peru-red"
-      : "bg-emerald-500 dark:bg-emerald-500"
+      ? "bg-red-500"
+      : "bg-emerald-500"
   );
   
   let colorText = $derived(
     theme === "red"
-      ? "text-peru-red dark:text-peru-red"
-      : "text-emerald-500 dark:text-emerald-500"
+      ? "text-red-500"
+      : "text-emerald-500"
   );
 
   let activeBadge = $derived(
     estadoActivo
       ? theme === "red"
-        ? "bg-peru-red text-white border-2 border-peru-red"
-        : "bg-emerald-500 text-white border-2 border-emerald-500"
-      : "bg-white dark:bg-[#111111] text-slate-500 dark:text-slate-400 border-2 border-slate-900 dark:border-white/50"
-  );
-
-  let borderTheme = $derived(
-    theme === "red" ? "border-l-peru-red" : "border-l-emerald-500"
+        ? "bg-red-50 text-red-600 dark:bg-red-500/10 dark:text-red-400"
+        : "bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400"
+      : "bg-slate-50 dark:bg-white/5 text-slate-500 dark:text-slate-400"
   );
 </script>
 
-<div class="flex flex-col flex-1 w-full p-2">
+<div class="flex flex-col flex-1 w-full bg-white dark:bg-[#1C1C1E] p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200/60 dark:border-white/5 h-full">
   <!-- Header -->
   <div class="flex justify-between items-end mb-6">
     <div>
-      <h3
-        class="text-sm font-black text-slate-900 dark:text-slate-100 uppercase tracking-[0.15em] mb-1"
-      >
+      <h3 class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1">
         {titulo}
       </h3>
-      <!-- The value itself in Oswald -->
-      <div
-        class="text-5xl sm:text-6xl font-oswald font-bold tracking-tight {colorText}"
-      >
+      <div class="text-5xl font-semibold tracking-tight {colorText}">
         {valorTexto}
       </div>
     </div>
   </div>
 
-  <!-- Threshold Bar Container Brutalist -->
-  <div
-    class="relative w-full h-8 bg-slate-100 dark:bg-[#151515] rounded-none overflow-hidden my-4 border-2 border-slate-900 dark:border-white/20"
-  >
+  <!-- Threshold Bar Container -->
+  <div class="relative w-full h-4 bg-[#F5F5F7] dark:bg-black rounded-full overflow-hidden my-4">
     <!-- Progress Fill -->
     <div
-      class="absolute top-0 left-0 h-full rounded-none transition-all duration-1000 ease-out {colorFill} border-r-2 border-slate-900 dark:border-white/20"
+      class="absolute top-0 left-0 h-full rounded-full transition-all duration-1000 ease-out {colorFill}"
       style="width: {percentage}%"
     ></div>
 
     <!-- Threshold Marker -->
     <div
-      class="absolute top-0 bottom-0 w-[4px] bg-slate-900 dark:bg-white z-10"
+      class="absolute top-0 bottom-0 w-[2px] bg-slate-900 dark:bg-white z-10"
       style="left: {umbralPercentage}%"
     ></div>
   </div>
 
   <!-- Threshold Label -->
-  <div
-    class="relative w-full h-8 text-[11px] text-slate-500 dark:text-slate-400 font-bold tracking-widest uppercase"
-  >
-    <div
-      class="absolute -translate-x-1/2 mt-1 flex flex-col items-center"
-      style="left: {umbralPercentage}%"
-    >
-      <div class="w-px h-2 bg-slate-400 dark:bg-slate-500 mb-1"></div>
+  <div class="relative w-full h-6 text-[11px] text-slate-500 dark:text-slate-400 font-medium tracking-wide">
+    <div class="absolute -translate-x-1/2 flex flex-col items-center" style="left: {umbralPercentage}%">
+      <div class="w-px h-2 bg-slate-300 dark:bg-slate-600 mb-1"></div>
       Umbral ({umbral > 0 ? "+" : ""}{umbral})
     </div>
   </div>
 
-  <!-- Subtitle / Details Card Brutalist -->
-  <div
-    class="mt-6 flex flex-col justify-center gap-4 bg-white dark:bg-[#0a0a0a] border-4 border-slate-900 dark:border-white/10 border-l-[8px] {borderTheme} p-6 rounded-none flex-1 shadow-[4px_4px_0_rgba(0,0,0,1)] dark:shadow-none"
-  >
+  <!-- Subtitle / Details Card -->
+  <div class="mt-4 flex flex-col justify-center gap-4 bg-[#F5F5F7] dark:bg-black border border-slate-200/60 dark:border-white/5 p-5 rounded-2xl flex-1">
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <span class="text-sm text-slate-900 dark:text-slate-300 font-black uppercase tracking-wider shrink-0"
-        >Estado actual</span
-      >
-      <span
-        class="px-3 py-1 rounded-none text-xs font-bold tracking-[0.2em] uppercase {activeBadge}"
-      >
+      <span class="text-[13px] text-slate-500 dark:text-slate-400 font-medium">Estado actual</span>
+      <span class="px-3 py-1 rounded-full text-[12px] font-semibold tracking-wider uppercase {activeBadge}">
         {estadoTexto}
       </span>
     </div>
 
-    <div class="h-[2px] w-full bg-slate-900 dark:bg-white/10"></div>
-
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-5">
-      <span class="text-sm text-slate-900 dark:text-slate-300 font-black uppercase tracking-wider shrink-0"
-        >Criterio</span
-      >
-      <span class="text-sm font-bold text-slate-700 dark:text-slate-100 text-left sm:text-right font-mono"
-        >{umbralTexto}</span
-      >
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-5 border-t border-slate-200/60 dark:border-white/5 pt-4">
+      <span class="text-[13px] text-slate-500 dark:text-slate-400 font-medium">Criterio</span>
+      <span class="text-[13px] font-semibold text-slate-900 dark:text-white text-left sm:text-right">{umbralTexto}</span>
     </div>
 
-    <div class="h-[2px] w-full bg-slate-900 dark:bg-white/10"></div>
-
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4">
-      <span class="text-sm text-slate-900 dark:text-slate-300 font-black uppercase tracking-wider shrink-0"
-        >Última medición</span
-      >
-      <span class="text-sm font-bold text-slate-800 dark:text-slate-200 tracking-widest"
-        >{fechaTexto}</span
-      >
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 border-t border-slate-200/60 dark:border-white/5 pt-4">
+      <span class="text-[13px] text-slate-500 dark:text-slate-400 font-medium">Última medición</span>
+      <span class="text-[13px] font-semibold text-slate-900 dark:text-white">{fechaTexto}</span>
     </div>
 
     {#if fueraDeRango}
-      <div class="h-px w-full bg-slate-200 dark:bg-white/5"></div>
+      <div class="h-px w-full bg-slate-200/60 dark:bg-white/5"></div>
       <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
         El valor queda fuera del rango representable en la barra ({minVal} a {maxVal});
         la barra aparece {fueraPorArriba ? "completa" : "vacía"} y no refleja la

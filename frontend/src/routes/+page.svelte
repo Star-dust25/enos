@@ -109,13 +109,13 @@
     </div>
 
     <!-- Navegación por pestañas Clean Minimalism -->
-    <div class="inline-flex bg-slate-200/50 dark:bg-white/5 rounded-full p-1.5 mb-10 shadow-inner">
+    <div class="inline-flex bg-apple-gray/20 dark:bg-white/10 rounded-full p-1.5 mb-10 shadow-inner">
       <button
         onclick={() => (activeTab = "estado")}
         class="px-6 py-2.5 font-medium text-sm transition-all rounded-full
           {activeTab === 'estado'
-            ? 'bg-white text-slate-900 dark:bg-[#2C2C2E] dark:text-white shadow-sm'
-            : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'}"
+            ? 'bg-white text-apple-dark dark:bg-[#1C1C1E] dark:text-white shadow-sm'
+            : 'text-apple-dark/60 hover:text-apple-dark dark:text-apple-gray dark:hover:text-white'}"
       >
         Estado Actual
       </button>
@@ -123,8 +123,8 @@
         onclick={() => (activeTab = "graficos")}
         class="px-6 py-2.5 font-medium text-sm transition-all rounded-full
           {activeTab === 'graficos'
-            ? 'bg-white text-slate-900 dark:bg-[#2C2C2E] dark:text-white shadow-sm'
-            : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'}"
+            ? 'bg-white text-apple-dark dark:bg-[#1C1C1E] dark:text-white shadow-sm'
+            : 'text-apple-dark/60 hover:text-apple-dark dark:text-apple-gray dark:hover:text-white'}"
       >
         Gráficos y Tendencias
       </button>

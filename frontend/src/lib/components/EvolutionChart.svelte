@@ -219,14 +219,14 @@
   });
 </script>
 
-<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-6 bg-white dark:bg-[#1C1C1E] p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200/60 dark:border-white/5">
   <!-- Lectura del cursor, en su propia fila y de altura fija. Nunca se
          superpone al grafico porque no vive dentro del canvas: el globo
          flotante que traia Chart.js por defecto ya no se usa. -->
   <div
     class="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 text-sm px-1 min-h-[24px]"
   >
-    <span class="text-slate-400 font-medium">
+    <span class="text-slate-500 dark:text-slate-400 font-medium">
       {hoverInfo
         ? formatFecha(hoverInfo.fecha)
         : "Pase el cursor sobre el gráfico"}
@@ -255,26 +255,26 @@
   </div>
 
   <div
-    class="flex items-start gap-4 text-base text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-white/10 rounded-none p-6 shadow-sm dark:shadow-none"
+    class="flex items-start gap-4 text-base text-slate-700 dark:text-slate-300 bg-[#F5F5F7] dark:bg-black border border-slate-200/60 dark:border-white/5 rounded-2xl p-6"
   >
-    <div class="w-2 h-2 rounded-none bg-slate-500 mt-2 shrink-0"></div>
+    <div class="w-2 h-2 rounded-full bg-apple-blue mt-2 shrink-0"></div>
     <div class="leading-relaxed w-full">
       <strong class="font-bold text-slate-900 dark:text-slate-100 mb-2 block">¿Cómo interpretar esto?</strong>
       <p class="mb-3 text-sm">Este gráfico muestra cómo varía la temperatura del mar día a día.</p>
       <ul class="list-none space-y-2 text-sm">
-        <li class="flex items-center gap-2">
-          <span class="w-3 h-1 bg-[#a855f7] shrink-0"></span>
+        <li class="flex items-center gap-3">
+          <span class="w-3 h-1 bg-[#a855f7] rounded-full shrink-0"></span>
           <span><strong>Línea violeta:</strong> Temperatura diaria. Sube y baja constantemente.</span>
         </li>
-        <li class="flex items-center gap-2">
-          <span class="w-3 h-1 bg-[#3b82f6] shrink-0"></span>
+        <li class="flex items-center gap-3">
+          <span class="w-3 h-1 bg-[#3b82f6] rounded-full shrink-0"></span>
           <span><strong>Línea azul gruesa:</strong> Promedio de los últimos 30 días. Elimina el "ruido" y muestra la tendencia real.</span>
         </li>
-        <li class="flex items-center gap-2">
+        <li class="flex items-center gap-3">
           <span class="w-3 h-0.5 border-b-2 border-dashed border-[#f59e0b] shrink-0"></span>
           <span><strong>Línea naranja (+{umbral_precursor} °C):</strong> Si el promedio azul la cruza y se mantiene, se activa el Precursor.</span>
         </li>
-        <li class="flex items-center gap-2">
+        <li class="flex items-center gap-3">
           <span class="w-3 h-0.5 border-b-2 border-dashed border-[#ef4444] shrink-0"></span>
           <span><strong>Línea roja (+{umbral_magnitud} °C):</strong> Si el promedio la alcanza, el riesgo es lo bastante alto para esperar lluvias.</span>
         </li>

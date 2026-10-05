@@ -78,7 +78,7 @@
             label: "z(MSAVI)",
             data: valores,
             backgroundColor: colores,
-            borderRadius: 0, // Barras cuadradas, sin bordes redondeados
+            borderRadius: 4, // Barras con bordes suaves
             maxBarThickness: 28,
           },
         ],
@@ -192,29 +192,29 @@
   });
 </script>
 
-<div class="flex flex-col gap-6">
+<div class="flex flex-col gap-6 bg-white dark:bg-[#1C1C1E] p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200/60 dark:border-white/5">
   <div class="w-full h-72 relative">
     <canvas bind:this={canvasRef}></canvas>
   </div>
 
   <div
-    class="flex items-start gap-4 text-base text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-[#111111] border border-slate-200 dark:border-white/10 rounded-none p-6 shadow-sm dark:shadow-none"
+    class="flex items-start gap-4 text-base text-slate-700 dark:text-slate-300 bg-[#F5F5F7] dark:bg-black border border-slate-200/60 dark:border-white/5 rounded-2xl p-6"
   >
-    <div class="w-2 h-2 rounded-none bg-slate-500 mt-2 shrink-0"></div>
+    <div class="w-2 h-2 rounded-full bg-apple-blue mt-2 shrink-0"></div>
     <div class="leading-relaxed w-full">
       <strong class="font-bold text-slate-900 dark:text-slate-100 mb-2 block">¿Cómo interpretar esto?</strong>
       <p class="mb-3 text-sm">Cada barra refleja qué tan verde estuvo el bosque seco en el mes.</p>
       <ul class="list-none space-y-2 text-sm">
-        <li class="flex items-center gap-2">
-          <span class="w-3 h-3 rounded-none bg-[#dc2626] shrink-0"></span>
+        <li class="flex items-center gap-3">
+          <span class="w-3 h-3 rounded-md bg-[#dc2626] shrink-0"></span>
           <span><strong>Alerta:</strong> El verdor llega a la línea roja (+{umbral_msavi}), confirmando el impacto de lluvias.</span>
         </li>
-        <li class="flex items-center gap-2">
-          <span class="w-3 h-3 rounded-none bg-[#10b981] shrink-0"></span>
+        <li class="flex items-center gap-3">
+          <span class="w-3 h-3 rounded-md bg-[#10b981] shrink-0"></span>
           <span><strong>Verde:</strong> El nivel de vegetación es el normal o está por debajo del umbral de alerta.</span>
         </li>
-        <li class="flex items-center gap-2">
-          <span class="w-3 h-3 rounded-none bg-transparent border border-slate-400 shrink-0"></span>
+        <li class="flex items-center gap-3">
+          <span class="w-3 h-3 rounded-md bg-transparent border-2 border-slate-300 dark:border-slate-600 shrink-0"></span>
           <span><strong>Sin barra:</strong> El mes aún no concluye o estuvo muy nublado para el satélite.</span>
         </li>
       </ul>

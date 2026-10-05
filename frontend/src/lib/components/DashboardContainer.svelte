@@ -39,24 +39,18 @@
   }
 </script>
 
-<div
-  class="bg-white dark:bg-[#1C1C1E] rounded-3xl shadow-sm border border-slate-200/60 dark:border-white/5 mb-10 overflow-hidden"
->
-  <!-- Header -->
-  <div
-    class="px-8 pt-8 pb-6 bg-white dark:bg-[#1C1C1E]"
-  >
+<div>
+  <!-- Header Minimalista -->
+  <div class="mb-6 px-2">
     <div class="flex items-start sm:items-center">
-      <span
-        class="text-2xl font-semibold text-slate-900 dark:text-white tracking-tight mb-2 sm:mb-0"
-      >
+      <h2 class="text-2xl font-semibold text-apple-dark dark:text-white tracking-tight mb-2 sm:mb-0">
         {titulo}
-      </span>
+      </h2>
       {#if tooltip}
-        <div class="ml-4 mt-2 sm:mt-0">
+        <div class="ml-3 mt-1 sm:mt-0">
           <button
             onclick={openModal}
-            class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center justify-center text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none"
+            class="w-6 h-6 rounded-full bg-apple-gray/20 text-apple-dark/60 dark:text-apple-gray flex items-center justify-center text-xs hover:bg-apple-gray/40 transition-colors focus:outline-none"
             aria-label="Más información"
           >
             ?
@@ -65,16 +59,14 @@
       {/if}
     </div>
     {#if subtitulo}
-      <div
-        class="text-[15px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed max-w-4xl"
-      >
+      <p class="text-[15px] text-apple-gray dark:text-apple-gray mt-1 leading-relaxed max-w-4xl">
         {subtitulo}
-      </div>
+      </p>
     {/if}
   </div>
 
-  <!-- Body -->
-  <div class="px-8 pb-8 pt-2">
+  <!-- Body: Los hijos flotan libremente -->
+  <div class="w-full">
     {#if children}
       {@render children()}
     {/if}

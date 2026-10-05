@@ -75,7 +75,7 @@
       <div class="flex justify-end pt-2">
         <button
           onclick={closeModal}
-          class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors font-medium text-[14px] shadow-sm focus:outline-none"
+          class="px-6 py-2.5 bg-apple-blue hover:opacity-90 text-white rounded-full transition-opacity font-medium text-[14px] shadow-sm focus:outline-none"
         >
           Entendido
         </button>
