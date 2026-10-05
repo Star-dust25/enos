@@ -88,10 +88,12 @@
     <DashboardContainer
       titulo="Monitor de Etapas de Alerta"
       subtitulo="Evaluación del precursor térmico oceánico y confirmación posterior en el bosque seco."
-      tooltip={[
-        "Fuentes: NOAA OISST v2.1 (Mar) y LANDSAT 8 C2 L2 (Bosque Seco).",
-        "El umbral de la Etapa 1 opera sobre la anomalía diaria y es un parámetro operativo de ENOS.",
-        "No es el criterio mensual del ICEN oficial."
+      tourSteps={[
+        { element: '#precursor-valor', popover: { title: 'Precursor Oceánico', description: 'Mide la anomalía térmica diaria en la región Niño 1+2. Valores altos son el primer signo de alerta.' } },
+        { element: '#precursor-barra', popover: { title: 'Umbral Oceánico', description: 'Visualiza qué tan lejos estamos del umbral operativo que desencadena el precursor.' } },
+        { element: '#precursor-detalles', popover: { title: 'Detalles del Precursor', description: 'Muestra el estado actual y el criterio temporal requerido (ej. 15 días consecutivos).' } },
+        { element: '#msavi-valor', popover: { title: 'Confirmación Territorial', description: 'Mide la respuesta de la vegetación (bosque seco). Si el bosque responde, el impacto en tierra es real.' } },
+        { element: '#msavi-barra', popover: { title: 'Umbral Territorial', description: 'La línea blanca marca el punto donde la anomalía de vegetación es lo suficientemente crítica.' } }
       ]}
     >
       <div class="flex flex-col md:flex-row justify-between gap-8 py-2">
@@ -117,6 +119,7 @@
           fechaTexto={data.fecha_precursor}
           state={data.etapa1_activa ? "alerta" : "normal"}
           theme="red"
+          tourIdPrefix="precursor"
         />
 
         <!-- Divider -->
@@ -140,6 +143,7 @@
           fechaTexto={data.fecha_msavi}
           state={data.etapa2_activa ? "alerta" : "normal"}
           theme="green"
+          tourIdPrefix="msavi"
         />
       </div>
     </DashboardContainer>

@@ -25,6 +25,7 @@
     fechaTexto: string;
     state?: "normal" | "alerta";
     theme?: "red" | "green";
+    tourIdPrefix?: string;
   }>();
 
   // Clamp value for visual representation
@@ -64,14 +65,14 @@
       >
         {titulo}
       </h3>
-      <div class="text-5xl font-semibold tracking-tight {colorText}">
+      <div id="{tourIdPrefix ? tourIdPrefix + '-valor' : ''}" class="text-5xl font-semibold tracking-tight {colorText}">
         {valorTexto}
       </div>
     </div>
   </div>
 
   <!-- Threshold Bar Container -->
-  <div
+  <div id="{tourIdPrefix ? tourIdPrefix + '-barra' : ''}"
     class="relative w-full h-4 bg-[#F5F5F7] dark:bg-black rounded-full overflow-hidden my-4"
   >
     <!-- Progress Fill -->
@@ -101,7 +102,7 @@
   </div>
 
   <!-- Subtitle / Details Card -->
-  <div
+  <div id="{tourIdPrefix ? tourIdPrefix + '-detalles' : ''}"
     class="mt-4 flex flex-col justify-center gap-4 bg-[#F5F5F7] dark:bg-black border border-slate-200/60 dark:border-white/5 p-5 rounded-2xl flex-1"
   >
     <div
