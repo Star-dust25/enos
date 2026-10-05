@@ -9,9 +9,11 @@
  * del navegador puede leer. Todo lo que no lleve ese prefijo se queda en
  * el servidor — que es justo lo que quieres para las credenciales.
  */
-import { PUBLIC_API_URL } from '$env/static/public';
+import { env } from '$env/dynamic/public';
 
-export const API_BASE = PUBLIC_API_URL || 'http://127.0.0.1:8000';
+// En producción (Vercel), PUBLIC_API_URL puede estar vacío porque usamos rewrites.
+// En local, apuntamos al puerto 8000 por defecto.
+export const API_BASE = env.PUBLIC_API_URL !== undefined ? env.PUBLIC_API_URL : 'http://127.0.0.1:8000';
 
 /** Construye una ruta de API: api('/api/alerta/estado') */
 export const api = (ruta: string) => `${API_BASE}${ruta}`;
