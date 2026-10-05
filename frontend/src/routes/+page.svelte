@@ -93,7 +93,8 @@
         { element: '#precursor-barra', popover: { title: 'Umbral Oceánico', description: 'Visualiza qué tan lejos estamos del umbral operativo que desencadena el precursor.' } },
         { element: '#precursor-detalles', popover: { title: 'Detalles del Precursor', description: 'Muestra el estado actual y el criterio temporal requerido (ej. 15 días consecutivos).' } },
         { element: '#msavi-valor', popover: { title: 'Confirmación Territorial', description: 'Mide la respuesta de la vegetación (bosque seco). Si el bosque responde, el impacto en tierra es real.' } },
-        { element: '#msavi-barra', popover: { title: 'Umbral Territorial', description: 'La línea blanca marca el punto donde la anomalía de vegetación es lo suficientemente crítica.' } }
+        { element: '#msavi-barra', popover: { title: 'Umbral Territorial', description: 'La línea blanca marca el punto donde la anomalía de vegetación es lo suficientemente crítica.' } },
+        { element: '#msavi-detalles', popover: { title: 'Detalles de Confirmación', description: 'Indica si el evento está finalmente confirmado en territorio peruano basándose en los datos mensuales.' } }
       ]}
     >
       <div class="flex flex-col md:flex-row justify-between gap-8 py-2">
