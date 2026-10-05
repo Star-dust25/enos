@@ -18,8 +18,11 @@
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  padding: 20px;
+  padding: 24px;
   font-family: var(--font-sans);
+  min-width: 350px;
+  max-width: 90vw;
+  box-sizing: border-box;
 }
 .dark .driver-popover.driver-theme-apple {
   background: #1C1C1E;
