@@ -12,6 +12,7 @@
     fechaTexto,
     state = "normal",
     theme = "blue",
+    tourIdPrefix = "",
   } = $props<{
     valor: number;
     minVal: number;
