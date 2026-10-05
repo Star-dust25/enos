@@ -13,35 +13,35 @@
 }
 
 /* Estilos personalizados para Driver.js (Tour Guiado) */
-.driver-theme-apple .driver-popover {
+.driver-popover.driver-theme-apple {
   background: white;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.05);
   padding: 20px;
-  font-family: inherit;
+  font-family: var(--font-sans);
 }
-.dark .driver-theme-apple .driver-popover {
+.dark .driver-popover.driver-theme-apple {
   background: #1C1C1E;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: white;
 }
-.driver-theme-apple .driver-popover-title {
+.driver-popover.driver-theme-apple .driver-popover-title {
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 8px;
 }
-.driver-theme-apple .driver-popover-description {
+.driver-popover.driver-theme-apple .driver-popover-description {
   font-size: 14px;
   color: #64748B;
   line-height: 1.5;
   margin-bottom: 20px;
 }
-.dark .driver-theme-apple .driver-popover-description {
+.dark .driver-popover.driver-theme-apple .driver-popover-description {
   color: #94A3B8;
 }
-.driver-theme-apple .driver-popover-footer button {
+.driver-popover.driver-theme-apple .driver-popover-footer button {
   background: transparent;
   text-shadow: none;
   font-weight: 600;
@@ -50,19 +50,20 @@
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
+  font-family: var(--font-sans);
 }
-.driver-theme-apple .driver-popover-footer .driver-popover-next-btn {
+.driver-popover.driver-theme-apple .driver-popover-footer .driver-popover-next-btn {
   background: #007AFF;
   color: white;
 }
-.driver-theme-apple .driver-popover-footer .driver-popover-next-btn:hover {
+.driver-popover.driver-theme-apple .driver-popover-footer .driver-popover-next-btn:hover {
   background: #006ce6;
 }
-.driver-theme-apple .driver-popover-footer .driver-popover-prev-btn,
-.driver-theme-apple .driver-popover-footer .driver-popover-close-btn {
+.driver-popover.driver-theme-apple .driver-popover-footer .driver-popover-prev-btn,
+.driver-popover.driver-theme-apple .driver-popover-footer .driver-popover-close-btn {
   color: #64748b;
 }
-.dark .driver-theme-apple .driver-popover-footer .driver-popover-prev-btn,
-.dark .driver-theme-apple .driver-popover-footer .driver-popover-close-btn {
+.dark .driver-popover.driver-theme-apple .driver-popover-footer .driver-popover-prev-btn,
+.dark .driver-popover.driver-theme-apple .driver-popover-footer .driver-popover-close-btn {
   color: #94A3B8;
 }
