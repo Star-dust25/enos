@@ -41,6 +41,32 @@
 .dark .driver-popover.driver-theme-apple .driver-popover-description {
   color: #94A3B8;
 }
+
+.driver-popover.driver-theme-apple .driver-popover-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.driver-popover.driver-theme-apple .driver-popover-progress-text {
+  font-size: 13px;
+  color: #64748B;
+  white-space: nowrap;
+  margin: 0;
+}
+.dark .driver-popover.driver-theme-apple .driver-popover-progress-text {
+  color: #94A3B8;
+}
+
+.driver-popover.driver-theme-apple .driver-popover-navigation-btns {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
 .driver-popover.driver-theme-apple .driver-popover-footer button {
   background: transparent;
   text-shadow: none;

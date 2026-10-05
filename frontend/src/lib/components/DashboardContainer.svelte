@@ -26,8 +26,8 @@
       const driverObj = driver({
         showProgress: true,
         steps: tourSteps,
-        nextBtnText: 'Siguiente &rarr;',
-        prevBtnText: '&larr; Anterior',
+        nextBtnText: 'Siguiente',
+        prevBtnText: 'Anterior',
         doneBtnText: 'Finalizar',
         progressText: 'Paso {{current}} de {{total}}',
         popoverClass: 'driver-theme-apple'
