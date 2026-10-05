@@ -50,7 +50,7 @@
         <div class="ml-4 mt-1 sm:mt-0">
           <button
             onclick={openModal}
-            class="w-8 h-8 rounded-full bg-apple-blue/10 text-apple-blue dark:bg-apple-blue/20 dark:text-apple-blue flex items-center justify-center font-bold text-sm hover:bg-apple-blue/20 dark:hover:bg-apple-blue/30 transition-colors focus:outline-none"
+            class="w-8 h-8 rounded-full bg-[#007AFF]/10 text-[#007AFF] dark:bg-[#007AFF]/20 dark:text-[#007AFF] flex items-center justify-center font-bold text-sm hover:bg-[#007AFF]/20 dark:hover:bg-[#007AFF]/30 transition-colors focus:outline-none"
             aria-label="Más información"
           >
             ?

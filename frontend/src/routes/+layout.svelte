@@ -48,7 +48,7 @@
         
         <!-- Logo Clean -->
         <div class="flex items-center">
-          <span class="font-bold text-2xl tracking-tight text-apple-dark dark:text-white">
+          <span class="font-bold text-2xl tracking-tight text-[#1D1D1F] dark:text-white">
             ENOS
           </span>
         </div>
@@ -61,8 +61,8 @@
                 href={item.path}
                 class="px-5 py-2 text-[14px] font-medium transition-all rounded-full
                   {$page.url.pathname === item.path
-                  ? 'bg-apple-blue text-white shadow-sm'
-                  : 'text-apple-dark/60 hover:text-apple-dark dark:text-apple-gray dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10'}"
+                  ? 'bg-[#007AFF] text-white shadow-sm'
+                  : 'text-[#1D1D1F]/60 hover:text-[#1D1D1F] dark:text-[#AAAAAA] dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10'}"
               >
                 {item.label}
               </a>
@@ -144,8 +144,8 @@
               href={item.path}
               class="block px-6 py-3 text-[15px] font-medium rounded-2xl transition-all
                 {$page.url.pathname === item.path
-                ? 'bg-apple-blue text-white'
-                : 'text-apple-dark/70 dark:text-apple-gray hover:bg-slate-100 dark:hover:bg-white/5'}"
+                ? 'bg-[#007AFF] text-white'
+                : 'text-[#1D1D1F]/70 dark:text-[#AAAAAA] hover:bg-slate-100 dark:hover:bg-white/5'}"
               onclick={() => (isMobileMenuOpen = false)}
             >
               {item.label}

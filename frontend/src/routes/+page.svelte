@@ -61,61 +61,14 @@
       {error}
     </div>
   {:else if data}
-    <!-- Alerta general (Banda principal) Clean Minimalism -->
-    <div
-      class="rounded-3xl p-8 mb-10 shadow-sm border transition-colors
-                {nivel === 'ambar'
-        ? 'bg-amber-50 text-amber-900 border-amber-200 dark:bg-amber-500/10 dark:border-amber-500/20'
-        : nivel === 'rojo'
-          ? 'bg-red-50 text-red-900 border-red-200 dark:bg-red-500/10 dark:border-red-500/20'
-          : 'bg-emerald-50 text-emerald-900 border-emerald-200 dark:bg-emerald-500/10 dark:border-emerald-500/20'}"
-    >
-      <div class="flex items-center gap-3 mb-4">
-        <span
-          class="text-[12px] font-semibold tracking-widest uppercase
-                        {nivel === 'ambar'
-            ? 'text-amber-700 dark:text-amber-400'
-            : nivel === 'rojo'
-              ? 'text-red-700 dark:text-red-400'
-              : 'text-emerald-700 dark:text-emerald-400'}"
-        >
-          {nivel === "ambar"
-            ? "Vigilancia Activa"
-            : nivel === "rojo"
-              ? "Alerta Crítica"
-              : "Condiciones Normales"}
-        </span>
-      </div>
-
-      <div
-        class="text-2xl sm:text-3xl font-semibold mb-4 tracking-tight leading-tight
-          {nivel === 'rojo' ? 'text-red-900 dark:text-red-100' : 'text-slate-900 dark:text-slate-100'}"
-      >
-        {nivel === "ambar"
-          ? "Precursor oceánico activo: Sin confirmación."
-          : nivel === "rojo"
-            ? "Alerta Roja: Mar y Territorio coinciden."
-            : "Litoral y bosque seco en balance estacional."}
-      </div>
-
-      <div class="text-[16px] max-w-4xl leading-relaxed
-        {nivel === 'rojo' ? 'text-red-800 dark:text-red-200/80' : 'text-slate-700 dark:text-slate-300'}">
-        {nivel === "ambar"
-          ? "El mar presenta una anomalía térmica sostenida, pero el bosque seco aún no responde. Seguimos monitoreando de cerca la propagación del impacto."
-          : nivel === "rojo"
-            ? "El precursor oceánico ha sido confirmado por la reacción anómala de la vegetación en la costa norte. Riesgo de lluvias extremas."
-            : "Tanto el litoral oceánico como la vegetación del bosque seco mantienen un comportamiento habitual para la temporada. Sin anomalías detectadas."}
-      </div>
-    </div>
-
     <!-- Navegación por pestañas Clean Minimalism -->
-    <div class="inline-flex bg-apple-gray/20 dark:bg-white/10 rounded-full p-1.5 mb-10 shadow-inner">
+    <div class="inline-flex bg-[#AAAAAA]/20 dark:bg-white/10 rounded-full p-1.5 mb-10 shadow-inner">
       <button
         onclick={() => (activeTab = "estado")}
         class="px-6 py-2.5 font-medium text-sm transition-all rounded-full
           {activeTab === 'estado'
-            ? 'bg-apple-blue text-white shadow-sm'
-            : 'text-apple-dark/60 hover:text-apple-dark dark:text-apple-gray dark:hover:text-white'}"
+            ? 'bg-[#007AFF] text-white shadow-sm'
+            : 'text-[#1D1D1F]/60 hover:text-[#1D1D1F] dark:text-[#AAAAAA] dark:hover:text-white'}"
       >
         Estado Actual
       </button>
@@ -123,8 +76,8 @@
         onclick={() => (activeTab = "graficos")}
         class="px-6 py-2.5 font-medium text-sm transition-all rounded-full
           {activeTab === 'graficos'
-            ? 'bg-apple-blue text-white shadow-sm'
-            : 'text-apple-dark/60 hover:text-apple-dark dark:text-apple-gray dark:hover:text-white'}"
+            ? 'bg-[#007AFF] text-white shadow-sm'
+            : 'text-[#1D1D1F]/60 hover:text-[#1D1D1F] dark:text-[#AAAAAA] dark:hover:text-white'}"
       >
         Gráficos y Tendencias
       </button>
@@ -236,5 +189,51 @@
     {/if}
       </div>
     {/if}
+    <!-- Alerta general (Banda principal) Clean Minimalism (Movida abajo) -->
+    <div
+      class="rounded-3xl p-8 mt-10 shadow-sm border transition-colors
+                {nivel === 'ambar'
+        ? 'bg-amber-50 text-amber-900 border-amber-200 dark:bg-amber-500/10 dark:border-amber-500/20'
+        : nivel === 'rojo'
+          ? 'bg-red-50 text-red-900 border-red-200 dark:bg-red-500/10 dark:border-red-500/20'
+          : 'bg-emerald-50 text-emerald-900 border-emerald-200 dark:bg-emerald-500/10 dark:border-emerald-500/20'}"
+    >
+      <div class="flex items-center gap-3 mb-4">
+        <span
+          class="text-[12px] font-semibold tracking-widest uppercase
+                        {nivel === 'ambar'
+            ? 'text-amber-700 dark:text-amber-400'
+            : nivel === 'rojo'
+              ? 'text-red-700 dark:text-red-400'
+              : 'text-emerald-700 dark:text-emerald-400'}"
+        >
+          {nivel === 'ambar'
+            ? 'Vigilancia Activa'
+            : nivel === 'rojo'
+              ? 'Alerta Crítica'
+              : 'Condiciones Normales'}
+        </span>
+      </div>
+
+      <div
+        class="text-2xl sm:text-3xl font-semibold mb-4 tracking-tight leading-tight
+          {nivel === 'rojo' ? 'text-red-900 dark:text-red-100' : 'text-slate-900 dark:text-slate-100'}"
+      >
+        {nivel === 'ambar'
+          ? 'Precursor oceánico activo: Sin confirmación.'
+          : nivel === 'rojo'
+            ? 'Alerta Roja: Mar y Territorio coinciden.'
+            : 'Litoral y bosque seco en balance estacional.'}
+      </div>
+
+      <div class="text-[16px] max-w-4xl leading-relaxed
+        {nivel === 'rojo' ? 'text-red-800 dark:text-red-200/80' : 'text-slate-700 dark:text-slate-300'}">
+        {nivel === 'ambar'
+          ? 'El mar presenta una anomalía térmica sostenida, pero el bosque seco aún no responde. Seguimos monitoreando de cerca la propagación del impacto.'
+          : nivel === 'rojo'
+            ? 'El precursor oceánico ha sido confirmado por la reacción anómala de la vegetación en la costa norte. Riesgo de lluvias extremas.'
+            : 'Tanto el litoral oceánico como la vegetación del bosque seco mantienen un comportamiento habitual para la temporada. Sin anomalías detectadas.'}
+      </div>
+    </div>
   {/if}
 </div>
