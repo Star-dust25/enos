@@ -10,6 +10,7 @@
   let data: any = $state(null);
   let loading = $state(true);
   let error = $state("");
+  let activeTab = $state("estado"); // 'estado', 'graficos'
 
   onMount(async () => {
     try {
@@ -59,14 +60,14 @@
       {error}
     </div>
   {:else if data}
-    <!-- Alerta general (Banda principal) -->
+    <!-- Alerta general (Banda principal) Brutalist -->
     <div
-      class="rounded-none p-5 sm:p-6 mb-8 sm:mb-12 shadow-sm dark:shadow-none border-y-0 border-r-0 border-l-[6px] relative overflow-hidden flex flex-col justify-center
+      class="rounded-none p-6 sm:p-8 mb-8 shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(200,16,46,0.3)] border-2 relative overflow-hidden flex flex-col justify-center
                 {nivel === 'ambar'
-        ? 'bg-gradient-to-br from-amber-50/80 dark:bg-[#111111] dark:from-[#111111] to-white dark:to-[#111111] border-amber-500'
+        ? 'bg-amber-400 text-slate-900 border-slate-900 dark:bg-[#111111] dark:border-amber-500'
         : nivel === 'rojo'
-          ? 'bg-gradient-to-br from-red-50/80 dark:bg-[#111111] dark:from-[#111111] to-white dark:to-[#111111] border-red-500'
-          : 'bg-gradient-to-br from-emerald-50/80 dark:bg-[#111111] dark:from-[#111111] to-white dark:to-[#111111] border-emerald-500'}"
+          ? 'bg-peru-red text-white border-slate-900 dark:bg-[#111111] dark:border-peru-red'
+          : 'bg-emerald-400 text-slate-900 border-slate-900 dark:bg-[#111111] dark:border-emerald-500'}"
     >
       <div class="flex items-center gap-3 mb-3">
         <!-- Status dot -->
@@ -97,16 +98,18 @@
       </div>
 
       <div
-        class="text-2xl sm:text-3xl font-bold font-slab text-slate-900 dark:text-slate-100 mb-3 tracking-tight leading-tight"
+        class="text-2xl sm:text-3xl font-black font-slab mb-3 tracking-tight leading-tight uppercase
+          {nivel === 'rojo' ? 'text-white' : 'text-slate-900 dark:text-slate-100'}"
       >
         {nivel === "ambar"
-          ? "Precursor oceánico activo: Sin confirmación territorial."
+          ? "Precursor oceánico activo: Sin confirmación."
           : nivel === "rojo"
             ? "Alerta Roja: Mar y Territorio coinciden."
             : "Litoral y bosque seco en balance estacional."}
       </div>
 
-      <div class="text-slate-600 dark:text-slate-400 text-xl max-w-4xl leading-relaxed font-light">
+      <div class="text-lg sm:text-xl max-w-4xl leading-relaxed font-mono
+        {nivel === 'rojo' ? 'text-white/90' : 'text-slate-800 dark:text-slate-300'}">
         {nivel === "ambar"
           ? "El mar presenta una anomalía térmica sostenida, pero el bosque seco aún no responde. Seguimos monitoreando de cerca la propagación del impacto."
           : nivel === "rojo"
@@ -115,7 +118,30 @@
       </div>
     </div>
 
+    <!-- Navegación por pestañas (Segmentación) -->
+    <div class="flex flex-wrap gap-2 mb-8 border-b-4 border-slate-900 dark:border-peru-red pb-4">
+      <button
+        onclick={() => (activeTab = "estado")}
+        class="px-6 py-3 font-bold uppercase tracking-widest text-sm transition-all border-2
+          {activeTab === 'estado'
+            ? 'bg-slate-900 text-white border-slate-900 dark:bg-peru-red dark:border-peru-red'
+            : 'bg-white text-slate-900 border-slate-900 hover:bg-slate-100 dark:bg-[#0a0a0a] dark:text-white dark:border-slate-700 dark:hover:border-peru-red'}"
+      >
+        Estado Actual
+      </button>
+      <button
+        onclick={() => (activeTab = "graficos")}
+        class="px-6 py-3 font-bold uppercase tracking-widest text-sm transition-all border-2
+          {activeTab === 'graficos'
+            ? 'bg-slate-900 text-white border-slate-900 dark:bg-peru-red dark:border-peru-red'
+            : 'bg-white text-slate-900 border-slate-900 hover:bg-slate-100 dark:bg-[#0a0a0a] dark:text-white dark:border-slate-700 dark:hover:border-peru-red'}"
+      >
+        Gráficos y Tendencias
+      </button>
+    </div>
+
     <!-- Dashboard Content -->
+    {#if activeTab === "estado"}
     <DashboardContainer
       titulo="Monitor de Etapas de Alerta"
       subtitulo="Evaluación del precursor térmico oceánico y confirmación posterior en el bosque seco."
@@ -174,8 +200,11 @@
         />
       </div>
     </DashboardContainer>
+    {/if}
 
-    {#if data.msavi_mensual && data.msavi_mensual.length > 0}
+    {#if activeTab === "graficos"}
+      <div class="space-y-8 animate-in fade-in duration-300">
+        {#if data.msavi_mensual && data.msavi_mensual.length > 0}
       <!-- Dashboard Content: serie mensual de z(MSAVI), version "en vivo" del
            panel Etapa 2 que ya existe en el backtest historico. Va justo
            debajo del Monitor de Etapas de Alerta, a pedido explicito, para
@@ -214,6 +243,8 @@
           />
         </div>
       </DashboardContainer>
+    {/if}
+      </div>
     {/if}
   {/if}
 </div>
