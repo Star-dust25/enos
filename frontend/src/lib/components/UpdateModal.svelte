@@ -41,14 +41,7 @@
       role="document"
     >
       
-      <!-- Label -->
-      <div class="inline-flex items-center self-start bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 px-3 py-1.5 mb-6 rounded-full">
-        <span class="text-[11px] font-semibold tracking-wide uppercase">
-          Sistema Actualizado
-        </span>
-      </div>
-
-      <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight leading-none">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-[#1D1D1F] dark:text-white mb-4 tracking-tight leading-none mt-2">
         Automatización 100% Integrada
       </h2>
       
@@ -72,10 +65,10 @@
         </div>
       </div>
       
-      <div class="flex justify-end pt-2">
+      <div class="flex justify-end pt-4">
         <button
           onclick={closeModal}
-          class="px-6 py-2.5 bg-apple-blue hover:opacity-90 text-white rounded-full transition-opacity font-medium text-[14px] shadow-sm focus:outline-none"
+          class="px-8 py-3 bg-[#007AFF] hover:opacity-90 text-white rounded-full transition-opacity font-medium text-[15px] shadow-sm focus:outline-none"
         >
           Entendido
         </button>
