@@ -46,13 +46,53 @@
   <!-- Header -->
 
   {#if loading}
-    <div class="flex flex-col justify-center items-center py-32 space-y-4">
-      <div
-        class="animate-spin rounded-full h-10 w-10 border-b-2 border-slate-800"
-      ></div>
-      <span class="text-slate-400 font-medium text-sm tracking-wide"
-        >Cargando datos de monitoreo...</span
-      >
+    <div class="animate-pulse w-full mt-2">
+      <!-- Tabs Skeleton -->
+      <div class="inline-flex bg-[#AAAAAA]/20 dark:bg-white/10 rounded-full p-1.5 mb-10 shadow-inner">
+        <div class="h-10 w-32 bg-slate-200/50 dark:bg-white/10 rounded-full"></div>
+        <div class="h-10 w-48 bg-slate-200/50 dark:bg-white/10 rounded-full ml-1"></div>
+      </div>
+
+      <!-- Dashboard Container Skeleton -->
+      <div class="bg-white dark:bg-[#1C1C1E] rounded-[2rem] border border-slate-200/60 dark:border-white/5 p-8 shadow-sm">
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-8">
+          <div class="space-y-4 w-full max-w-lg">
+            <div class="h-8 w-64 bg-slate-200/60 dark:bg-white/10 rounded-lg"></div>
+            <div class="h-4 w-full bg-slate-200/50 dark:bg-white/5 rounded-lg"></div>
+          </div>
+          <div class="h-10 w-10 bg-slate-200/60 dark:bg-white/10 rounded-full shrink-0"></div>
+        </div>
+        
+        <!-- Grid -->
+        <div class="flex flex-col md:flex-row gap-8 py-2">
+          <!-- Col 1 -->
+          <div class="flex-1 space-y-6">
+            <div class="h-4 w-40 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+            <div class="h-12 w-32 bg-slate-200/60 dark:bg-white/10 rounded-lg"></div>
+            <div class="h-4 w-full bg-slate-200/50 dark:bg-white/5 rounded-full mt-8"></div>
+            <div class="bg-slate-100 dark:bg-[#151515] rounded-2xl p-5 space-y-4 mt-8">
+              <div class="h-4 w-full bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+              <div class="h-4 w-full bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+            </div>
+          </div>
+          <!-- Divider -->
+          <div class="hidden md:block w-px bg-slate-100 dark:bg-[#111111] self-stretch my-4"></div>
+          <!-- Col 2 -->
+          <div class="flex-1 space-y-6">
+            <div class="h-4 w-48 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+            <div class="h-12 w-32 bg-slate-200/60 dark:bg-white/10 rounded-lg"></div>
+            <div class="h-4 w-full bg-slate-200/50 dark:bg-white/5 rounded-full mt-8"></div>
+            <div class="bg-slate-100 dark:bg-[#151515] rounded-2xl p-5 space-y-4 mt-8">
+              <div class="h-4 w-full bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+              <div class="h-4 w-full bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alert Banner Skeleton -->
+      <div class="h-32 w-full bg-slate-200/60 dark:bg-white/5 rounded-3xl mt-10"></div>
     </div>
   {:else if error}
     <div
