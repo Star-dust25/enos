@@ -62,14 +62,14 @@
             <div class="text-[14px] text-slate-600 dark:text-slate-400 leading-relaxed">El diagnóstico oficial habría llegado 5 días <strong class="text-slate-700 dark:text-slate-300">después</strong> del desastre principal.</div>
           </div>
           <!-- Card 2 -->
-          <div class="bg-amber-50/50 dark:bg-amber-500/10 p-6 rounded-3xl border border-amber-200 dark:border-amber-500/20 shadow-sm">
+          <div class="bg-[#F5F5F7] dark:bg-black/40 p-6 rounded-3xl border border-slate-200/60 dark:border-white/5 shadow-sm">
             <div class="text-[12px] font-semibold tracking-wide text-amber-700 dark:text-amber-400 uppercase mb-3">ENOS Etapa 1 (Océano)</div>
             <div class="text-4xl font-bold text-amber-600 dark:text-amber-500 mb-3 tracking-tighter">+68 días</div>
             <div class="text-[14px] text-slate-600 dark:text-slate-400 leading-relaxed">La alerta oceánica se encendió el 18 de enero. Da mucho tiempo, pero acarrea el riesgo de ser una falsa alarma.</div>
           </div>
           <!-- Card 3 -->
-          <div class="bg-blue-50/50 dark:bg-[#007AFF]/10 p-6 rounded-3xl border border-blue-200 dark:border-[#007AFF]/20 shadow-sm">
-            <div class="text-[12px] font-semibold tracking-wide text-blue-700 dark:text-blue-400 uppercase mb-3">ENOS Etapa 2 (Territorio)</div>
+          <div class="bg-[#F5F5F7] dark:bg-black/40 p-6 rounded-3xl border border-slate-200/60 dark:border-white/5 shadow-sm">
+            <div class="text-[12px] font-semibold tracking-wide text-[#007AFF] dark:text-blue-400 uppercase mb-3">ENOS Etapa 2 (Territorio)</div>
             <div class="text-4xl font-bold text-[#007AFF] dark:text-[#007AFF] mb-3 tracking-tighter">+26 días</div>
             <div class="text-[14px] text-slate-600 dark:text-slate-400 leading-relaxed">El satélite Landsat 8 detectó el verdor anómalo en tierra firme el 1 de marzo. <strong class="text-slate-700 dark:text-slate-300">El peligro quedó confirmado.</strong></div>
           </div>
@@ -79,10 +79,10 @@
       <!-- Seccion 3: Notas Adicionales -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 border-t border-slate-200/60 dark:border-white/5 pt-10">
         <!-- Info -->
-        <div class="bg-[#007AFF] dark:bg-[#007AFF]/20 text-white p-6 rounded-3xl border border-[#007AFF]/20 dark:border-[#007AFF]/30 shadow-sm">
-          <h4 class="font-bold text-lg mb-3 tracking-tight">Complemento, no reemplazo</h4>
-          <p class="text-[14px] text-blue-50 dark:text-slate-300 leading-relaxed">
-            ENOS no compite con el ENFEN. Los índices oficiales están diseñados para <strong class="text-white">diagnosticar</strong> el clima global de manera retrospectiva. ENOS está diseñado para la <strong class="text-white">acción inmediata</strong> y localizada.
+        <div class="bg-[#F5F5F7] dark:bg-black/40 p-6 rounded-3xl border border-slate-200/60 dark:border-white/5 shadow-sm">
+          <h4 class="font-bold text-[#1D1D1F] dark:text-white text-lg mb-3 tracking-tight">Complemento, no reemplazo</h4>
+          <p class="text-[14px] text-slate-600 dark:text-slate-400 leading-relaxed">
+            ENOS no compite con el ENFEN. Los índices oficiales están diseñados para <strong class="text-[#1D1D1F] dark:text-slate-200">diagnosticar</strong> el clima global de manera retrospectiva. ENOS está diseñado para la <strong class="text-[#1D1D1F] dark:text-slate-200">acción inmediata</strong> y localizada.
           </p>
         </div>
         <!-- Limits -->
