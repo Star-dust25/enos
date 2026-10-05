@@ -54,38 +54,68 @@
       </div>
 
       <!-- Dashboard Container Skeleton -->
-      <div class="bg-white dark:bg-[#1C1C1E] rounded-[2rem] border border-slate-200/60 dark:border-white/5 p-8 shadow-sm">
-        <!-- Header -->
-        <div class="flex justify-between items-start mb-8">
-          <div class="space-y-4 w-full max-w-lg">
+      <div class="w-full">
+        <!-- Header Minimalista -->
+        <div class="mb-2 px-2">
+          <div class="flex items-start sm:items-center mb-2 sm:mb-0">
             <div class="h-8 w-64 bg-slate-200/60 dark:bg-white/10 rounded-lg"></div>
-            <div class="h-4 w-full bg-slate-200/50 dark:bg-white/5 rounded-lg"></div>
+            <div class="ml-4 h-8 w-8 bg-[#007AFF]/10 dark:bg-[#007AFF]/20 rounded-full shrink-0"></div>
           </div>
-          <div class="h-10 w-10 bg-slate-200/60 dark:bg-white/10 rounded-full shrink-0"></div>
+          <div class="h-4 w-full max-w-4xl bg-slate-200/50 dark:bg-white/5 rounded-lg mt-3"></div>
         </div>
         
         <!-- Grid -->
-        <div class="flex flex-col md:flex-row gap-8 py-2">
+        <div class="flex flex-col md:flex-row justify-between gap-8 py-2 mt-4">
           <!-- Col 1 -->
-          <div class="flex-1 space-y-6">
-            <div class="h-4 w-40 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
-            <div class="h-12 w-32 bg-slate-200/60 dark:bg-white/10 rounded-lg"></div>
-            <div class="h-4 w-full bg-slate-200/50 dark:bg-white/5 rounded-full mt-8"></div>
-            <div class="bg-slate-100 dark:bg-[#151515] rounded-2xl p-5 space-y-4 mt-8">
-              <div class="h-4 w-full bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
-              <div class="h-4 w-full bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+          <div class="flex-1 bg-white dark:bg-[#1C1C1E] rounded-3xl p-8 border border-slate-200/60 dark:border-white/5 shadow-sm">
+            <div class="space-y-6">
+              <div class="h-4 w-40 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+              <div class="h-12 w-32 bg-slate-200/60 dark:bg-white/10 rounded-lg"></div>
+              <div class="h-3 w-full bg-slate-200/50 dark:bg-white/5 rounded-full mt-8"></div>
+              <div class="flex justify-center mt-2">
+                <div class="h-3 w-16 bg-slate-200/50 dark:bg-white/5 rounded-md"></div>
+              </div>
+              <div class="bg-[#F5F5F7] dark:bg-black/40 border border-slate-200/60 dark:border-white/5 rounded-2xl p-5 space-y-4 mt-8">
+                <div class="flex justify-between">
+                  <div class="h-4 w-20 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+                  <div class="h-4 w-16 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+                </div>
+                <div class="flex justify-between pt-4 border-t border-slate-200/60 dark:border-white/5">
+                  <div class="h-4 w-16 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+                  <div class="h-4 w-48 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+                </div>
+                <div class="flex justify-between pt-4 border-t border-slate-200/60 dark:border-white/5">
+                  <div class="h-4 w-24 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+                  <div class="h-4 w-20 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+                </div>
+              </div>
             </div>
           </div>
           <!-- Divider -->
           <div class="hidden md:block w-px bg-slate-100 dark:bg-[#111111] self-stretch my-4"></div>
           <!-- Col 2 -->
-          <div class="flex-1 space-y-6">
-            <div class="h-4 w-48 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
-            <div class="h-12 w-32 bg-slate-200/60 dark:bg-white/10 rounded-lg"></div>
-            <div class="h-4 w-full bg-slate-200/50 dark:bg-white/5 rounded-full mt-8"></div>
-            <div class="bg-slate-100 dark:bg-[#151515] rounded-2xl p-5 space-y-4 mt-8">
-              <div class="h-4 w-full bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
-              <div class="h-4 w-full bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+          <div class="flex-1 bg-white dark:bg-[#1C1C1E] rounded-3xl p-8 border border-slate-200/60 dark:border-white/5 shadow-sm">
+            <div class="space-y-6">
+              <div class="h-4 w-48 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+              <div class="h-12 w-32 bg-slate-200/60 dark:bg-white/10 rounded-lg"></div>
+              <div class="h-3 w-full bg-slate-200/50 dark:bg-white/5 rounded-full mt-8"></div>
+              <div class="flex justify-center mt-2">
+                <div class="h-3 w-16 bg-slate-200/50 dark:bg-white/5 rounded-md"></div>
+              </div>
+              <div class="bg-[#F5F5F7] dark:bg-black/40 border border-slate-200/60 dark:border-white/5 rounded-2xl p-5 space-y-4 mt-8">
+                <div class="flex justify-between">
+                  <div class="h-4 w-20 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+                  <div class="h-4 w-24 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+                </div>
+                <div class="flex justify-between pt-4 border-t border-slate-200/60 dark:border-white/5">
+                  <div class="h-4 w-16 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+                  <div class="h-4 w-32 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+                </div>
+                <div class="flex justify-between pt-4 border-t border-slate-200/60 dark:border-white/5">
+                  <div class="h-4 w-24 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+                  <div class="h-4 w-16 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
