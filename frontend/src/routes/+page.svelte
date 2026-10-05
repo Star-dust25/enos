@@ -61,23 +61,23 @@
       {error}
     </div>
   {:else if data}
-    <!-- Alerta general (Banda principal) Brutalist -->
+    <!-- Alerta general (Banda principal) Clean Minimalism -->
     <div
-      class="rounded-none p-6 sm:p-8 mb-8 shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(200,16,46,0.3)] border-2 relative overflow-hidden flex flex-col justify-center
+      class="rounded-3xl p-8 mb-10 shadow-sm border transition-colors
                 {nivel === 'ambar'
-        ? 'bg-amber-400 text-slate-900 border-slate-900 dark:bg-[#111111] dark:border-amber-500'
+        ? 'bg-amber-50 text-amber-900 border-amber-200 dark:bg-amber-500/10 dark:border-amber-500/20'
         : nivel === 'rojo'
-          ? 'bg-peru-red text-white border-slate-900 dark:bg-[#111111] dark:border-peru-red'
-          : 'bg-emerald-400 text-slate-900 border-slate-900 dark:bg-[#111111] dark:border-emerald-500'}"
+          ? 'bg-red-50 text-red-900 border-red-200 dark:bg-red-500/10 dark:border-red-500/20'
+          : 'bg-emerald-50 text-emerald-900 border-emerald-200 dark:bg-emerald-500/10 dark:border-emerald-500/20'}"
     >
-      <div class="flex items-center gap-3 mb-3">
+      <div class="flex items-center gap-3 mb-4">
         <span
-          class="text-xs font-bold tracking-[0.2em] uppercase
+          class="text-[12px] font-semibold tracking-widest uppercase
                         {nivel === 'ambar'
-            ? 'text-slate-800 dark:text-amber-400'
+            ? 'text-amber-700 dark:text-amber-400'
             : nivel === 'rojo'
-              ? 'text-white dark:text-red-400'
-              : 'text-emerald-900 dark:text-emerald-400'}"
+              ? 'text-red-700 dark:text-red-400'
+              : 'text-emerald-700 dark:text-emerald-400'}"
         >
           {nivel === "ambar"
             ? "Vigilancia Activa"
@@ -88,8 +88,8 @@
       </div>
 
       <div
-        class="text-2xl sm:text-3xl font-black font-slab mb-3 tracking-tight leading-tight uppercase
-          {nivel === 'rojo' ? 'text-white' : 'text-slate-900 dark:text-slate-100'}"
+        class="text-2xl sm:text-3xl font-semibold mb-4 tracking-tight leading-tight
+          {nivel === 'rojo' ? 'text-red-900 dark:text-red-100' : 'text-slate-900 dark:text-slate-100'}"
       >
         {nivel === "ambar"
           ? "Precursor oceánico activo: Sin confirmación."
@@ -98,8 +98,8 @@
             : "Litoral y bosque seco en balance estacional."}
       </div>
 
-      <div class="text-lg sm:text-xl max-w-4xl leading-relaxed font-mono
-        {nivel === 'rojo' ? 'text-white/90' : 'text-slate-800 dark:text-slate-300'}">
+      <div class="text-[16px] max-w-4xl leading-relaxed
+        {nivel === 'rojo' ? 'text-red-800 dark:text-red-200/80' : 'text-slate-700 dark:text-slate-300'}">
         {nivel === "ambar"
           ? "El mar presenta una anomalía térmica sostenida, pero el bosque seco aún no responde. Seguimos monitoreando de cerca la propagación del impacto."
           : nivel === "rojo"
@@ -108,23 +108,23 @@
       </div>
     </div>
 
-    <!-- Navegación por pestañas (Segmentación) -->
-    <div class="flex flex-wrap gap-2 mb-8 border-b-4 border-slate-900 dark:border-white pb-4">
+    <!-- Navegación por pestañas Clean Minimalism -->
+    <div class="inline-flex bg-slate-200/50 dark:bg-white/5 rounded-full p-1.5 mb-10 shadow-inner">
       <button
         onclick={() => (activeTab = "estado")}
-        class="px-6 py-3 font-bold uppercase tracking-widest text-sm transition-all border-2
+        class="px-6 py-2.5 font-medium text-sm transition-all rounded-full
           {activeTab === 'estado'
-            ? 'bg-slate-900 text-white border-slate-900 dark:bg-white dark:text-slate-900 dark:border-white'
-            : 'bg-white text-slate-900 border-slate-900 hover:bg-slate-100 dark:bg-[#0a0a0a] dark:text-white dark:border-slate-700 dark:hover:border-white'}"
+            ? 'bg-white text-slate-900 dark:bg-[#2C2C2E] dark:text-white shadow-sm'
+            : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'}"
       >
         Estado Actual
       </button>
       <button
         onclick={() => (activeTab = "graficos")}
-        class="px-6 py-3 font-bold uppercase tracking-widest text-sm transition-all border-2
+        class="px-6 py-2.5 font-medium text-sm transition-all rounded-full
           {activeTab === 'graficos'
-            ? 'bg-slate-900 text-white border-slate-900 dark:bg-white dark:text-slate-900 dark:border-white'
-            : 'bg-white text-slate-900 border-slate-900 hover:bg-slate-100 dark:bg-[#0a0a0a] dark:text-white dark:border-slate-700 dark:hover:border-white'}"
+            ? 'bg-white text-slate-900 dark:bg-[#2C2C2E] dark:text-white shadow-sm'
+            : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'}"
       >
         Gráficos y Tendencias
       </button>

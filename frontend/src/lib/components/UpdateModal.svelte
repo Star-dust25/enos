@@ -30,52 +30,52 @@
 
   <dialog
     bind:this={dialogEl}
-    class="backdrop:bg-white/90 dark:backdrop:bg-[#000000]/95 backdrop:backdrop-blur-sm bg-transparent p-4 sm:p-6 m-auto rounded-none overflow-visible max-w-lg w-full"
+    class="backdrop:bg-slate-900/20 dark:backdrop:bg-black/60 backdrop:backdrop-blur-md bg-transparent p-4 sm:p-6 m-auto rounded-none overflow-visible max-w-lg w-full"
     onclick={handleBackdropClick}
     oncancel={(e) => { e.preventDefault(); closeModal(); }}
   >
-    <!-- Contenedor Brutalista -->
+    <!-- Contenedor Clean -->
     <div 
-      class="bg-white dark:bg-[#0a0a0a] border-4 border-slate-900 dark:border-white p-6 sm:p-10 w-full max-h-[90vh] overflow-y-auto shadow-[12px_12px_0px_rgba(0,0,0,1)] dark:shadow-[12px_12px_0px_rgba(255,255,255,1)] flex flex-col m-0"
+      class="bg-white dark:bg-[#1C1C1E] rounded-3xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-[0_20px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.5)] border border-slate-200/60 dark:border-white/10 flex flex-col m-0"
       onclick={(e) => e.stopPropagation()}
       role="document"
     >
       
       <!-- Label -->
-      <div class="inline-block self-start bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2 mb-6 border-2 border-slate-900 dark:border-white">
-        <span class="text-[11px] font-black tracking-[0.25em] uppercase">
+      <div class="inline-flex items-center self-start bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 px-3 py-1.5 mb-6 rounded-full">
+        <span class="text-[11px] font-semibold tracking-wide uppercase">
           Sistema Actualizado
         </span>
       </div>
 
-      <h2 class="text-3xl sm:text-4xl font-black font-slab text-slate-900 dark:text-white mb-5 uppercase tracking-tighter leading-none">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-slate-900 dark:text-white mb-4 tracking-tight leading-none">
         Automatización 100% Integrada
       </h2>
       
-      <p class="text-slate-700 dark:text-slate-300 mb-8 leading-relaxed font-mono text-sm sm:text-base">
-        El monitoreo satelital de <strong class="text-slate-900 dark:text-white font-black">ENOS</strong> ahora corre de forma autónoma. Los datos oceánicos y territoriales se descargarán sin requerir intervención manual.
+      <p class="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed text-[15px]">
+        El monitoreo satelital de <strong class="text-slate-900 dark:text-white font-medium">ENOS</strong> ahora corre de forma autónoma. Los datos oceánicos y territoriales se descargarán sin requerir intervención manual.
       </p>
 
       <!-- Horarios de Actualización -->
-      <div class="bg-slate-50 dark:bg-[#111111] border-2 border-slate-900 dark:border-white/10 p-5 sm:p-6 mb-8">
-        <h3 class="text-[11px] sm:text-xs font-black text-slate-900 dark:text-slate-300 uppercase tracking-widest mb-5">Programa de Actualización Diaria</h3>
+      <div class="bg-[#F5F5F7] dark:bg-black rounded-2xl p-6 mb-8 border border-slate-200/60 dark:border-white/5">
+        <h3 class="text-[11px] font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-5">Programa de Actualización Diaria</h3>
         
         <div class="flex flex-col gap-4">
           <div class="flex justify-between items-center">
-            <span class="text-sm font-bold text-slate-700 dark:text-slate-400 uppercase tracking-wide">Ventana de ejecución (PET)</span>
-            <span class="text-sm font-mono font-black text-slate-900 dark:text-white border-b-2 border-slate-900 dark:border-white">~08:30 AM - 11:30 AM</span>
+            <span class="text-[13px] font-medium text-slate-500 dark:text-slate-400">Ventana de ejecución (PET)</span>
+            <span class="text-[13px] font-semibold text-slate-900 dark:text-white">~08:30 AM - 11:30 AM</span>
           </div>
-          <div class="flex justify-between items-center pt-4 border-t-2 border-slate-900 dark:border-white/10">
-            <span class="text-sm font-bold text-slate-700 dark:text-slate-400 uppercase tracking-wide">Próxima descarga</span>
-            <span class="text-sm font-black tracking-widest uppercase text-slate-900 dark:text-white">Cada mañana</span>
+          <div class="flex justify-between items-center pt-4 border-t border-slate-200/60 dark:border-white/10">
+            <span class="text-[13px] font-medium text-slate-500 dark:text-slate-400">Próxima descarga</span>
+            <span class="text-[13px] font-semibold text-slate-900 dark:text-white">Cada mañana</span>
           </div>
         </div>
       </div>
       
-      <div class="flex justify-end pt-4 border-t-4 border-slate-900 dark:border-white/10">
+      <div class="flex justify-end pt-2">
         <button
           onclick={closeModal}
-          class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-2 border-slate-900 dark:border-white font-black py-4 px-10 uppercase tracking-[0.2em] text-sm hover:bg-slate-700 dark:hover:bg-slate-200 transition-colors w-full sm:w-auto text-center focus:outline-none"
+          class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors font-medium text-[14px] shadow-sm focus:outline-none"
         >
           Entendido
         </button>

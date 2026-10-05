@@ -40,15 +40,15 @@
 </script>
 
 <div
-  class="border-4 border-slate-900 dark:border-white rounded-none bg-white dark:bg-[#0a0a0a] shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(255,255,255,1)] mb-12"
+  class="bg-white dark:bg-[#1C1C1E] rounded-3xl shadow-sm border border-slate-200/60 dark:border-white/5 mb-10 overflow-hidden"
 >
   <!-- Header -->
   <div
-    class="border-b-4 border-slate-900 dark:border-white px-6 sm:px-10 py-6 sm:py-8 bg-slate-50 dark:bg-[#111111] rounded-none"
+    class="px-8 pt-8 pb-6 bg-white dark:bg-[#1C1C1E]"
   >
     <div class="flex items-start sm:items-center">
       <span
-        class="font-slab text-2xl md:text-4xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-2 sm:mb-0"
+        class="text-2xl font-semibold text-slate-900 dark:text-white tracking-tight mb-2 sm:mb-0"
       >
         {titulo}
       </span>
@@ -56,7 +56,7 @@
         <div class="ml-4 mt-2 sm:mt-0">
           <button
             onclick={openModal}
-            class="w-8 h-8 rounded-none bg-slate-900 dark:bg-white border-2 border-slate-900 dark:border-white text-white dark:text-slate-900 flex items-center justify-center font-bold text-lg hover:bg-slate-700 dark:hover:bg-slate-200 transition-colors focus:outline-none"
+            class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 flex items-center justify-center text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none"
             aria-label="Más información"
           >
             ?
@@ -66,7 +66,7 @@
     </div>
     {#if subtitulo}
       <div
-        class="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mt-4 font-mono leading-relaxed max-w-4xl"
+        class="text-[15px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed max-w-4xl"
       >
         {subtitulo}
       </div>
@@ -74,7 +74,7 @@
   </div>
 
   <!-- Body -->
-  <div class="p-6 sm:p-10">
+  <div class="px-8 pb-8 pt-2">
     {#if children}
       {@render children()}
     {/if}
@@ -83,28 +83,28 @@
 
   <dialog
     bind:this={dialogEl}
-    class="backdrop:bg-slate-900/50 dark:backdrop:bg-[#000000]/80 backdrop:backdrop-blur-sm dark:backdrop:backdrop-blur-none bg-transparent p-4 sm:p-6 m-auto rounded-none overflow-visible max-w-lg w-full"
+    class="backdrop:bg-slate-900/20 dark:backdrop:bg-black/60 backdrop:backdrop-blur-md bg-transparent p-4 sm:p-6 m-auto rounded-none overflow-visible max-w-lg w-full"
     onclick={handleBackdropClick}
     oncancel={(e) => { e.preventDefault(); closeModal(); }}
   >
     <div 
-      class="bg-white dark:bg-[#0a0a0a] rounded-none w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(255,255,255,1)] border-4 border-slate-900 dark:border-white cursor-default flex flex-col m-0"
+      class="bg-white dark:bg-[#1C1C1E] rounded-3xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-[0_20px_40px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.5)] border border-slate-200/60 dark:border-white/10 flex flex-col m-0"
       onclick={(e) => e.stopPropagation()}
       role="document"
     >
-      <div class="flex justify-between items-start mb-6 border-b-4 border-slate-900 dark:border-white pb-4">
-        <h3 class="font-slab font-black text-2xl uppercase tracking-widest text-slate-900 dark:text-white">Información</h3>
+      <div class="flex justify-between items-start mb-6 pb-4 border-b border-slate-200/60 dark:border-white/10">
+        <h3 class="font-semibold text-xl tracking-tight text-slate-900 dark:text-white">Información</h3>
         <button 
-          class="text-slate-900 dark:text-white hover:text-slate-700 dark:hover:text-slate-300 transition-colors focus:outline-none flex-shrink-0 ml-4"
+          class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors focus:outline-none flex-shrink-0 ml-4"
           onclick={closeModal}
           aria-label="Cerrar"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" class="w-8 h-8">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
-      <div class="text-slate-700 dark:text-slate-300 leading-relaxed font-mono text-base">
+      <div class="text-[15px] text-slate-500 dark:text-slate-400 leading-relaxed">
         {#if Array.isArray(tooltip)}
           <ul class="list-disc pl-5 space-y-3">
             {#each tooltip as item}
@@ -115,9 +115,9 @@
           {tooltip}
         {/if}
       </div>
-      <div class="mt-10 flex justify-end">
+      <div class="mt-8 flex justify-end">
         <button 
-          class="px-8 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-4 border-slate-900 dark:border-white rounded-none hover:bg-slate-700 dark:hover:bg-slate-200 transition-colors font-bold uppercase tracking-widest text-sm focus:outline-none"
+          class="px-6 py-2.5 bg-slate-900 text-white dark:bg-white dark:text-slate-900 rounded-full hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors font-medium text-sm focus:outline-none shadow-sm"
           onclick={closeModal}
         >
           Cerrar
