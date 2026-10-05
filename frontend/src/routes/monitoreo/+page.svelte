@@ -142,12 +142,13 @@
         titulo={etiquetas[tabActiva].titulo}
         subtitulo={`Sensor: ${etiquetas[tabActiva].sensor} — Resolución: ${etiquetas[tabActiva].res}`}
       >
-        <!-- Filtros integrados (Ecosistema y Periodo) Brutalista -->
-        <div class="flex flex-col md:flex-row items-center justify-between bg-white dark:bg-[#0a0a0a] border-4 border-slate-900 dark:border-white p-0 mb-8 rounded-none shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_rgba(255,255,255,1)]">
-          <div class="flex w-full md:w-auto">
+        <!-- Filtros integrados (Ecosistema y Periodo) Clean Minimalism -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+          <!-- Ecosistema -->
+          <div class="inline-flex bg-[#AAAAAA]/20 dark:bg-white/10 rounded-full p-1.5 shadow-inner w-full md:w-auto">
             {#each Object.keys(etiquetas) as tab}
               <button
-                class="flex-1 md:flex-none px-6 py-4 text-xs font-black uppercase tracking-widest transition-colors rounded-none border-b-4 md:border-b-0 md:border-r-4 {tabActiva === tab ? 'border-slate-900 dark:border-white text-white dark:text-slate-900 bg-slate-900 dark:bg-white' : 'border-slate-900 dark:border-white text-slate-900 dark:text-white hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900'}"
+                class="flex-1 md:flex-none px-6 py-2.5 font-medium text-sm transition-all rounded-full {tabActiva === tab ? 'bg-[#007AFF] text-white shadow-sm' : 'text-[#1D1D1F]/60 hover:text-[#1D1D1F] dark:text-[#AAAAAA] dark:hover:text-white'}"
                 onclick={() => (tabActiva = tab)}
               >
                 {tab}
@@ -155,11 +156,12 @@
             {/each}
           </div>
           
+          <!-- Periodo -->
           {#if periodosDisponibles.length > 1}
-            <div class="flex w-full md:w-auto border-t-4 md:border-t-0 md:border-l-4 border-slate-900 dark:border-white">
+            <div class="inline-flex bg-[#AAAAAA]/20 dark:bg-white/10 rounded-full p-1.5 shadow-inner w-full md:w-auto">
               {#each periodosDisponibles as p}
                 <button
-                  class="flex-1 md:flex-none px-6 py-4 text-xs font-black uppercase tracking-widest transition-colors rounded-none md:border-l-0 {periodoActivo === p ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900' : 'text-slate-900 dark:text-white hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900'}"
+                  class="flex-1 md:flex-none px-6 py-2.5 font-medium text-sm transition-all rounded-full {periodoActivo === p ? 'bg-[#1D1D1F] dark:bg-white text-white dark:text-[#1D1D1F] shadow-sm' : 'text-[#1D1D1F]/60 hover:text-[#1D1D1F] dark:text-[#AAAAAA] dark:hover:text-white'}"
                   onclick={() => (periodoActivo = p)}
                 >
                   {PERIODOS[p]}
@@ -177,52 +179,52 @@
             {/if}
           </div>
         {:else}
-          <!-- Metadata Info Brutalista -->
-          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-slate-900 dark:text-white">
+          <!-- Metadata Info Clean Minimalism -->
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-6 text-[12px] font-medium text-[#1D1D1F]/60 dark:text-[#AAAAAA]">
             {#if mapaActual.generado}
-              <span>Generado: <span class="text-slate-500 dark:text-slate-400 font-mono">{mapaActual.generado}</span></span>
+              <span>Generado: <span class="font-mono text-[#1D1D1F] dark:text-white">{mapaActual.generado}</span></span>
             {/if}
             {#if mapaActual.desde && mapaActual.hasta}
-              <span class="text-slate-900 dark:text-white">|</span>
-              <span>Composición: <span class="text-slate-500 dark:text-slate-400 font-mono">{mapaActual.desde} a {mapaActual.hasta}</span></span>
+              <span class="text-[#1D1D1F]/30 dark:text-white/20">|</span>
+              <span>Composición: <span class="font-mono text-[#1D1D1F] dark:text-white">{mapaActual.desde} a {mapaActual.hasta}</span></span>
             {/if}
             {#if mapaActual.kpi !== null && mapaActual.kpi !== undefined}
-              <span class="text-slate-900 dark:text-white">|</span>
-              <span>Media {mapaActual.banda}: <strong class="text-slate-900 dark:text-white text-sm font-mono">{mapaActual.kpi}</strong>{etiquetas[tabActiva].unidad}</span>
+              <span class="text-[#1D1D1F]/30 dark:text-white/20">|</span>
+              <span>Media {mapaActual.banda}: <strong class="text-[#007AFF] text-[13px] font-mono">{mapaActual.kpi}</strong>{etiquetas[tabActiva].unidad}</span>
             {/if}
             {#if mapaActual.error_ultimo_intento}
-              <span class="text-white bg-slate-900 dark:bg-white dark:text-slate-900 px-3 py-1 rounded-none border-2 border-slate-900 dark:border-white font-bold tracking-widest">⚠️ Fallo regeneración</span>
+              <span class="text-white bg-red-500 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide shadow-sm">⚠️ Fallo regeneración</span>
             {/if}
           </div>
 
-          <div class="flex flex-col border-4 border-slate-900 dark:border-white rounded-none bg-white dark:bg-[#0a0a0a] shadow-[12px_12px_0px_rgba(0,0,0,1)] dark:shadow-[12px_12px_0px_rgba(255,255,255,1)]">
+          <div class="flex flex-col bg-white dark:bg-[#1C1C1E] rounded-3xl shadow-sm border border-slate-200/60 dark:border-white/5 overflow-hidden">
             <!-- Map Container -->
-            <div class="relative w-full aspect-[26/25] bg-slate-50 dark:bg-[#111111] overflow-hidden border-b-4 border-slate-900 dark:border-white">
+            <div class="relative w-full aspect-[26/25] bg-slate-50 dark:bg-black/50 border-b border-slate-200/60 dark:border-white/5">
               <img
                 src={urlMapa}
                 alt="Mapa de {etiquetas[tabActiva].titulo}"
-                class="absolute inset-0 w-full h-full object-fill"
+                class="absolute inset-0 w-full h-full object-fill opacity-90 hover:opacity-100 transition-opacity duration-500"
                 loading="lazy"
               />
 
-              <!-- City Overlays Brutalist -->
+              <!-- City Overlays Clean -->
               {#each CIUDADES as ciudad}
                 <div class="absolute flex flex-col items-center justify-center -translate-x-1/2 -translate-y-1/2 pointer-events-none" style={getPointStyle(ciudad.lon, ciudad.lat)}>
-                  <div class="w-2 h-2 rounded-none bg-slate-900 dark:bg-white shadow-[2px_2px_0_rgba(0,0,0,1)] dark:shadow-[2px_2px_0_rgba(255,255,255,1)]"></div>
-                  <span class="mt-2 text-[10px] font-black tracking-widest text-white dark:text-slate-900 bg-slate-900 dark:bg-white px-2 py-1 rounded-none border-2 border-transparent">
+                  <div class="w-2.5 h-2.5 rounded-full bg-white dark:bg-[#1D1D1F] border-2 border-[#1D1D1F] dark:border-white shadow-md"></div>
+                  <span class="mt-2 text-[10px] font-medium tracking-wide text-[#1D1D1F] dark:text-white bg-white/80 dark:bg-[#1C1C1E]/80 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm border border-slate-200/50 dark:border-white/10">
                     {ciudad.nombre}
                   </span>
                 </div>
               {/each}
             </div>
 
-            <!-- Inline Legend Brutalist -->
-            <div class="w-full flex flex-col sm:flex-row items-center justify-between p-6 gap-4">
-              <span class="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-white shrink-0">Escala de Valores</span>
+            <!-- Inline Legend Clean -->
+            <div class="w-full flex flex-col sm:flex-row items-center justify-between p-6 gap-6 bg-[#F5F5F7] dark:bg-black/20">
+              <span class="text-[11px] font-semibold uppercase tracking-widest text-[#1D1D1F]/60 dark:text-[#AAAAAA] shrink-0">Escala de Valores</span>
               <div class="flex-1 w-full max-w-md flex items-center">
-                <span class="text-xs font-black font-mono text-slate-900 dark:text-white mr-4">{leyendas[tabActiva].min}</span>
-                <div class="h-4 w-full rounded-none border-2 border-slate-900 dark:border-white bg-gradient-to-r {leyendas[tabActiva].gradiente}"></div>
-                <span class="text-xs font-black font-mono text-slate-900 dark:text-white ml-4">{leyendas[tabActiva].max}</span>
+                <span class="text-[13px] font-medium font-mono text-[#1D1D1F] dark:text-white mr-4">{leyendas[tabActiva].min}</span>
+                <div class="h-3 w-full rounded-full border border-slate-200/50 dark:border-white/10 bg-gradient-to-r {leyendas[tabActiva].gradiente} shadow-inner"></div>
+                <span class="text-[13px] font-medium font-mono text-[#1D1D1F] dark:text-white ml-4">{leyendas[tabActiva].max}</span>
               </div>
             </div>
           </div>
