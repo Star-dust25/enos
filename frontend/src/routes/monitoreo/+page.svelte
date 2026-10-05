@@ -129,8 +129,39 @@
 <div class="max-w-6xl mx-auto mt-4 px-4 sm:px-6 lg:px-8 py-8">
   <main class="w-full max-w-5xl mx-auto">
     {#if loading}
-      <div class="flex justify-center py-20">
-        <div class="animate-spin h-8 w-8 border-b-2 border-slate-800"></div>
+      <div class="animate-pulse w-full mt-2">
+        <!-- Header Skeleton -->
+        <div class="mb-2 px-2">
+          <div class="flex items-start sm:items-center mb-2 sm:mb-0">
+            <div class="h-8 w-80 bg-slate-200/60 dark:bg-white/10 rounded-lg"></div>
+          </div>
+          <div class="h-4 w-full max-w-xl bg-slate-200/50 dark:bg-white/5 rounded-lg mt-3"></div>
+        </div>
+
+        <div class="mt-4">
+          <!-- Filtros Skeleton -->
+          <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+            <div class="h-[42px] w-full md:w-80 bg-slate-200/60 dark:bg-white/10 rounded-full"></div>
+            <div class="h-[42px] w-full md:w-64 bg-slate-200/60 dark:bg-white/10 rounded-full"></div>
+          </div>
+
+          <!-- Metadata Skeleton -->
+          <div class="flex gap-4 mb-6">
+            <div class="h-4 w-40 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+            <div class="h-4 w-48 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+          </div>
+
+          <!-- Map Container Skeleton -->
+          <div class="flex flex-col bg-white dark:bg-[#1C1C1E] rounded-3xl shadow-sm border border-slate-200/60 dark:border-white/5 overflow-hidden">
+            <!-- Map Area -->
+            <div class="relative w-full aspect-[26/25] bg-slate-100/50 dark:bg-white/5 border-b border-slate-200/60 dark:border-white/5"></div>
+            <!-- Legend Area -->
+            <div class="w-full flex flex-col sm:flex-row items-center justify-between p-6 gap-6 bg-[#F5F5F7] dark:bg-black/20">
+              <div class="h-4 w-24 bg-slate-200/60 dark:bg-white/10 rounded-md"></div>
+              <div class="flex-1 w-full max-w-md h-3 bg-slate-200/60 dark:bg-white/10 rounded-full"></div>
+            </div>
+          </div>
+        </div>
       </div>
     {:else if error}
       <div class="bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 p-5 rounded-none border border-red-100 dark:border-red-800/50">
