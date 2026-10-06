@@ -43,7 +43,7 @@
 <div class="min-h-screen flex flex-col bg-[#F5F5F7] dark:bg-black font-sans selection:bg-blue-500 selection:text-white transition-colors duration-300">
   
   <!-- Navbar Floating Pill -->
-  <nav class="sticky top-4 z-50 mx-4 lg:mx-auto w-full max-w-5xl transition-all duration-300">
+  <nav class="sticky top-4 z-50 mx-4 lg:mx-auto w-full max-w-5xl mt-4 mb-8 transition-all duration-300">
     <div class="bg-white/75 dark:bg-[#1C1C1E]/85 backdrop-blur-xl border border-slate-200/60 dark:border-white/10 rounded-full shadow-sm px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16 gap-6">
         
