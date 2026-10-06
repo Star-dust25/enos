@@ -6,6 +6,7 @@
   import EvolutionChart from "$lib/components/EvolutionChart.svelte";
   import MsaviBarChart from "$lib/components/MsaviBarChart.svelte";
   import UpdateModal from "$lib/components/UpdateModal.svelte";
+  import SubscribeAlerts from "$lib/components/SubscribeAlerts.svelte";
   import { fade } from "svelte/transition";
 
   let data: any = $state(null);
@@ -311,5 +312,8 @@
             : 'Tanto el litoral oceánico como la vegetación del bosque seco mantienen un comportamiento habitual para la temporada. Sin anomalías detectadas.'}
       </div>
     </div>
+    
+    <!-- Módulo de Suscripción a Alertas -->
+    <SubscribeAlerts />
   {/if}
 </div>
