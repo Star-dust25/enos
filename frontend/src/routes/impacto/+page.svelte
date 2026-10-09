@@ -70,7 +70,7 @@
   {:else}
     <header class="mb-10">
       <h1 class="text-3xl sm:text-4xl font-bold text-[#1D1D1F] dark:text-white tracking-tight mb-4">
-        Validación Científica: ¿Por qué confiar en ENOS?
+        Validación Científica: ¿Por qué confiar en PULSO?
       </h1>
       <p class="text-lg text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
         El modelo no se basa en asunciones. Medimos matemáticamente la precisión de nuestros satélites contra los índices oficiales y comprobamos el acoplamiento real entre el mar y la tierra.
@@ -91,7 +91,7 @@
           <p class="text-slate-700 dark:text-slate-300 text-[15px] mb-6 leading-relaxed max-w-4xl">
             Para poder emitir alertas tempranas, primero debemos saber si nuestros sensores leen correctamente la temperatura del mar. 
             Reconstruimos todo el historial del Índice Costero El Niño (ICEN) del ENFEN desde 1982 usando nuestra propia red de datos. 
-            La curva generada por ENOS es un reflejo casi exacto de la oficial.
+            La curva generada por PULSO es un reflejo casi exacto de la oficial.
           </p>
           
           <div class="rounded-3xl border border-slate-200/60 dark:border-white/5 shadow-sm bg-[#F5F5F7] dark:bg-black/50 overflow-hidden overflow-x-auto">
@@ -151,7 +151,7 @@
           <div class="bg-[#F5F5F7] dark:bg-black/40 p-6 rounded-3xl border border-slate-200/60 dark:border-white/5 shadow-sm">
             <h4 class="font-bold text-[#1D1D1F] dark:text-white text-lg mb-3 tracking-tight">Notas Técnicas Adicionales</h4>
             <ul class="text-[14px] text-slate-600 dark:text-slate-400 list-disc pl-4 space-y-2">
-              <li><strong class="text-[#1D1D1F] dark:text-slate-200">Reconstrucción independiente:</strong> ENOS usa su propia climatología base (1991-2020). Cualquier ligero sesgo respecto a la data del ENFEN se recalcula y resta automáticamente.</li>
+              <li><strong class="text-[#1D1D1F] dark:text-slate-200">Reconstrucción independiente:</strong> PULSO usa su propia climatología base (1991-2020). Cualquier ligero sesgo respecto a la data del ENFEN se recalcula y resta automáticamente.</li>
               <li><strong class="text-[#1D1D1F] dark:text-slate-200">Autocorrelación temporal:</strong> Al ser datos climáticos seguidos, la significancia exacta podría estar ligeramente subestimada. Sin embargo, el contraste total entre la fuerte reacción de la costa y la nula de la sierra valida firmemente nuestra hipótesis.</li>
             </ul>
           </div>

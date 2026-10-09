@@ -14,7 +14,7 @@
   // muestra. La miniatura son 900 px sobre un recuadro de ~2.6° × 2.5°, así
   // que cada píxel de pantalla ronda los 300 m; el KPI también se promedia a
   // 300 m. Promediar a esa escala sobre miles de km² da prácticamente el
-  // mismo número y cuesta cien veces menos, pero conviene no dar a entender
+  // mismo número y cuesta cien veces mpulso, pero conviene no dar a entender
   // que la imagen está a 30 m.
   const etiquetas: Record<
     string,
@@ -123,7 +123,7 @@
 </script>
 
 <svelte:head>
-  <title>Monitoreo Satelital — ENOS</title>
+  <title>Monitoreo Satelital — PULSO</title>
 </svelte:head>
 
 <div class="max-w-6xl mx-auto mt-4 px-4 sm:px-6 lg:px-8 py-8">

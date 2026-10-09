@@ -7,7 +7,7 @@
 #   'config' y 'core'. En PowerShell:
 #       $env:PYTHONPATH="<ruta>\backend"
 #
-# Reconstruye el INDICE COSTERO EL NIÑO (ICEN) con el pipeline de ENOS y
+# Reconstruye el INDICE COSTERO EL NIÑO (ICEN) con el pipeline de PULSO y
 # lo valida contra los eventos historicos de Piura.
 #
 # ------------------------------------------------------------
@@ -43,7 +43,7 @@
 #
 # El motivo no es cosmetico y conviene poder defenderlo: el ICEN es un
 # indice de DIAGNOSTICO —sirve para declarar oficialmente que hubo un Niño
-# costero— mientras que ENOS es un sistema de ALERTA. Un sistema de
+# costero— mientras que PULSO es un sistema de ALERTA. Un sistema de
 # alerta dispara antes y acepta mas falsas alarmas a cambio de no llegar
 # tarde. Bajar el umbral es esa eleccion, hecha a proposito y declarada.
 #
@@ -60,7 +60,7 @@
 #          en la region Niño 1+2 (90W-80W, 10S-0)
 #   Criterio ENFEN vigente : condiciones calidas (ICEN > +0.5) durante
 #                            >= 3 meses consecutivos
-#   Criterio operativo ENOS: ICEN > +0.4 durante >= 3 meses consecutivos
+#   Criterio operativo PULSO: ICEN > +0.4 durante >= 3 meses consecutivos
 #
 # HONESTIDAD METODOLOGICA:
 #   ENFEN usa ERSSTv5 con climatologias escalonadas cada 5 años.
@@ -74,7 +74,7 @@
 # numeros NO tienen por que coincidir y no es un error que difieran:
 #
 #   backtest_fen.py : ICEN MENSUAL (media movil de 3 meses).
-#                     Menos episodios, mas largos.
+#                     Mpulso episodios, mas largos.
 #   core_alerta.py  : precursor DIARIO (media movil de 30 dias).
 #                     Mas episodios, mas cortos, y detecta antes.
 #
@@ -117,7 +117,7 @@ CLIMATOLOGIA_FIN = 2020
 # del mismo sistema contradiciendose sobre el mes en curso.
 DIAS_MINIMOS_MES = 25
 
-# Umbral OPERATIVO de ENOS, no el del ENFEN. Ver la nota de la v3 arriba.
+# Umbral OPERATIVO de PULSO, no el del ENFEN. Ver la nota de la v3 arriba.
 # El ENFEN vigente situa el inicio de condiciones calidas en +0.5.
 UMBRAL_EVENTO = 0.4
 UMBRAL_ENFEN_CALIDO = 0.5   # solo para poder mostrar la diferencia
@@ -189,7 +189,7 @@ def construir_icen():
         n_desc = int((incompletos & df['anomalia'].notna()).sum())
         if n_desc:
             ultimos = df.index[incompletos & df['anomalia'].notna()][-3:]
-            print(f'[cobertura] {n_desc} mes(es) descartados por tener menos '
+            print(f'[cobertura] {n_desc} mes(es) descartados por tener mpulso '
                   f'de {DIAS_MINIMOS_MES} dias de OISST.')
             for f in ultimos:
                 print(f'            {f:%Y-%m} '
@@ -348,7 +348,7 @@ def graficar(df):
                     where=df['icen'] > UMBRAL_EVENTO,
                     color='#e74c3c', alpha=0.55)
     ax.axhline(UMBRAL_EVENTO, ls='--', lw=1, color='#e67e22',
-               label=f'Umbral operativo ENOS (+{UMBRAL_EVENTO} °C)')
+               label=f'Umbral operativo PULSO (+{UMBRAL_EVENTO} °C)')
     ax.axhline(UMBRAL_ENFEN_CALIDO, ls='-.', lw=1, color='#8e44ad',
                label=f'Inicio condiciones calidas ENFEN 2024 '
                      f'(+{UMBRAL_ENFEN_CALIDO} °C)')
@@ -362,7 +362,7 @@ def graficar(df):
                     (fecha, ax.get_ylim()[1]), rotation=90,
                     fontsize=7.5, va='top', ha='right')
 
-    ax.set_title('ENOS — Reconstruccion del Indice Costero El Niño (ICEN)\n'
+    ax.set_title('PULSO — Reconstruccion del Indice Costero El Niño (ICEN)\n'
                  'Region Niño 1+2 | OISST v2.1 | Climatologia 1991-2020 | '
                  'Categorias: Nota Tecnica ENFEN 01-2024',
                  fontsize=11, loc='left')
@@ -380,16 +380,16 @@ def graficar(df):
 
     fig, ax = plt.subplots(figsize=(12, 5))
     ax.plot(zoom.index, zoom['icen_operativo'], marker='o', ms=4, lw=1.8,
-            color='#1f3a5f', label='ICEN operativo (ENOS)')
+            color='#1f3a5f', label='ICEN operativo (PULSO)')
     ax.axhline(UMBRAL_EVENTO, ls='--', color='#e67e22',
-               label=f'Umbral operativo ENOS (+{UMBRAL_EVENTO} °C)')
+               label=f'Umbral operativo PULSO (+{UMBRAL_EVENTO} °C)')
     ax.axhline(0, lw=0.6, color='gray')
     ax.axvline(desastre, color='#c0392b', lw=2.2,
                label='Desborde río Piura\n27-mar-2017 · 3,468 m³/s')
 
     if res and res['valida']:
         ax.axvline(res['emision'], color='#27ae60', lw=2.2,
-                   label=f'ALERTA ENOS\n{res["emision"]:%b-%Y}')
+                   label=f'ALERTA PULSO\n{res["emision"]:%b-%Y}')
         y = zoom['icen_operativo'].max() * 1.15
         ax.annotate('', xy=(desastre, y), xytext=(res['emision'], y),
                     arrowprops=dict(arrowstyle='<->', color='#27ae60', lw=1.6))
@@ -421,10 +421,10 @@ def main():
     print('Fuente: OISST v2.1 (ENFEN usa ERSSTv5 -> es reconstruccion, '
           'no replica)')
     print(f'Categorias: Nota Tecnica ENFEN 01-2024')
-    print(f'Deteccion de rachas: umbral OPERATIVO de ENOS +{UMBRAL_EVENTO} °C '
+    print(f'Deteccion de rachas: umbral OPERATIVO de PULSO +{UMBRAL_EVENTO} °C '
           f'durante >= {MESES_CONSECUTIVOS} meses.')
     print(f'  (El ENFEN situa el inicio de condiciones calidas en '
-          f'+{UMBRAL_ENFEN_CALIDO} °C. ENOS usa un umbral mas bajo a')
+          f'+{UMBRAL_ENFEN_CALIDO} °C. PULSO usa un umbral mas bajo a')
     print('   proposito: es un sistema de ALERTA, no de diagnostico.)\n')
 
     print('=== BACKTEST: ANTICIPACION REAL ===')

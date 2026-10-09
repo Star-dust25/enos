@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-  <title>Backtest Histórico — ENOS</title>
+  <title>Backtest Histórico — PULSO</title>
 </svelte:head>
 
 <div class="max-w-6xl mx-auto mt-4 px-4 sm:px-6 lg:px-8 py-8">
@@ -76,7 +76,7 @@
         El Niño Costero 2017: Cuando el océano nos engañó
       </h1>
       <p class="text-lg text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
-        Un análisis retrospectivo que demuestra por qué medir solo el mar no es suficiente, y cómo ENOS habría anticipado la crisis.
+        Un análisis retrospectivo que demuestra por qué medir solo el mar no es suficiente, y cómo PULSO habría anticipado la crisis.
       </p>
     </header>
 
@@ -108,13 +108,13 @@
           </div>
         </div>
 
-        <!-- Seccion 2: La Ventaja ENOS -->
+        <!-- Seccion 2: La Ventaja PULSO -->
         <div class="mt-12 mb-10 border-t border-slate-200/60 dark:border-white/5 pt-10">
           <h3 class="font-bold text-2xl text-[#1D1D1F] dark:text-white mb-4 tracking-tight">
             La Solución: Anticipación en dos etapas
           </h3>
           <p class="text-slate-700 dark:text-slate-300 text-[15px] mb-6 leading-relaxed">
-            Mientras que los índices oficiales declararon el evento <em>después</em> del desborde, el monitoreo satelital diario de ENOS nos habría dado semanas vitales para actuar.
+            Mientras que los índices oficiales declararon el evento <em>después</em> del desborde, el monitoreo satelital diario de PULSO nos habría dado semanas vitales para actuar.
           </p>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -126,13 +126,13 @@
             </div>
             <!-- Card 2 -->
             <div class="bg-[#F5F5F7] dark:bg-black/40 p-6 rounded-3xl border border-slate-200/60 dark:border-white/5 shadow-sm">
-              <div class="text-[12px] font-semibold tracking-wide text-[#1D1D1F]/60 dark:text-[#AAAAAA] uppercase mb-3">ENOS Etapa 1 (Océano)</div>
+              <div class="text-[12px] font-semibold tracking-wide text-[#1D1D1F]/60 dark:text-[#AAAAAA] uppercase mb-3">PULSO Etapa 1 (Océano)</div>
               <div class="text-4xl font-bold text-[#1D1D1F] dark:text-white mb-3 tracking-tighter">+68 días</div>
               <div class="text-[14px] text-slate-600 dark:text-slate-400 leading-relaxed">La alerta oceánica se encendió el 18 de enero. Da mucho tiempo, pero acarrea el riesgo de ser una falsa alarma.</div>
             </div>
             <!-- Card 3 -->
             <div class="bg-[#F5F5F7] dark:bg-black/40 p-6 rounded-3xl border border-slate-200/60 dark:border-white/5 shadow-sm">
-              <div class="text-[12px] font-semibold tracking-wide text-[#1D1D1F]/60 dark:text-[#AAAAAA] uppercase mb-3">ENOS Etapa 2 (Territorio)</div>
+              <div class="text-[12px] font-semibold tracking-wide text-[#1D1D1F]/60 dark:text-[#AAAAAA] uppercase mb-3">PULSO Etapa 2 (Territorio)</div>
               <div class="text-4xl font-bold text-[#1D1D1F] dark:text-white mb-3 tracking-tighter">+26 días</div>
               <div class="text-[14px] text-slate-600 dark:text-slate-400 leading-relaxed">El satélite Landsat 8 detectó el verdor anómalo en tierra firme el 1 de marzo. <strong class="text-slate-700 dark:text-slate-300">El peligro quedó confirmado.</strong></div>
             </div>
@@ -145,7 +145,7 @@
           <div class="bg-[#F5F5F7] dark:bg-black/40 p-6 rounded-3xl border border-slate-200/60 dark:border-white/5 shadow-sm">
             <h4 class="font-bold text-[#1D1D1F] dark:text-white text-lg mb-3 tracking-tight">Complemento, no reemplazo</h4>
             <p class="text-[14px] text-slate-600 dark:text-slate-400 leading-relaxed">
-              ENOS no compite con el ENFEN. Los índices oficiales están diseñados para <strong class="text-[#1D1D1F] dark:text-slate-200">diagnosticar</strong> el clima global de manera retrospectiva. ENOS está diseñado para la <strong class="text-[#1D1D1F] dark:text-slate-200">acción inmediata</strong> y localizada.
+              PULSO no compite con el ENFEN. Los índices oficiales están diseñados para <strong class="text-[#1D1D1F] dark:text-slate-200">diagnosticar</strong> el clima global de manera retrospectiva. PULSO está diseñado para la <strong class="text-[#1D1D1F] dark:text-slate-200">acción inmediata</strong> y localizada.
             </p>
           </div>
           <!-- Limits -->

@@ -1,6 +1,6 @@
 # core_series.py
 # ============================================================
-# Motor de series temporales de ENOS
+# Motor de series temporales de PULSO
 #
 # Responsabilidad unica: extraer de Google Earth Engine la serie
 # mensual de los tres ecosistemas. NO grafica, NO decide, NO opina.
@@ -222,7 +222,7 @@ def serie_vegetacion_anual(anio, geom_andes, geom_montes,
 
     Tampoco hay un minimo de pixeles validos por region. El compuesto usa
     median() sobre lo que sobreviva a la mascara, asi que un mes con pocas
-    escenas despejadas produce un valor calculado sobre menos pixeles, sin
+    escenas despejadas produce un valor calculado sobre mpulso pixeles, sin
     que nada lo señale. Es una limitacion conocida, no corregida.
     """
     meses = ee.List.sequence(1, 12)

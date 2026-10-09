@@ -1,6 +1,6 @@
 # core_alerta.py   (v3 - MOTOR DE DOS ETAPAS)
 # ============================================================
-# EL NUCLEO DE ENOS
+# EL NUCLEO DE PULSO
 #
 #   python core_alerta.py
 #
@@ -85,7 +85,7 @@ CLIM_INICIO, CLIM_FIN = 1991, 2020
 
 # --- ETAPA 1: precursor oceanico ---
 VENTANA_PERSISTENCIA = 30      # dias de media movil
-UMBRAL_PRECURSOR = 0.4         # C - parametro operativo de ENOS sobre la
+UMBRAL_PRECURSOR = 0.4         # C - parametro operativo de PULSO sobre la
                                # anomalia DIARIA. NO es el criterio del ICEN,
                                # que opera sobre la media movil mensual.
 DIAS_CONFIRMACION = 15         # dias seguidos sobre umbral para emitir
@@ -299,7 +299,7 @@ def graficar(df, veg):
          'Mar MAS caliente: pico +2.51 °C  →  peor mes 5,788 damnificados',
          None, 'DAÑO MENOR'),
         ('2016-07', '2017-10', 'NIÑO COSTERO 2017',
-         'Mar MENOS caliente: pico +2.03 °C  →  peor mes 72,965 damnificados',
+         'Mar MPULSO caliente: pico +2.03 °C  →  peor mes 72,965 damnificados',
          DESASTRES['Niño costero 2017'], 'EL BOSQUE CONFIRMA'),
     ]
 
@@ -440,7 +440,7 @@ def main():
 
     # ---------- 1. El hallazgo ----------
     print('=' * 68)
-    print('ENOS — MOTOR DE ALERTA TEMPRANA DE DOS ETAPAS')
+    print('PULSO — MOTOR DE ALERTA TEMPRANA DE DOS ETAPAS')
     print('=' * 68)
     print('\n### EL HALLAZGO: la anomalia oceanica sola NO BASTA\n')
     print(f'{"EVENTO":<22}{"pico SST":>10}{"z(MSAVI)":>10}{"DAMNIFICADOS":>14}'

@@ -27,7 +27,7 @@ def enviar_correo_resend(asunto, mensaje_html):
         "Content-Type": "application/json"
     }
     data = {
-        "from": "ENOS Alertas <onboarding@resend.dev>",
+        "from": "PULSO Alertas <onboarding@resend.dev>",
         "to": [CORREO_DESTINO],
         "subject": asunto,
         "html": mensaje_html
@@ -61,9 +61,9 @@ def main():
     supera_umbral = all(ultimos_3_dias['precursor'] > UMBRAL_CRITICO)
 
     if supera_umbral:
-        asunto = "⚠️ Alerta Temprana ENOS: Fase Crítica"
+        asunto = "⚠️ Alerta Temprana PULSO: Fase Crítica"
         mensaje = (
-            "<h3>⚠️ Alerta Temprana ENOS</h3>"
+            "<h3>⚠️ Alerta Temprana PULSO</h3>"
             "<p>El océano frente a Piura ha entrado en fase crítica (<strong>+1.5°C</strong>). "
             "<strong>Etapa 1 activada.</strong></p>"
             "<p><em>Este es un mensaje automático del sistema de monitoreo satelital.</em></p>"

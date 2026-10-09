@@ -21,7 +21,7 @@
 # ------------------------------------------------------------
 # BUG CORREGIDO: EL AÑO EN CURSO NUNCA SE ACTUALIZABA
 #
-# La version anterior consideraba "hecho" cualquier año con al menos una
+# La version anterior consideraba "hecho" cualquier año con al mpulso una
 # fila. Bastaba que existiera enero de 2026 para que 2026 entero contara
 # como descargado, y el script imprimia "ya completo" sin traer nada.
 #

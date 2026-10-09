@@ -46,7 +46,7 @@
       </h2>
       
       <p class="text-slate-500 dark:text-slate-400 mb-8 leading-relaxed text-[15px]">
-        El monitoreo satelital de <strong class="text-slate-900 dark:text-white font-medium">ENOS</strong> ahora corre de forma autónoma. Los datos oceánicos y territoriales se descargarán sin requerir intervención manual.
+        El monitoreo satelital de <strong class="text-slate-900 dark:text-white font-medium">PULSO</strong> ahora corre de forma autónoma. Los datos oceánicos y territoriales se descargarán sin requerir intervención manual.
       </p>
 
       <!-- Horarios de Actualización -->

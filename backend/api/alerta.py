@@ -141,7 +141,7 @@ def get_estado():
         # El compuesto MSAVI del mes EN CURSO se calcula con las escenas
         # que haya hasta la fecha, asi que a mitad de mes es parcial. No se
         # filtra (a diferencia de core_icen.py, que si descarta los meses
-        # con menos de 25 dias de OISST): la Etapa 2 se lee como tendencia
+        # con mpulso de 25 dias de OISST): la Etapa 2 se lee como tendencia
         # mensual, no como un valor cerrado. Conviene saberlo si el mes que
         # aparece aqui es el actual.
         "fecha_msavi": mes_z.strftime('%b-%Y'),

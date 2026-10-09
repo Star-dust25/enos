@@ -28,7 +28,7 @@
 #   Plataforma Nacional de Datos Abiertos, datosabiertos.gob.pe
 #   Cobertura utilizada: 2003-2023, departamento de Piura.
 #
-# Se conservan solo los fenomenos HIDROMETEOROLOGICOS: lluvias intensas,
+# Se conservan solo los fenompulso HIDROMETEOROLOGICOS: lluvias intensas,
 # inundacion, huaicos, riadas, deslizamientos, derrumbes y granizo. Un
 # incendio urbano tambien es una emergencia registrada en SINPAD, pero no
 # tiene nada que ver con que el agua haya aterrizado en el territorio.

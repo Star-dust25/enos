@@ -1,4 +1,4 @@
-# DESPLIEGUE — ENOS
+# DESPLIEGUE — PULSO
 
 Estado actual: **el sistema se ejecuta localmente**. No hay despliegue público.
 Esta guía cubre cómo levantarlo, cómo regenerar los datos y cómo demostrarlo.

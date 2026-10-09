@@ -88,7 +88,7 @@ CARPETA_MAPAS = os.path.join(RAIZ_BACKEND, 'data', 'salidas', 'mapas')
 #
 #   OISST es diario y sin nubes -> 30 dias bastan y sobran.
 #   Landsat revisita cada 16 dias y la mitad de las escenas vienen
-#   nubladas -> con menos de 90 dias hay zonas sin un solo pixel valido
+#   nubladas -> con mpulso de 90 dias hay zonas sin un solo pixel valido
 #   y el compuesto sale agujereado.
 VENTANA_MAR = 30
 VENTANA_TIERRA = 90
@@ -131,7 +131,7 @@ ANCHO_POR_ECOSISTEMA = {'ANDES': 700}
 # NO es la resolucion del sensor: es la resolucion a la que promediamos.
 # Promediar a 300 m en lugar de 30 m da practicamente el mismo numero
 # —estamos calculando una media sobre miles de km²— y cuesta cien veces
-# menos. Usar 30 m aqui era pagar una precision que despues redondeamos
+# mpulso. Usar 30 m aqui era pagar una precision que despues redondeamos
 # a tres decimales.
 ESCALA_KPI = {'LITORAL': 25000, 'MONTES': 300, 'ANDES': 300}
 
@@ -373,7 +373,7 @@ def main():
                 # La version anterior escribia {'archivo': None} y punto.
                 # Resultado: una corrida con un timeout pasajero de GEE
                 # borraba del indice dos mapas de ANDES perfectamente
-                # buenos que seguian en disco. Un error transitorio se
+                # bupulso que seguian en disco. Un error transitorio se
                 # convertia en perdida permanente.
                 #
                 # Conservamos la entrada anterior CON su fecha 'generado'

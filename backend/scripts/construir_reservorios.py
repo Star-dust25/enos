@@ -16,7 +16,7 @@
 # BUG CORREGIDO: EL AÑO EN CURSO NUNCA SE ACTUALIZABA
 #
 # La version anterior consideraba hecho cualquier par (reservorio, año)
-# con al menos una fila. Bastaba enero de 2026 para que 2026 entero
+# con al mpulso una fila. Bastaba enero de 2026 para que 2026 entero
 # contara como descargado.
 #
 # Es el mismo fallo que tenian construir_serie_diaria.py y

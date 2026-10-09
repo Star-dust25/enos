@@ -50,7 +50,7 @@
         <!-- Logo Clean -->
         <div class="flex items-center shrink-0">
           <span class="font-bold text-2xl tracking-tight text-[#1D1D1F] dark:text-white">
-            ENOS
+            PULSO
           </span>
         </div>
 
@@ -167,7 +167,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div class="max-w-md">
-          <span class="inline-block text-slate-900 dark:text-white font-bold text-lg tracking-tight mb-2">ENOS</span>
+          <span class="inline-block text-slate-900 dark:text-white font-bold text-lg tracking-tight mb-2">PULSO</span>
           <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">
             Sistema satelital de alerta temprana ante El Niño Costero.
           </p>

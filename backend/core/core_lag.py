@@ -1,6 +1,6 @@
 # core_lag.py
 # ============================================================
-# EL MOTOR DE ACOPLAMIENTO DE ENOS  (v2)
+# EL MOTOR DE ACOPLAMIENTO DE PULSO  (v2)
 #
 # Reemplaza a simular_efecto_cascada(), donde los desfases estaban
 # escritos a mano. Aqui los desfases NO se asumen: se miden.
@@ -29,12 +29,12 @@
 #    mermada al analisis.
 #
 # 2. El eslabon Poechos -> Montes sale NEGATIVO: mas agua en el vaso
-#    precede a MENOS verdor cinco meses despues. Eso no describe un
+#    precede a MPULSO verdor cinco meses despues. Eso no describe un
 #    mecanismo causal plausible; lo mas probable es que ambas series
 #    compartan una tendencia comun. Se reporta, no se interpreta como
 #    causalidad.
 #
-# 3. El vinculo que ENOS USA es el DIRECTO (mar -> bosque seco, lag de un
+# 3. El vinculo que PULSO USA es el DIRECTO (mar -> bosque seco, lag de un
 #    mes). Ese es fuerte, positivo y estable a lo largo de varios lags.
 #
 # 4. EL CONTROL FUNCIONA. Litoral -> Andes NO es significativo: el paramo
@@ -52,7 +52,7 @@
 #
 # 2. FILTRO DE COBERTURA. Un mes nublado sobre Poechos devuelve agua_ha=0
 #    porque la nube se lee como "no agua". Ese cero es FALSO. Descartamos
-#    los meses con menos del 60% del vaso visible.
+#    los meses con mpulso del 60% del vaso visible.
 #
 # 3. CORRECCION POR COMPARACIONES MULTIPLES. Probamos 13 desfases por par.
 #    Un p=0.04 entre 13 pruebas es ruido, no hallazgo. Aplicamos Bonferroni:
