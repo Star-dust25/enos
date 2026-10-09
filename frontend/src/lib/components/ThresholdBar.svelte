@@ -10,6 +10,7 @@
     estadoTexto,
     umbralTexto,
     fechaTexto,
+    fuenteTexto = "",
     state = "normal",
     theme = "blue",
     tourIdPrefix = "",
