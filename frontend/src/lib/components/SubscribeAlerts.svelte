@@ -21,6 +21,14 @@
 </script>
 
 <div class="bg-white dark:bg-[#1C1C1E] rounded-3xl p-6 sm:p-8 border border-slate-200/60 dark:border-white/5 shadow-sm mt-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative">
+  
+  <!-- Overlay "En Desarrollo" -->
+  <div class="absolute inset-0 z-30 backdrop-blur-[3px] bg-white/40 dark:bg-black/40 flex items-center justify-center">
+    <span class="bg-[#1D1D1F]/90 dark:bg-white/90 text-white dark:text-[#1D1D1F] text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full shadow-sm backdrop-blur-md">
+      En Desarrollo
+    </span>
+  </div>
+
   <!-- Decorative background blob (opcional para darle un toque premium) -->
   <div class="absolute -right-20 -top-20 w-64 h-64 bg-[#007AFF]/5 dark:bg-[#007AFF]/10 rounded-full blur-3xl pointer-events-none"></div>
 
