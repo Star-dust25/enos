@@ -173,15 +173,25 @@
           </p>
         </div>
 
-        <div class="flex flex-col gap-1 md:text-right">
-          <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wide">Desarrollado por</span>
-          <p class="text-[14px] font-medium text-slate-800 dark:text-slate-200">
-            Diego Alexander Garcia Espinoza <br class="sm:hidden" />
-            <span class="hidden sm:inline">&amp;</span> Jaime José Saenz Dedios
-          </p>
-          <a href="mailto:stardust.alx25@gmail.com" class="text-[13px] text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
-            stardust.alx25@gmail.com
-          </a>
+        <div class="flex flex-col sm:flex-row gap-8 md:gap-12 md:text-right">
+          <div class="flex flex-col gap-1">
+            <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wide">Investigación</span>
+            <p class="text-[14px] font-medium text-slate-800 dark:text-slate-200">
+              Diego Alexander Garcia Espinoza<br>
+              Jaime José Saenz Dedios
+            </p>
+            <a href="mailto:stardust.alx25@gmail.com" class="text-[13px] text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mt-1">
+              stardust.alx25@gmail.com
+            </a>
+          </div>
+          <div class="flex flex-col gap-1 md:text-right">
+            <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wide">Comité Asesor</span>
+            <p class="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">
+              María Laura Muro Zúñiga<br>
+              Maria Sofia Dunin Borkowski Goluchowska<br>
+              Stephanie Nicole Verde Zárate
+            </p>
+          </div>
         </div>
       </div>
     </div>
