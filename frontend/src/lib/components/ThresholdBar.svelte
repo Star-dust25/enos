@@ -24,6 +24,7 @@
     estadoTexto: string;
     umbralTexto: string;
     fechaTexto: string;
+    fuenteTexto?: string;
     state?: "normal" | "alerta";
     theme?: "red" | "green";
     tourIdPrefix?: string;
@@ -141,6 +142,19 @@
         >{fechaTexto}</span
       >
     </div>
+
+    {#if fuenteTexto}
+      <div
+        class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 border-t border-slate-200/60 dark:border-white/5 pt-4"
+      >
+        <span class="text-[13px] text-slate-500 dark:text-slate-400 font-medium"
+          >Fuente de datos</span
+        >
+        <span class="text-[13px] font-semibold text-slate-900 dark:text-white"
+          >{fuenteTexto}</span
+        >
+      </div>
+    {/if}
 
     {#if fueraDeRango}
       <div class="h-px w-full bg-slate-200/60 dark:bg-white/5"></div>

@@ -189,6 +189,7 @@
           estadoTexto={data.etapa1_activa ? "ACTIVA" : "INACTIVA"}
           umbralTexto="Anomalía diaria ≥ +{data.umbral_precursor} °C (15 días)"
           fechaTexto={data.fecha_precursor}
+          fuenteTexto="NOAA (OISST v2.1)"
           state={data.etapa1_activa ? "alerta" : "normal"}
           theme="red"
           tourIdPrefix="precursor"
@@ -213,6 +214,7 @@
           estadoTexto={data.etapa2_activa ? "CONFIRMA" : "NO CONFIRMA"}
           umbralTexto="Anomalía z(MSAVI) ≥ {data.umbral_msavi}"
           fechaTexto={data.fecha_msavi}
+          fuenteTexto="NASA (Landsat 8)"
           state={data.etapa2_activa ? "alerta" : "normal"}
           theme="green"
           tourIdPrefix="msavi"
